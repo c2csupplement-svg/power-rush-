@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 46, "column": 0}, "map": {"version":3,"sources":["file:///home/vishal/Downloads/rush-power-home-exact/components/Navbar.tsx"],"sourcesContent":["\"use client\";\nimport Link from \"next/link\";\nexport default function Navbar(){\n return <nav className=\"site-nav\">\n  <Link href=\"/\" className=\"nav-link\">Home</Link>\n  <Link href=\"/products\" className=\"nav-link nav-product\">All Products</Link>\n  <Link href=\"/\" className=\"nav-logo\">RUSH POWER</Link>\n  <Link href=\"/newsletter\" className=\"nav-link\">News letter</Link>\n  <Link href=\"/blog\" className=\"nav-link\">Blog</Link>\n </nav>\n}"],"names":["Navbar","className","href"],"mappings":";;;;;AACA;AADA;;;AAEe,SAASA;IACvB,qBAAO,8OAAC;QAAIC,WAAU;;0BACrB,8OAAC,uKAAI;gBAACC,MAAK;gBAAID,WAAU;0BAAW;;;;;;0BACpC,8OAAC,uKAAI;gBAACC,MAAK;gBAAYD,WAAU;0BAAuB;;;;;;0BACxD,8OAAC,uKAAI;gBAACC,MAAK;gBAAID,WAAU;0BAAW;;;;;;0BACpC,8OAAC,uKAAI;gBAACC,MAAK;gBAAcD,WAAU;0BAAW;;;;;;0BAC9C,8OAAC,uKAAI;gBAACC,MAAK;gBAAQD,WAAU;0BAAW;;;;;;;;;;;;AAE1C"}}]
+}

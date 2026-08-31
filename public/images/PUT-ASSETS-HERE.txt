@@ -1,0 +1,9 @@
+Put your exact Figma assets in this folder with these names:
+logo.png
+hero-product.png
+rock-left.png
+rock-right.png
+mountains.png
+build-for-every-goal.jpg
+
+The code intentionally uses these files so you can replace them with your original Figma exports without changing the components.
