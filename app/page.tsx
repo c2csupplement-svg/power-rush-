@@ -6,6 +6,8 @@ import BuildGoal from "@/components/home/BuildGoal";
 import Benefits from "@/components/home/Benefits";
 import FinalStage from "@/components/home/FinalStage";
 import PureFormula from "@/components/home/PureFormula";
+import RoutineSection from "@/components/home/RoutineSection";
+import Footer from "@/components/home/Footer ";
 
 
 export default function Home() {
@@ -17,8 +19,11 @@ export default function Home() {
       <PureFormula/>
       <MountainMarquee />
       <BuildGoal />
+      <RoutineSection/>
       <Benefits />
       <FinalStage />
+       <Footer/>
+       
     </main>
   );
 }

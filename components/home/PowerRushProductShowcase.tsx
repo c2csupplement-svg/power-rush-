@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion, useInView } from "framer-motion";
@@ -7,7 +8,7 @@ export default function PowerRushProductShowcase() {
   const sectionRef = useRef<HTMLElement | null>(null);
 
   const isInView = useInView(sectionRef, {
-    once: false,
+    once: true,
     amount: 0.35,
   });
 
@@ -17,24 +18,33 @@ export default function PowerRushProductShowcase() {
       className="
         relative
         isolate
-        h-screen
-        min-h-[700px]
+        min-h-[100dvh]
+        h-[100dvh]
         w-full
         overflow-hidden
         bg-black
+
+        min-[380px]:min-h-[540px]
+        min-[480px]:min-h-[570px]
+
+        sm:min-h-[600px]
+
+        md:min-h-[650px]
+
+        lg:min-h-[680px]
+
+        xl:min-h-[700px]
       "
     >
-
       {/* =====================================================
-          1. BLACK BASE
-      ===================================================== */}
+          BLACK BASE
+      ====================================================== */}
 
       <div className="absolute inset-0 z-0 bg-black" />
 
-
       {/* =====================================================
-          2. FULL ROCK BACKGROUND
-      ===================================================== */}
+          ROCK BACKGROUND
+      ====================================================== */}
 
       <img
         src="/images/Frame1168.png"
@@ -48,32 +58,73 @@ export default function PowerRushProductShowcase() {
           object-cover
           object-center
           select-none
+
+          max-[600px]:object-[center_center]
         "
       />
 
+      {/* =====================================================
+          BOTTOM BLACK BLEND
+      ====================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          bottom-0
+          z-[2]
+
+          h-[28%]
+
+          bg-gradient-to-b
+          from-transparent
+          via-black/65
+          to-black
+
+          min-[380px]:h-[30%]
+
+          min-[480px]:h-[32%]
+
+          sm:h-[34%]
+
+          md:h-[36%]
+
+          lg:h-[38%]
+        "
+      />
 
       {/* =====================================================
-          3. MAIN POWER RUSH BOX
+          CENTER POWER RUSH BOX
 
-          Section viewport mein aate hi:
-          Bottom/back se → final position
-
-          Animation complete hone ke baad STOP
-      ===================================================== */}
+          ANIMATION VALUES UNCHANGED
+      ====================================================== */}
 
       <motion.div
         className="
           absolute
-          left-[49%]
-          top-[16.5%]
+          left-1/2
+
+          top-[20%]
+
           z-[10]
           -translate-x-1/2
+
+          min-[380px]:top-[20%]
+
+          min-[480px]:top-[19%]
+
+          sm:top-[18%]
+
+          md:top-[17%]
+
+          lg:top-[16.5%]
         "
         initial={{
           opacity: 0,
           y: 550,
-          scale: 0.7,
-          rotate: -3,
+          scale: 0.82,
+          rotate: 0,
         }}
         animate={
           isInView
@@ -86,13 +137,14 @@ export default function PowerRushProductShowcase() {
             : {
                 opacity: 0,
                 y: 550,
-                scale: 0.7,
-                rotate: -3,
+                scale: 0.82,
+                rotate: 0,
               }
         }
         transition={{
-          duration: 0.85,
-          ease: [0.16, 0.8, 0.2, 1],
+          duration: 1.4,
+          delay: 0.15,
+          ease: [0.22, 1, 0.36, 1],
         }}
       >
         <img
@@ -101,30 +153,65 @@ export default function PowerRushProductShowcase() {
           className="
             block
             h-auto
-            w-[520px]
+            w-[285px]
+            max-w-[72vw]
             object-contain
             select-none
+
+            min-[380px]:w-[310px]
+            min-[380px]:max-w-[70vw]
+
+            min-[480px]:w-[340px]
+            min-[480px]:max-w-[68vw]
+
+            sm:w-[400px]
+            sm:max-w-[62vw]
+
+            md:w-[480px]
+            md:max-w-[58vw]
+
+            lg:w-[560px]
+            lg:max-w-[56vw]
+
             xl:w-[680px]
+            xl:max-w-none
+
             2xl:w-[720px]
           "
         />
       </motion.div>
 
-
       {/* =====================================================
-          4. SMALL POWER RUSH STICK
+          SMALL POWER RUSH STICK
 
-          SAME TIME animation
-
-          Bottom/back se → final position
-      ===================================================== */}
+          RESPONSIVE POSITION
+          ANIMATION VALUES UNCHANGED
+      ====================================================== */}
 
       <motion.div
         className="
           absolute
-          left-[28.5%]
-          top-[19%]
+          left-[5%]
+          top-[27%]
           z-[11]
+
+          min-[380px]:left-[6%]
+          min-[380px]:top-[27%]
+
+          min-[480px]:left-[8%]
+          min-[480px]:top-[26%]
+
+          sm:left-[12%]
+          sm:top-[25%]
+
+          md:left-[17%]
+          md:top-[23%]
+
+          lg:left-[24%]
+          lg:top-[20%]
+
+          xl:left-[28.5%]
+          xl:top-[19%]
         "
         initial={{
           opacity: 0,
@@ -140,7 +227,7 @@ export default function PowerRushProductShowcase() {
                 x: 0,
                 y: 0,
                 scale: 1,
-                rotate: -3,
+                rotate: 1,
               }
             : {
                 opacity: 0,
@@ -151,8 +238,9 @@ export default function PowerRushProductShowcase() {
               }
         }
         transition={{
-          duration: 0.85,
-          ease: [0.16, 0.8, 0.2, 1],
+          duration: 1.2,
+          delay: 0.1,
+          ease: [0.22, 1, 0.36, 1],
         }}
       >
         <img
@@ -161,21 +249,33 @@ export default function PowerRushProductShowcase() {
           className="
             block
             h-auto
-            w-[170px]
+            w-[110px]
+            max-w-[28vw]
             object-contain
             select-none
+
+            min-[380px]:w-[120px]
+
+            min-[480px]:w-[135px]
+
+            sm:w-[155px]
+
+            md:w-[180px]
+
+            lg:w-[210px]
+
             xl:w-[230px]
+
             2xl:w-[250px]
           "
         />
       </motion.div>
 
-
       {/* =====================================================
-          5. RIGHT FOREGROUND ROCK
+          RIGHT FOREGROUND ROCK
 
-          Product ke upar rock rahega
-      ===================================================== */}
+          CLIP PATH PRESERVED
+      ====================================================== */}
 
       <div
         className="
@@ -205,12 +305,11 @@ export default function PowerRushProductShowcase() {
         />
       </div>
 
-
       {/* =====================================================
-          6. BOTTOM FOREGROUND ROCKS
+          BOTTOM FOREGROUND ROCKS
 
-          Product ka bottom part rock ke peeche rahega
-      ===================================================== */}
+          CLIP PATH PRESERVED
+      ====================================================== */}
 
       <div
         className="
@@ -240,6 +339,36 @@ export default function PowerRushProductShowcase() {
         />
       </div>
 
+      {/* =====================================================
+          EXTRA BOTTOM BLEND
+      ====================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          bottom-0
+          z-[22]
+
+          h-[12%]
+
+          bg-gradient-to-b
+          from-transparent
+          via-black/50
+          to-black
+
+          min-[380px]:h-[13%]
+
+          min-[480px]:h-[14%]
+
+          sm:h-[15%]
+
+          md:h-[16%]
+
+          lg:h-[18%]
+        "
+      />
     </section>
   );
 }

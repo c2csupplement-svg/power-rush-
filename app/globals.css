@@ -1,8 +1,90 @@
 @import "tailwindcss";
 
-/* =========================
-   CUSTOM FONTS
-========================= */
+/* =========================================================
+   TACTIC SANS EXTENDED MEDIUM
+   ========================================================= */
+
+@font-face {
+  font-family: "TacticSansExd";
+  src: url("/fonts/tacticsansexd-med.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Alias used in components */
+@font-face {
+  font-family: "Tactic Sans Extended";
+  src: url("/fonts/tacticsansexd-med.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================================
+   TACTIC SANS MEDIUM
+   ========================================================= */
+
+@font-face {
+  font-family: "TacticSans-Med";
+  src: url("/fonts/tacticsansexd-med.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================================
+   TACTIC SANS REGULAR
+   ========================================================= */
+
+@font-face {
+  font-family: "TacticSans-Reg";
+  src: url("/fonts/tacticsans-reg.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================================
+   TACTIC SANS BOLD ITALIC
+   Used for FLAVOURS
+   ========================================================= */
+
+@font-face {
+  font-family: "Tactic Sans Extended Bold Italic";
+  src: url("/fonts/TacticSansExtExd-BldIt.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ===============================
+  TacticSansExd-UltIt 
+==================================== */
+@font-face {
+  font-family: "TacticSansExd-UltIt";
+  src: url("/fonts/tacticsansexd-ultit.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/*=====================================================================
+   SF PRO
+   ========================================================= */
+
+@font-face {
+  font-family: "SF Pro";
+  src: url("/fonts/FontsFree-Net-SFProDisplay-Medium.ttf") format("truetype");
+  font-weight: 510;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================================
+   DM MONO
+   DON'T REMOVE
+   ========================================================= */
 
 @font-face {
   font-family: "DM Mono";
@@ -20,26 +102,32 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Barlow Semi Condensed";
-  src: url("/fonts/BarlowSemiCondensed-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+/* =========================================================
+   TAILWIND FONT VARIABLES
+   ========================================================= */
+@theme {
+  --font-sf: "SF Pro", sans-serif;
+  --font-dm-mono: "DM Mono", monospace;
+  --font-tactic-exd: "TacticSansExd", sans-serif;
+  --font-tactic-med: "TacticSans-Med", sans-serif;
+  --font-tactic-reg: "TacticSans-Reg", sans-serif;
+  --font-tactic: "Tactic Sans Extended", sans-serif;
+  --font-tactic-ultit: "TacticSansExd-UltIt", sans-serif;
 }
 
-@font-face {
-  font-family: "Tactic Sans Extended";
-  src: url("/fonts/tacticsansexd-med.otf") format("opentype");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
+.gradient-text {
+  background: linear-gradient(
+    90.24deg,
+    #a5a5a5 0%,
+    #ffffff 46.06%,
+    #878787 99.79%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
-@theme {
-  --font-dm-mono: "DM Mono", monospace;
-  --font-barlow-condensed: "Barlow Semi Condensed", sans-serif;
-  --font-tactic: "Tactic Sans Extended", sans-serif;
-}
+
 * {
   box-sizing: border-box;
 }
@@ -50,7 +138,7 @@ body {
   margin: 0;
   background: #000;
   color: #eee;
-  font-family: var(--tactic-font), Arial, Helvetica, sans-serif;
+  font-family: "Tactic Sans", Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
 a {
@@ -130,7 +218,7 @@ button {
 }
 .hero-rock-left {
   left: 0;
-  background-image: url("/images/rock-left.png");
+  background-image: url("/images/image415.png");
   clip-path: polygon(
     0 0,
     100% 0,
@@ -144,9 +232,10 @@ button {
     0 100%
   );
 }
+
 .hero-rock-right {
   right: 0;
-  background-image: url("/images/rock-right.png");
+  background-image: url("/images/image415.png");
   clip-path: polygon(
     0 0,
     100% 0,
@@ -160,6 +249,7 @@ button {
     23% 12%
   );
 }
+
 .hero-giant {
   position: absolute;
   left: 50%;
@@ -240,44 +330,96 @@ button {
   color: #555;
   z-index: 8;
 }
+
 .section-screen {
   position: relative;
   min-height: 100vh;
   background: #000;
   overflow: hidden;
 }
+
 .about {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.about-ghost {
-  position: absolute;
-  inset: 15% -5%;
-  font-size: clamp(150px, 23vw, 380px);
-  line-height: 0.75;
-  font-weight: 800;
-  letter-spacing: -0.1em;
-  color: #111;
-  transform: rotate(-2deg);
-}
+
 .about-inner {
   position: relative;
   z-index: 2;
   width: min(820px, 88%);
   text-align: center;
 }
+
 .eyebrow {
   font-size: 17px;
   color: #888;
   margin-bottom: 34px;
 }
+
 .about h2 {
   font-size: clamp(18px, 2vw, 28px);
   line-height: 1.22;
   letter-spacing: -0.04em;
   margin: 0;
-  font-weight: 600;
+  font-weight: 400;
+}
+
+/* =========================================================
+   ABOUT RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .about-inner {
+    width: min(760px, 88%);
+  }
+}
+
+@media (max-width: 800px) {
+  .about {
+    min-height: 100dvh;
+  }
+
+  .about-inner {
+    width: 88%;
+    max-width: 700px;
+  }
+
+  .about h2 {
+    font-size: clamp(16px, 2.5vw, 21px);
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-inner {
+    width: 90%;
+  }
+
+  .about h2 {
+    font-size: 15px;
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-inner {
+    width: 91%;
+  }
+
+  .about h2 {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+  }
 }
 
 .mountain-section {
@@ -496,11 +638,11 @@ button {
 }
 .final-left {
   left: 0;
-  background-image: url("/images/rock-left.png");
+  background-image: url("/images/image415.png");
 }
 .final-right {
   right: 0;
-  background-image: url("/images/rock-right.png");
+  background-image: url("/images/image415.png");
 }
 .final-product {
   position: relative;
@@ -629,4 +771,41 @@ button {
   .final-stage {
     min-height: 680px;
   }
+}
+
+/* =====================
+RoutineSection marquee animation
+========================= */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+}
+
+/* =========================
+   BLOG TEXT RENDERING FIX
+========================= */
+/* BLOG TEXT RENDER FIX */
+.blog-card-text {
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  filter: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  backface-visibility: visible !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.blog-card {
+  isolation: isolate;
 }
