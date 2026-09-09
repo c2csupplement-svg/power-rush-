@@ -1,15 +1,31 @@
-
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const closeMenu = () => setIsMenuOpen(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Navbar sirf page ke bilkul top par visible rahega
+      setIsAtTop(window.scrollY <= 0);
+    };
+
+    // Initial state
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const navLinkClass = `
     font-sf
@@ -27,7 +43,7 @@ export default function Navbar() {
     <>
       {/* ================= NAVBAR ================= */}
       <nav
-        className="
+        className={`
           fixed
           left-0
           top-0
@@ -38,7 +54,17 @@ export default function Navbar() {
           py-2
           md:px-6
           md:py-2
-        "
+
+          transition-all
+          duration-500
+          ease-out
+
+          ${
+            isAtTop
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-full opacity-0 pointer-events-none"
+          }
+        `}
       >
         <div
           className="
@@ -92,7 +118,7 @@ export default function Navbar() {
                   <path
                     fillRule="evenodd"
                     clipRule="evenodd"
-                    d="M4 5h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010 2H4a1 1 0 010-2z"
+                    d="M4 5h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z"
                   />
                 </svg>
               )}
@@ -101,129 +127,130 @@ export default function Navbar() {
 
           {/* ================= DESKTOP HOME ================= */}
           <div className="hidden justify-start md:flex">
-  <Link
-    href="/"
-    className="
-      font-sf
-      text-[13px]
-      font-[510]
-      not-italic
-      uppercase
-      tracking-[0.04em]
-      text-[#9D9D9D]
-      transition-opacity
-      duration-300
-      hover:opacity-50
-    "
-  >
-    Home
-  </Link>
-</div>
+            <Link
+              href="/"
+              className="
+                font-sf
+                text-[13px]
+                font-[510]
+                not-italic
+                uppercase
+                tracking-[0.04em]
+                text-[#9D9D9D]
+                transition-opacity
+                duration-300
+                hover:opacity-50
+              "
+            >
+              Home
+            </Link>
+          </div>
 
           {/* ================= DESKTOP ALL PRODUCTS ================= */}
-         <div className="hidden justify-center md:flex">
-  <Link
-    href="/all-products"
-    className="
-      font-sf
-      text-[13px]
-      font-[510]
-      not-italic
-      uppercase
-      tracking-[0.04em]
-      text-[#9D9D9D]
-      transition-opacity
-      duration-300
-      hover:opacity-50
-    "
-  >
-    All Products
-  </Link>
-</div>
+          <div className="hidden justify-center md:flex">
+            <Link
+              href="/all-products"
+              className="
+                font-sf
+                text-[13px]
+                font-[510]
+                not-italic
+                uppercase
+                tracking-[0.04em]
+                text-[#9D9D9D]
+                transition-opacity
+                duration-300
+                hover:opacity-50
+              "
+            >
+              All Products
+            </Link>
+          </div>
 
           {/* ================= LOGO ================= */}
-         <div className="flex items-center justify-center">
-  <Link
-    href="/"
-    onClick={closeMenu}
-    className="
-      flex
-      items-center
-      justify-center
-      transition-transform
-      duration-300
-      hover:scale-105
-    "
-  >
-    <Image
-      src="/images/logo.png"
-      alt="Power Rush"
-      width={130}
-      height={130}
-      priority
-      className="
-        block
-        h-[80px]
-        w-[80px]
-        max-w-none
-        object-contain
+          <div className="flex items-center justify-center">
+            <Link
+              href="/"
+              onClick={closeMenu}
+              className="
+                flex
+                items-center
+                justify-center
+                transition-transform
+                duration-300
+                hover:scale-105
+              "
+            >
+              <Image
+                src="/images/logo.png"
+                alt="Power Rush"
+                width={130}
+                height={130}
+                priority
+                className="
+                  block
+                  h-[80px]
+                  w-[80px]
+                  max-w-none
+                  object-contain
 
-        sm:h-[90px]
-        sm:w-[90px]
+                  sm:h-[90px]
+                  sm:w-[90px]
 
-        md:h-[100px]
-        md:w-[100px]
+                  md:h-[100px]
+                  md:w-[100px]
 
-        lg:h-[115px]
-        lg:w-[115px]
+                  lg:h-[115px]
+                  lg:w-[115px]
 
-        xl:h-[125px]
-        xl:w-[125px]
-      "
-    />
-  </Link>
-</div>
-        {/* ================= DESKTOP NEWSLETTER ================= */}
-<div className="hidden justify-center md:flex">
-  <Link
-    href="/newsletter"
-    className="
-      font-sf
-      text-[13px]
-      font-[510]
-      not-italic
-      uppercase
-      tracking-[0.04em]
-      text-[#9D9D9D]
-      transition-opacity
-      duration-300
-      hover:opacity-50
-    "
-  >
-    News letter
-  </Link>
-</div>
+                  xl:h-[125px]
+                  xl:w-[125px]
+                "
+              />
+            </Link>
+          </div>
 
-{/* ================= DESKTOP BLOG ================= */}
-<div className="hidden justify-end md:flex">
-  <Link
-    href="/blog"
-    className="
-      font-sf
-      text-[13px]
-      font-[510]
-      not-italic
-      uppercase
-      tracking-[0.04em]
-      text-[#9D9D9D]
-      transition-opacity
-      duration-300
-      hover:opacity-50
-    "
-  >
-    Blog
-  </Link>
-</div>
+          {/* ================= DESKTOP NEWSLETTER ================= */}
+          <div className="hidden justify-center md:flex">
+            <Link
+              href="/newsletter"
+              className="
+                font-sf
+                text-[13px]
+                font-[510]
+                not-italic
+                uppercase
+                tracking-[0.04em]
+                text-[#9D9D9D]
+                transition-opacity
+                duration-300
+                hover:opacity-50
+              "
+            >
+              News letter
+            </Link>
+          </div>
+
+          {/* ================= DESKTOP BLOG ================= */}
+          <div className="hidden justify-end md:flex">
+            <Link
+              href="/blog"
+              className="
+                font-sf
+                text-[13px]
+                font-[510]
+                not-italic
+                uppercase
+                tracking-[0.04em]
+                text-[#9D9D9D]
+                transition-opacity
+                duration-300
+                hover:opacity-50
+              "
+            >
+              Blog
+            </Link>
+          </div>
 
           {/* ================= MOBILE RIGHT SPACE ================= */}
           <div className="block md:hidden" />

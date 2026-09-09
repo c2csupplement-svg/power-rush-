@@ -6,8 +6,16 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { FiRefreshCw } from "react-icons/fi";
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <footer
       className="
@@ -60,13 +68,9 @@ export default function Footer() {
             gap-[15px]
 
             min-[380px]:gap-[20px]
-
             sm:gap-[30px]
-
             md:gap-[40px]
-
             lg:gap-[50px]
-
             xl:gap-[60px]
           "
         >
@@ -86,25 +90,12 @@ export default function Footer() {
               bg-clip-text
               text-transparent
 
-              /* PHONE */
               text-[20px]
-
-              /* SMALL PHONE */
               min-[380px]:text-[23px]
-
-              /* TABLET */
               sm:text-[28px]
-
-              /* iPAD */
               md:text-[34px]
-
-              /* LAPTOP */
               lg:text-[42px]
-
-              /* DESKTOP */
               xl:text-[53.5px]
-
-              /* LARGE DESKTOP */
               2xl:text-[53.5px]
             "
           >
@@ -123,13 +114,9 @@ export default function Footer() {
               text-white
 
               min-[380px]:gap-[11px]
-
               sm:gap-[16px]
-
               md:gap-[22px]
-
               lg:gap-[28px]
-
               xl:gap-[28px]
             "
           >
@@ -148,20 +135,11 @@ export default function Footer() {
             >
               <FaPinterestP
                 className="
-                  h-[16px]
-                  w-[16px]
-
-                  min-[380px]:h-[18px]
-                  min-[380px]:w-[18px]
-
-                  sm:h-[19px]
-                  sm:w-[19px]
-
-                  md:h-[21px]
-                  md:w-[21px]
-
-                  lg:h-[22px]
-                  lg:w-[22px]
+                  h-[16px] w-[16px]
+                  min-[380px]:h-[18px] min-[380px]:w-[18px]
+                  sm:h-[19px] sm:w-[19px]
+                  md:h-[21px] md:w-[21px]
+                  lg:h-[22px] lg:w-[22px]
                 "
               />
             </a>
@@ -181,20 +159,11 @@ export default function Footer() {
             >
               <FaInstagram
                 className="
-                  h-[17px]
-                  w-[17px]
-
-                  min-[380px]:h-[19px]
-                  min-[380px]:w-[19px]
-
-                  sm:h-[20px]
-                  sm:w-[20px]
-
-                  md:h-[22px]
-                  md:w-[22px]
-
-                  lg:h-[23px]
-                  lg:w-[23px]
+                  h-[17px] w-[17px]
+                  min-[380px]:h-[19px] min-[380px]:w-[19px]
+                  sm:h-[20px] sm:w-[20px]
+                  md:h-[22px] md:w-[22px]
+                  lg:h-[23px] lg:w-[23px]
                 "
               />
             </a>
@@ -214,20 +183,11 @@ export default function Footer() {
             >
               <FaXTwitter
                 className="
-                  h-[17px]
-                  w-[17px]
-
-                  min-[380px]:h-[19px]
-                  min-[380px]:w-[19px]
-
-                  sm:h-[20px]
-                  sm:w-[20px]
-
-                  md:h-[22px]
-                  md:w-[22px]
-
-                  lg:h-[23px]
-                  lg:w-[23px]
+                  h-[17px] w-[17px]
+                  min-[380px]:h-[19px] min-[380px]:w-[19px]
+                  sm:h-[20px] sm:w-[20px]
+                  md:h-[22px] md:w-[22px]
+                  lg:h-[23px] lg:w-[23px]
                 "
               />
             </a>
@@ -247,20 +207,11 @@ export default function Footer() {
             >
               <FaYoutube
                 className="
-                  h-[17px]
-                  w-[20px]
-
-                  min-[380px]:h-[19px]
-                  min-[380px]:w-[22px]
-
-                  sm:h-[20px]
-                  sm:w-[23px]
-
-                  md:h-[22px]
-                  md:w-[25px]
-
-                  lg:h-[23px]
-                  lg:w-[26px]
+                  h-[17px] w-[20px]
+                  min-[380px]:h-[19px] min-[380px]:w-[22px]
+                  sm:h-[20px] sm:w-[23px]
+                  md:h-[22px] md:w-[25px]
+                  lg:h-[23px] lg:w-[26px]
                 "
               />
             </a>
@@ -277,7 +228,7 @@ export default function Footer() {
             w-full
             flex-col
             items-start
-            gap-[10px]
+            gap-[16px]
 
             min-[380px]:mt-[22px]
 
@@ -307,24 +258,12 @@ export default function Footer() {
               tracking-[0%]
               text-[#959595]
 
-              /* PHONE */
               text-[10px]
-
-              /* SMALL PHONE */
               min-[380px]:text-[11px]
-
-              /* TABLET */
               sm:text-[13px]
-
-              /* iPAD */
               md:text-[15px]
-
-              /* LAPTOP */
               lg:text-[17px]
-
-              /* DESKTOP */
               xl:text-[21px]
-
               2xl:text-[21px]
             "
           >
@@ -332,44 +271,116 @@ export default function Footer() {
           </p>
 
           {/* =================================================
-              PRIVACY POLICY
+              RIGHT SIDE
           ================================================== */}
-          <button
+          <div
             className="
-              shrink-0
-              p-0
-              font-sf
-              font-[510]
-              leading-[1.3]
-              tracking-[0%]
-              text-[#959595]
-              transition-colors
-              duration-200
-              hover:text-white
+              flex
+              w-full
+              items-center
+              justify-between
+              gap-[18px]
 
-              /* PHONE */
-              text-[13px]
-
-              /* SMALL PHONE */
-              min-[380px]:text-[14px]
-
-              /* TABLET */
-              sm:text-[16px]
-
-              /* iPAD */
-              md:text-[20px]
-
-              /* LAPTOP */
-              lg:text-[24px]
-
-              /* DESKTOP */
-              xl:text-[30px]
-
-              2xl:text-[30px]
+              md:w-auto
+              md:justify-end
             "
           >
-            Privacy Policy
-          </button>
+            {/* PRIVACY POLICY */}
+            <button
+              type="button"
+              className="
+                shrink-0
+                p-0
+                font-sf
+                font-[510]
+                leading-[1.3]
+                tracking-[0%]
+                text-[#959595]
+                transition-colors
+                duration-200
+                hover:text-white
+
+                text-[13px]
+                min-[380px]:text-[14px]
+                sm:text-[16px]
+                md:text-[20px]
+                lg:text-[24px]
+                xl:text-[30px]
+                2xl:text-[30px]
+              "
+            >
+              Privacy Policy
+            </button>
+
+            {/* =================================================
+                RELOAD BUTTON
+            ================================================== */}
+   <button
+  type="button"
+  onClick={scrollToTop}
+  aria-label="Reload and go to top"
+ className="
+  group
+  flex
+  shrink-0
+  items-center
+  justify-end
+  gap-[7px]
+
+  rounded-[5px]
+
+  px-[8px]
+  py-[7px]
+
+  transition-all
+  duration-300
+
+  hover:bg-white
+  hover:text-black
+
+  min-[380px]:px-[9px]
+  min-[380px]:py-[8px]
+
+  sm:px-[10px]
+  sm:py-[9px]
+
+  md:px-[11px]
+  md:py-[10px]
+
+  lg:px-[12px]
+  lg:py-[11px]
+
+  xl:px-[1px]
+  xl:py-[12px]
+"
+>
+  <FiRefreshCw
+    className="
+      h-[14px]
+      w-[14px]
+
+      transition-transform
+      duration-500
+      group-hover:rotate-180
+
+      min-[380px]:h-[15px]
+      min-[380px]:w-[15px]
+
+      sm:h-[17px]
+      sm:w-[17px]
+
+      md:h-[19px]
+      md:w-[19px]
+
+      lg:h-[21px]
+      lg:w-[21px]
+
+      xl:h-[25px]
+      xl:w-[25px]
+    "
+  />
+</button>
+          </div>
         </div>
       </div>
     </footer>

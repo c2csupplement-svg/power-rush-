@@ -231,28 +231,38 @@ export default function Benefits() {
         ================================================== */}
         <div
           className="
-            benefit-grid
-            relative
-            z-[10]
-            w-full
-            px-[14px]
+    benefit-grid
+    relative
+    z-[10]
+    grid
+    w-full
 
-            sm:px-[22px]
-            md:px-[35px]
-            lg:px-[55px]
-            xl:px-[70px]
-          "
+    grid-cols-1
+    gap-[10px]
+    px-[14px]
+
+    sm:grid-cols-2
+    sm:gap-[12px]
+    sm:px-[22px]
+
+    md:grid-cols-2
+    md:gap-[15px]
+    md:px-[35px]
+
+    lg:grid-cols-3
+    lg:gap-[18px]
+    lg:px-[55px]
+
+    xl:grid-cols-3
+    xl:gap-[20px]
+    xl:px-[70px]
+
+    2xl:grid-cols-3
+  "
         >
           {data.map((x, i) => (
-            <Reveal
-              key={x[0]}
-              delay={i * 0.04}
-            >
-              <BenefitCard
-                number={x[0]}
-                title={x[1]}
-                body={x[2]}
-              />
+            <Reveal key={x[0]} delay={i * 0.04}>
+              <BenefitCard number={x[0]} title={x[1]} body={x[2]} />
             </Reveal>
           ))}
         </div>
@@ -353,9 +363,7 @@ export default function Benefits() {
           "
         >
           Join the{" "}
-          <span className="font-sf font-bold text-white">
-            POWER RUSH
-          </span>{" "}
+          <span className="font-sf font-bold text-white">POWER RUSH</span>{" "}
           community for exclusive offers, product
           <br className="hidden sm:block" />
           updates, and early access to future releases.

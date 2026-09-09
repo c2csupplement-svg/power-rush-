@@ -200,8 +200,8 @@ export default function PureFormulaSection() {
               L51 30
             "
             fill="none"
-            stroke="#3F3F3F"
-            strokeWidth="2"
+            stroke="#fff"
+            strokeWidth="1"
             strokeLinecap="round"
             strokeLinejoin="round"
             vectorEffect="non-scaling-stroke"
@@ -265,8 +265,8 @@ export default function PureFormulaSection() {
               L309 30
             "
             fill="none"
-            stroke="#3F3F3F"
-            strokeWidth="2"
+            stroke="#fff"
+            strokeWidth="1"
             strokeLinecap="round"
             strokeLinejoin="round"
             vectorEffect="non-scaling-stroke"
@@ -330,8 +330,8 @@ export default function PureFormulaSection() {
               L51 70
             "
             fill="none"
-            stroke="#3F3F3F"
-            strokeWidth="2"
+            stroke="#fff"
+            strokeWidth="1"
             strokeLinecap="round"
             strokeLinejoin="round"
             vectorEffect="non-scaling-stroke"
@@ -395,8 +395,8 @@ export default function PureFormulaSection() {
               L309 70
             "
             fill="none"
-            stroke="#3F3F3F"
-            strokeWidth="2"
+            stroke="#fff"
+            strokeWidth="1"
             strokeLinecap="round"
             strokeLinejoin="round"
             vectorEffect="non-scaling-stroke"

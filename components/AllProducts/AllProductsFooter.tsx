@@ -1,3 +1,4 @@
+
 "use client";
 
 import FinalStage from "@/components/home/FinalStage";
@@ -17,11 +18,11 @@ export default function AllProductsFooter() {
           left-0
           right-0
           top-0
-          z-[50]
-          h-[220px]
+          z-[5]
+          h-[160px]
           bg-gradient-to-b
           from-black
-          via-black/80
+          via-black/70
           to-transparent
         "
       />
@@ -29,7 +30,7 @@ export default function AllProductsFooter() {
       {/* =========================
           FINAL STAGE
       ========================== */}
-      <div className="relative z-10">
+      <div className="relative z-[10]">
         <FinalStage />
       </div>
 
@@ -43,7 +44,7 @@ export default function AllProductsFooter() {
           bottom-[180px]
           left-0
           right-0
-          z-[50]
+          z-[30]
           h-[220px]
           bg-gradient-to-b
           from-transparent
@@ -55,9 +56,10 @@ export default function AllProductsFooter() {
       {/* =========================
           FOOTER
       ========================== */}
-      <div className="relative z-20">
+      <div className="relative z-[40]">
         <Footer />
       </div>
+
     </section>
   );
 }

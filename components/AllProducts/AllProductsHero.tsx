@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Flavour = {
   name: string;
@@ -247,7 +247,75 @@ export default function AllProductsHero() {
 
   const [textDirection, setTextDirection] = useState(-1);
 
+  /*
+    Stores the 1-second splash timer.
+    This prevents an old flavour's timer from showing
+    the splash after the user has already selected another flavour.
+  */
+  const splashTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const flavour = flavours[activeFlavour];
+
+  /* =========================================================
+     CLEAR SPLASH TIMER
+  ========================================================== */
+
+  useEffect(() => {
+    return () => {
+      if (splashTimerRef.current) {
+        clearTimeout(splashTimerRef.current);
+        splashTimerRef.current = null;
+      }
+    };
+  }, []);
+
+  /* =========================================================
+     HIDE SPLASH WHEN FLAVOUR CHANGES
+  ========================================================== */
+
+  useEffect(() => {
+    setShowSplash(false);
+
+    if (splashTimerRef.current) {
+      clearTimeout(splashTimerRef.current);
+      splashTimerRef.current = null;
+    }
+  }, [activeFlavour]);
+
+  /* =========================================================
+     SHOW SPLASH 1 SECOND AFTER PRODUCT ANIMATION
+     COMPLETES
+  ========================================================== */
+
+  const handleProductAnimationComplete = (
+    definition: string | Record<string, unknown>,
+  ) => {
+    /*
+      Ignore exit animation.
+
+      We only want:
+      product enters
+        ↓
+      animation completes
+        ↓
+      wait 1 second
+        ↓
+      splash appears
+    */
+
+    if (definition !== "animate") {
+      return;
+    }
+
+    if (splashTimerRef.current) {
+      clearTimeout(splashTimerRef.current);
+    }
+
+    splashTimerRef.current = setTimeout(() => {
+      setShowSplash(true);
+      splashTimerRef.current = null;
+    }, 1000);
+  };
 
   /* =========================================================
      PREVIOUS FLAVOUR
@@ -256,6 +324,11 @@ export default function AllProductsHero() {
   const previousFlavour = () => {
     setTextDirection(-1);
     setShowSplash(false);
+
+    if (splashTimerRef.current) {
+      clearTimeout(splashTimerRef.current);
+      splashTimerRef.current = null;
+    }
 
     setActiveFlavour((current) =>
       current === 0 ? flavours.length - 1 : current - 1,
@@ -271,6 +344,11 @@ export default function AllProductsHero() {
   const nextFlavour = () => {
     setTextDirection(-1);
     setShowSplash(false);
+
+    if (splashTimerRef.current) {
+      clearTimeout(splashTimerRef.current);
+      splashTimerRef.current = null;
+    }
 
     setActiveFlavour((current) =>
       current === flavours.length - 1 ? 0 : current + 1,
@@ -290,6 +368,12 @@ export default function AllProductsHero() {
 
     setTextDirection(1);
     setShowSplash(false);
+
+    if (splashTimerRef.current) {
+      clearTimeout(splashTimerRef.current);
+      splashTimerRef.current = null;
+    }
+
     setActiveFlavour(index);
     setHoveredFlavour(null);
   };
@@ -330,10 +414,6 @@ export default function AllProductsHero() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* =====================================================
-          DARK OVERLAY
-      ====================================================== */}
 
       <div className="absolute inset-0 z-[1] bg-black/20" />
 
@@ -454,7 +534,12 @@ export default function AllProductsHero() {
           width={420}
           height={420}
           priority
-          className="h-auto w-full scale-x-[-1] object-contain"
+          className="
+            h-auto
+            w-full
+            scale-x-[-1]
+            object-contain
+          "
         />
       </div>
 
@@ -542,21 +627,37 @@ export default function AllProductsHero() {
               animate="animate"
               exit="exit"
             >
-              {/* FLAVOUR TITLE */}
+              {/* =============================================
+                  FLAVOUR TITLE
+
+                  nowrap = title never breaks into 2 lines.
+                  Smaller minimum size = fits small phones.
+              ============================================== */}
 
               <h1
                 className="
+                  w-max
+                  max-w-none
+                  whitespace-nowrap
                   uppercase
-                  whitespace-normal
-                  break-words
                 "
                 style={{
                   fontFamily: "TacticSansExd-UltIt",
-                  fontSize: "clamp(36px, 4.65vw, 65.48px)",
+
+                  /*
+                    Responsive:
+                    very small phone -> 27px
+                    normal mobile -> responsive
+                    desktop -> original maximum 65.48px
+                  */
+                  fontSize: "clamp(27px, 4.65vw, 65.48px)",
+
                   lineHeight: "89%",
                   fontWeight: 400,
                   fontStyle: "italic",
                   color: flavour.color,
+
+                  whiteSpace: "nowrap",
                 }}
               >
                 {flavour.title}
@@ -662,7 +763,6 @@ export default function AllProductsHero() {
                       text-left
                       uppercase
                       outline-none
-
                       touch-manipulation
                     "
                     style={{
@@ -689,29 +789,35 @@ export default function AllProductsHero() {
             CENTER PRODUCT AREA
         ==================================================== */}
 
-        <div
-          className="
-            pointer-events-auto
-            absolute
-            left-1/2
-            top-0
-            z-20
-            h-full
-            w-[180px]
-            -translate-x-1/2
+       <div
+  className="
+    pointer-events-auto
+    absolute
+    left-1/2
+    top-0
+    z-20
+    h-full
+    w-[180px]
+    -translate-x-1/2
 
-            sm:w-[250px]
+    sm:w-[250px]
 
-            md:w-[380px]
+    md:left-[53%]
+    md:w-[380px]
 
-            lg:w-[500px]
+    lg:left-[54%]
+    lg:w-[500px]
 
-            xl:w-[600px]
-          "
-          onMouseEnter={() => setShowSplash(true)}
-        >
+    xl:left-[54%]
+    xl:w-[600px]
+  "
+>
           {/* =================================================
               SPLASH
+
+              IMPORTANT:
+              Splash is now controlled automatically.
+              No mouse-enter trigger.
           ================================================== */}
 
           <AnimatePresence mode="wait">
@@ -756,7 +862,11 @@ export default function AllProductsHero() {
                   width={800}
                   height={800}
                   priority
-                  className="h-full w-full object-contain"
+                  className="
+                    h-full
+                    w-full
+                    object-contain
+                  "
                 />
               </motion.div>
             )}
@@ -764,6 +874,12 @@ export default function AllProductsHero() {
 
           {/* =================================================
               PRODUCT IMAGE
+
+              Animation complete:
+              ↓
+              wait 1 second
+              ↓
+              splash appears
           ================================================== */}
 
           <AnimatePresence mode="wait">
@@ -773,6 +889,7 @@ export default function AllProductsHero() {
               initial="initial"
               animate="animate"
               exit="exit"
+              onAnimationComplete={handleProductAnimationComplete}
               className="
                 absolute
                 left-1/2
@@ -843,7 +960,11 @@ export default function AllProductsHero() {
               width={600}
               height={360}
               priority
-              className="h-auto w-full object-contain"
+              className="
+                h-auto
+                w-full
+                object-contain
+              "
             />
           </div>
         </div>

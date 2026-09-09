@@ -15,14 +15,14 @@ const steps = [
     title: "MIX &\nSHAKE",
     description:
       "Mix the entire sachet with 200–250 ml of cold water. Shake well until completely dissolved.",
-    image: "/images/shaker.png",
+    image: "/images/POWERRUSS.png",
   },
   {
     number: "03",
     title: "DRINK DAILY",
     description:
       "Shake or stir until fully mixed. Consume 20–30 minutes before your workout for best results.",
-    image: "/images/POWERRUSS.png",
+    image: "/images/shaker.png",
   },
 ];
 
@@ -235,30 +235,32 @@ export default function RoutineSection() {
             lg:grid-cols-3
           "
         >
-          {steps.map((step) => (
-            <div
-              key={step.number}
-              className="
-                relative
-                flex
-                h-[360px]
-                w-full
-                items-center
-                overflow-hidden
-                rounded-[4px]
-                bg-[#050505]
-                px-[20px]
-              "
-            >
+        {steps.map((step, index) => (
+  <div
+    key={step.number}
+    className={`
+      relative
+      flex
+      h-[360px]
+      w-full
+      items-center
+      overflow-hidden
+      rounded-[4px]
+      bg-[#050505]
+      px-[20px]
+
+      ${index === 0 ? "lg:-translate-x-[50px]" : ""}
+      ${index === 2 ? "lg:translate-x-[50px]" : ""}
+    `}
+  >
               {/* PRODUCT IMAGE */}
-              <div
-                className="
-                  relative
-                  h-[320px]
-                  w-[48%]
-                  shrink-0
-                "
-              >
+             <div
+  className={`
+    relative
+    shrink-0
+    ${index === 1 ? "h-[350px] w-[52%]" : "h-[320px] w-[48%]"}
+  `}
+>
                 <Image
                   src={step.image}
                   alt=""

@@ -55,23 +55,33 @@ export default function About() {
         />
 
         {/* BOTTOM BLACK BLEND */}
-        <div
-          className="
-            absolute
-            bottom-0
-            left-0
-            h-[90px]
-            w-full
-            bg-gradient-to-t
-            from-black
-            via-black/40
-            to-transparent
+       <div
+  className="
+    absolute
+    inset-0
+    bg-black/50
+    z-[1]
+  "
+/>
 
-            sm:h-[110px]
-            md:h-[130px]
-            lg:h-[150px]
-          "
-        />
+<div
+  className="
+    absolute
+    bottom-0
+    left-0
+    h-[90px]
+    w-full
+    bg-gradient-to-t
+    from-black
+    via-black/40
+    to-transparent
+    z-[2]
+
+    sm:h-[110px]
+    md:h-[130px]
+    lg:h-[150px]
+  "
+/>
       </div>
 
       {/* =====================================================
@@ -241,16 +251,18 @@ export default function About() {
           {/* MOBILE / TABLET NATURAL WRAP */}
           <span className="block">
             WE’RE FOCUSED ON CREATING PERFORMANCE-DRIVEN PRODUCTS THAT FIT
-            INTO REAL TRAINING, REAL ROUTINES, AND REAL GOALS.
+            INTO REAL
+          </span>
+           <span className="mt-[4px] block">
+            TRAINING, REAL ROUTINES, AND REAL GOALS. FROM INTENSE GYM SESSIONS TO THE 
           </span>
 
           <span className="mt-[4px] block">
-            FROM INTENSE GYM SESSIONS TO THE FINAL REP, OUR FORMULAS ARE
-            DESIGNED FOR PEOPLE WHO SHOW UP,
+            FINAL REP, OUR FORMULAS ARE DESIGNED FOR PEOPLE WHO SHOW UP, PUT IN THE 
           </span>
 
           <span className="mt-[4px] block">
-            PUT IN THE WORK, AND KEEP PUSHING WHEN THINGS GET DIFFICULT.
+            WORK, AND KEEP PUSHING WHEN THINGS GET DIFFICULT.
           </span>
         </motion.h2>
       </div>

@@ -45,71 +45,69 @@ export default function BlogPosts() {
       ====================================================== */}
 
       <div
-        className="
-          relative
-          z-20
-          flex
-          w-full
-          flex-wrap
-          items-center
-          gap-[6px]
+  className="
+    relative
+    z-20
+    flex
+    w-full
+    flex-wrap
+    items-center
+    gap-[6px]
+    min-[480px]:gap-[7px]
+    sm:gap-[8px]
+  "
+>
+  {categories.map((category, index) => (
+    <button
+      key={category}
+      type="button"
+      style={{
+        fontFamily: "TacticSans-Reg",
+        fontSize: "17.24px",
+        fontWeight: 400,
+        fontStyle: "normal",
+      }}
+      className={`
+        flex
+        min-h-[34px]
+        items-center
+        justify-center
+        border
+        border-[#555]
+        px-[15px]
+        py-[8px]
 
-          min-[480px]:gap-[7px]
+        leading-[88%]
+        tracking-[0%]
+        text-center
+        uppercase
 
-          sm:gap-[8px]
-        "
-      >
-        {categories.map((category, index) => (
-          <button
-            key={category}
-            type="button"
-            className={`
-              flex
-              min-h-[34px]
-              items-center
-              justify-center
-              border
-              border-[#555]
-              px-[11px]
-              py-[8px]
-              font-tactic-reg
-              text-[11px]
-              font-normal
-              leading-[88%]
-              tracking-[0%]
-              text-center
-              uppercase
-              transition-all
-              duration-200
+        transition-all
+        duration-200
 
-              min-[380px]:px-[12px]
-              min-[380px]:text-[11.5px]
+        min-[380px]:px-[12px]
 
-              min-[480px]:min-h-[36px]
-              min-[480px]:px-[14px]
-              min-[480px]:text-[12px]
+        min-[480px]:min-h-[36px]
+        min-[480px]:px-[14px]
 
-              sm:min-h-[38px]
-              sm:px-[16px]
-              sm:text-[13px]
+        sm:min-h-[38px]
+        sm:px-[16px]
 
-              md:px-[17px]
-              md:text-[14px]
+        md:px-[17px]
 
-              lg:px-[18px]
-              lg:text-[15px]
+        lg:px-[18px]
 
-              ${
-                index === 0
-                  ? "border-white bg-white text-black"
-                  : "bg-black text-white hover:border-white"
-              }
-            `}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
+        ${
+          index === 0
+            ? "border-white bg-white text-black"
+            : "bg-black text-white hover:border-white"
+        }
+      `}
+    >
+      {category}
+    </button>
+  ))}
+</div>
 
       {/* =====================================================
           BLOG CONTENT
