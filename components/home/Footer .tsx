@@ -17,14 +17,47 @@ export default function Footer() {
   };
 
   return (
-    <footer
-      className="
-        relative
-        z-30
-        w-full
-        bg-black
-      "
-    >
+   <footer
+  className="
+    relative
+    z-30
+    w-full
+    bg-black
+
+    before:pointer-events-none
+    before:absolute
+    before:left-0
+    before:right-0
+    before:top-[-70px]
+    before:z-[-1]
+    before:h-[70px]
+    before:bg-gradient-to-b
+    before:from-transparent
+    before:via-black/35
+    before:to-black
+
+    min-[375px]:before:top-[-80px]
+    min-[375px]:before:h-[80px]
+
+    min-[425px]:before:top-[-90px]
+    min-[425px]:before:h-[90px]
+
+    sm:before:top-[-105px]
+    sm:before:h-[105px]
+
+    md:before:top-[-125px]
+    md:before:h-[125px]
+
+    lg:before:top-[-145px]
+    lg:before:h-[145px]
+
+    xl:before:top-[-165px]
+    xl:before:h-[165px]
+
+    2xl:before:top-[-185px]
+    2xl:before:h-[185px]
+  "
+>
       {/* =====================================================
           FOOTER CONTENT
       ====================================================== */}

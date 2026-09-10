@@ -2,6 +2,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const categories = [
   "ALL",
@@ -297,45 +298,55 @@ export default function BlogPosts() {
             "
           >
             {/* KNOW MORE */}
-            <button
-              type="button"
-              className="
-                flex
-                h-[40px]
-                w-[170px]
-                items-center
-                justify-center
-                bg-white
-                px-[10px]
-                font-tactic-reg
-                text-[15px]
-                font-normal
-                uppercase
-                leading-[88%]
-                tracking-[0%]
-                text-black
-                transition-opacity
-                duration-200
-                hover:opacity-80
+            
+<Link
+  href="/readmore"
+  className="
+    relative
+    z-[10]
+    flex
+    h-[40px]
+    w-[170px]
+    items-center
+    justify-center
+    bg-white
+    px-[10px]
 
-                min-[380px]:w-[180px]
-                min-[380px]:text-[16px]
+    font-tactic-reg
+    text-[15px]
+    font-normal
+    uppercase
+    leading-[88%]
+    tracking-[0%]
 
-                min-[480px]:h-[41px]
-                min-[480px]:w-[190px]
-                min-[480px]:text-[17px]
+    !text-black
 
-                sm:h-[42px]
-                sm:w-[200px]
-                sm:text-[18px]
+    transition-opacity
+    duration-200
+    hover:opacity-80
 
-                md:text-[19px]
+    min-[380px]:w-[180px]
+    min-[380px]:text-[16px]
 
-                lg:text-[19.97px]
-              "
-            >
-              KNOW MORE...
-            </button>
+    min-[480px]:h-[41px]
+    min-[480px]:w-[190px]
+    min-[480px]:text-[17px]
+
+    sm:h-[42px]
+    sm:w-[200px]
+    sm:text-[18px]
+
+    md:text-[19px]
+
+    lg:text-[19.97px]
+  "
+>
+  <span className="!text-black">
+    KNOW MORE...
+  </span>
+</Link>
+
+
 
             {/* ARROW */}
             <button

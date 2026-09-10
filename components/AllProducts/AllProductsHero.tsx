@@ -1,7 +1,13 @@
+
 "use client";
 
 import Image from "next/image";
-import { AnimatePresence, motion, type Variants } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  type Variants,
+  type AnimationDefinition,
+} from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 type Flavour = {
@@ -23,7 +29,6 @@ const flavours: Flavour[] = [
     splashImage: "/images/orignal mengo.png",
     backgroundImage: "/images/mango-background.png",
   },
-
   {
     name: "WATERMELON",
     title: "WATERMELON",
@@ -33,7 +38,6 @@ const flavours: Flavour[] = [
     splashImage: "/images/WATERMELLON.png",
     backgroundImage: "/images/watermelon-background.png",
   },
-
   {
     name: "BLUE RASPBERRY",
     title: "BLUE RASPBERRY",
@@ -43,7 +47,6 @@ const flavours: Flavour[] = [
     splashImage: "/images/MANGO.png",
     backgroundImage: "/images/blue-raspberry-background.png",
   },
-
   {
     name: "GRAPES",
     title: "GRAPES",
@@ -55,210 +58,100 @@ const flavours: Flavour[] = [
   },
 ];
 
-/* =========================================================
-   EASING
-========================================================= */
-
 const smoothEase = [0.22, 1, 0.36, 1] as const;
-
 const softEase = [0.16, 0.8, 0.2, 1] as const;
-
-/* =========================================================
-   FLAVOUR NAME ANIMATION
-========================================================= */
 
 const textVariants: Variants = {
   initial: (direction: number) => ({
     opacity: 0,
     y: direction === -1 ? 45 : -45,
   }),
-
   animate: {
     opacity: 1,
     y: 0,
-
     transition: {
-      opacity: {
-        duration: 0.35,
-        ease: "easeOut",
-      },
-
-      y: {
-        duration: 0.58,
-        ease: smoothEase,
-      },
+      opacity: { duration: 0.35, ease: "easeOut" },
+      y: { duration: 0.58, ease: smoothEase },
     },
   },
-
   exit: (direction: number) => ({
     opacity: 0,
     y: direction === -1 ? -45 : 45,
-
     transition: {
-      opacity: {
-        duration: 0.25,
-        ease: "easeIn",
-      },
-
-      y: {
-        duration: 0.45,
-        ease: smoothEase,
-      },
+      opacity: { duration: 0.25, ease: "easeIn" },
+      y: { duration: 0.45, ease: smoothEase },
     },
   }),
 };
 
-/* =========================================================
-   PRODUCT IMAGE ANIMATION
-========================================================= */
-
 const productVariants: Variants = {
-  initial: {
-    opacity: 0,
-    x: 180,
-  },
-
+  initial: { opacity: 0, x: 180 },
   animate: {
     opacity: 1,
     x: 0,
-
     transition: {
-      opacity: {
-        duration: 0.32,
-        ease: "easeOut",
-      },
-
-      x: {
-        duration: 0.72,
-        ease: smoothEase,
-      },
+      opacity: { duration: 0.32, ease: "easeOut" },
+      x: { duration: 0.72, ease: smoothEase },
     },
   },
-
   exit: {
     opacity: 0,
     x: -190,
-
     transition: {
-      opacity: {
-        duration: 0.28,
-        ease: "easeIn",
-      },
-
-      x: {
-        duration: 0.62,
-        ease: smoothEase,
-      },
+      opacity: { duration: 0.28, ease: "easeIn" },
+      x: { duration: 0.62, ease: smoothEase },
     },
   },
 };
 
-/* =========================================================
-   SPLASH
-========================================================= */
-
 const splashVariants: Variants = {
-  initial: {
-    opacity: 0,
-    scale: 0.82,
-  },
-
+  initial: { opacity: 0, scale: 0.82 },
   animate: {
     opacity: 1,
     scale: 1,
-
     transition: {
-      opacity: {
-        duration: 0.72,
-        ease: "easeOut",
-      },
-
-      scale: {
-        duration: 1.0,
-        ease: softEase,
-      },
+      opacity: { duration: 0.72, ease: "easeOut" },
+      scale: { duration: 1.0, ease: softEase },
     },
   },
-
   exit: {
     opacity: 0,
     scale: 0.9,
-
     transition: {
-      opacity: {
-        duration: 0.48,
-        ease: "easeInOut",
-      },
-
-      scale: {
-        duration: 0.58,
-        ease: smoothEase,
-      },
+      opacity: { duration: 0.48, ease: "easeInOut" },
+      scale: { duration: 0.58, ease: smoothEase },
     },
   },
 };
 
-/* =========================================================
-   BACKGROUND
-========================================================= */
-
 const backgroundVariants: Variants = {
-  initial: {
-    opacity: 0,
-    scale: 1.03,
-  },
-
+  initial: { opacity: 0, scale: 1.03 },
   animate: {
     opacity: 1,
     scale: 1,
-
     transition: {
-      opacity: {
-        duration: 0.55,
-        ease: "easeOut",
-      },
-
-      scale: {
-        duration: 0.8,
-        ease: smoothEase,
-      },
+      opacity: { duration: 0.55, ease: "easeOut" },
+      scale: { duration: 0.8, ease: smoothEase },
     },
   },
-
   exit: {
     opacity: 0,
     scale: 1.02,
-
     transition: {
-      opacity: {
-        duration: 0.35,
-        ease: "easeIn",
-      },
+      opacity: { duration: 0.35, ease: "easeOut" },
     },
   },
 };
 
 export default function AllProductsHero() {
   const [activeFlavour, setActiveFlavour] = useState(0);
-
   const [showSplash, setShowSplash] = useState(false);
-
   const [hoveredFlavour, setHoveredFlavour] = useState<number | null>(null);
-
   const [textDirection, setTextDirection] = useState(-1);
 
-  /*
-    Stores the 1-second splash timer.
-    This prevents an old flavour's timer from showing
-    the splash after the user has already selected another flavour.
-  */
   const splashTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const flavour = flavours[activeFlavour];
-
-  /* =========================================================
-     CLEAR SPLASH TIMER
-  ========================================================== */
 
   useEffect(() => {
     return () => {
@@ -269,10 +162,6 @@ export default function AllProductsHero() {
     };
   }, []);
 
-  /* =========================================================
-     HIDE SPLASH WHEN FLAVOUR CHANGES
-  ========================================================== */
-
   useEffect(() => {
     setShowSplash(false);
 
@@ -282,27 +171,9 @@ export default function AllProductsHero() {
     }
   }, [activeFlavour]);
 
-  /* =========================================================
-     SHOW SPLASH 1 SECOND AFTER PRODUCT ANIMATION
-     COMPLETES
-  ========================================================== */
-
   const handleProductAnimationComplete = (
-    definition: string | Record<string, unknown>,
+    definition: AnimationDefinition,
   ) => {
-    /*
-      Ignore exit animation.
-
-      We only want:
-      product enters
-        ↓
-      animation completes
-        ↓
-      wait 1 second
-        ↓
-      splash appears
-    */
-
     if (definition !== "animate") {
       return;
     }
@@ -316,10 +187,6 @@ export default function AllProductsHero() {
       splashTimerRef.current = null;
     }, 1000);
   };
-
-  /* =========================================================
-     PREVIOUS FLAVOUR
-  ========================================================== */
 
   const previousFlavour = () => {
     setTextDirection(-1);
@@ -337,10 +204,6 @@ export default function AllProductsHero() {
     setHoveredFlavour(null);
   };
 
-  /* =========================================================
-     NEXT FLAVOUR
-  ========================================================== */
-
   const nextFlavour = () => {
     setTextDirection(-1);
     setShowSplash(false);
@@ -356,10 +219,6 @@ export default function AllProductsHero() {
 
     setHoveredFlavour(null);
   };
-
-  /* =========================================================
-     FLAVOUR NAME CLICK
-  ========================================================== */
 
   const selectFlavour = (index: number) => {
     if (index === activeFlavour) {
@@ -390,10 +249,9 @@ export default function AllProductsHero() {
         text-white
       "
     >
-      {/* =====================================================
-          BACKGROUND FLAVOUR IMAGE
-      ====================================================== */}
-
+      {/* =========================
+          BACKGROUND
+      ========================== */}
       <AnimatePresence mode="wait">
         {hoveredFlavour !== null && (
           <motion.div
@@ -417,10 +275,9 @@ export default function AllProductsHero() {
 
       <div className="absolute inset-0 z-[1] bg-black/20" />
 
-      {/* =====================================================
+      {/* =========================
           TOP LEFT ROCK
-      ====================================================== */}
-
+      ========================== */}
       <div
         className="
           pointer-events-none
@@ -461,19 +318,7 @@ export default function AllProductsHero() {
         />
       </div>
 
-      {/* =====================================================
-          TOP LEFT ROCK - SECOND LAYER
-      ====================================================== */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          left-0
-          top-0
-          z-[5]
-        "
-      >
+      <div className="pointer-events-none absolute left-0 top-0 z-[5]">
         <Image
           src="/images/image415.png"
           alt=""
@@ -494,10 +339,9 @@ export default function AllProductsHero() {
         />
       </div>
 
-      {/* =====================================================
+      {/* =========================
           TOP RIGHT ROCK
-      ====================================================== */}
-
+      ========================== */}
       <div
         className="
           pointer-events-none
@@ -543,10 +387,9 @@ export default function AllProductsHero() {
         />
       </div>
 
-      {/* =====================================================
+      {/* =========================
           MAIN CONTENT
-      ====================================================== */}
-
+      ========================== */}
       <div
         className="
           relative
@@ -556,10 +399,9 @@ export default function AllProductsHero() {
           w-full
         "
       >
-        {/* ===================================================
+        {/* =========================
             LEFT CONTENT
-        ==================================================== */}
-
+        ========================== */}
         <div
           className="
             absolute
@@ -585,10 +427,7 @@ export default function AllProductsHero() {
             xl:w-[32%]
           "
         >
-          {/* =================================================
-              POWER RUSH
-          ================================================== */}
-
+          {/* POWER RUSH */}
           <div
             className="
               mb-[12px]
@@ -614,10 +453,7 @@ export default function AllProductsHero() {
             POWER RUSH
           </div>
 
-          {/* =================================================
-              TITLE + DESCRIPTION
-          ================================================== */}
-
+          {/* TITLE + DESCRIPTION */}
           <AnimatePresence mode="wait" custom={textDirection}>
             <motion.div
               key={flavour.name}
@@ -627,13 +463,6 @@ export default function AllProductsHero() {
               animate="animate"
               exit="exit"
             >
-              {/* =============================================
-                  FLAVOUR TITLE
-
-                  nowrap = title never breaks into 2 lines.
-                  Smaller minimum size = fits small phones.
-              ============================================== */}
-
               <h1
                 className="
                   w-max
@@ -643,27 +472,16 @@ export default function AllProductsHero() {
                 "
                 style={{
                   fontFamily: "TacticSansExd-UltIt",
-
-                  /*
-                    Responsive:
-                    very small phone -> 27px
-                    normal mobile -> responsive
-                    desktop -> original maximum 65.48px
-                  */
                   fontSize: "clamp(27px, 4.65vw, 65.48px)",
-
                   lineHeight: "89%",
                   fontWeight: 400,
                   fontStyle: "italic",
                   color: flavour.color,
-
                   whiteSpace: "nowrap",
                 }}
               >
                 {flavour.title}
               </h1>
-
-              {/* DESCRIPTION */}
 
               <p
                 className="
@@ -691,10 +509,9 @@ export default function AllProductsHero() {
             </motion.div>
           </AnimatePresence>
 
-          {/* =================================================
-              FLAVOURS LIST
-          ================================================== */}
-
+          {/* =========================
+              FLAVOURS
+          ========================== */}
           <div
             className="
               mt-[35px]
@@ -706,16 +523,14 @@ export default function AllProductsHero() {
               lg:mt-[55px]
             "
           >
-            {/* FLAVOURS HEADING */}
-
             <div
               className="
-                mb-[15px]
+                mb-[18px]
                 uppercase
 
-                sm:mb-[17px]
+                sm:mb-[20px]
 
-                md:mb-[20px]
+                md:mb-[23px]
               "
               style={{
                 fontFamily: "TacticSansExd",
@@ -733,8 +548,6 @@ export default function AllProductsHero() {
               FLAVOURS
             </div>
 
-            {/* FLAVOUR NAMES */}
-
             <div
               className="
                 flex
@@ -751,75 +564,71 @@ export default function AllProductsHero() {
 
                 return (
                   <button
-                    key={item.name}
-                    type="button"
-                    onClick={() => selectFlavour(index)}
-                    onMouseEnter={() => setHoveredFlavour(index)}
-                    onMouseLeave={() => setHoveredFlavour(null)}
-                    className="
-                      w-fit
-                      max-w-full
-                      cursor-pointer
-                      text-left
-                      uppercase
-                      outline-none
-                      touch-manipulation
-                    "
-                    style={{
-                      fontFamily: "TacticSansExd-UltIt",
-                      fontSize: "clamp(20px, 2vw, 26.73px)",
-                      lineHeight: "70%",
-                      fontWeight: 400,
-                      fontStyle: "italic",
-                      textTransform: "uppercase",
-                      color: isActive ? item.color : "#8B8B8B",
-                      WebkitTextStroke: "0.7px currentColor",
-                      transition: "color 0.25s ease",
-                    }}
-                  >
-                    {item.name}
-                  </button>
+  key={item.name}
+  type="button"
+  onClick={() => selectFlavour(index)}
+  onMouseEnter={() => setHoveredFlavour(index)}
+  onMouseLeave={() => setHoveredFlavour(null)}
+  className="
+    w-full
+    max-w-full
+    self-start
+    cursor-pointer
+    text-left
+    uppercase
+    outline-none
+    touch-manipulation
+  "
+  style={{
+    fontFamily: "TacticSansExd-UltIt",
+    fontSize: "clamp(20px, 2vw, 26.73px)",
+    lineHeight: "70%",
+    fontWeight: 400,
+    fontStyle: "italic",
+    textTransform: "uppercase",
+    color: isActive ? item.color : "#8B8B8B",
+    WebkitTextStroke: "0.7px currentColor",
+    transition: "color 0.25s ease",
+  }}
+>
+  {item.name}
+</button>
                 );
               })}
             </div>
           </div>
         </div>
 
-        {/* ===================================================
+        {/* =========================
             CENTER PRODUCT AREA
-        ==================================================== */}
+        ========================== */}
+        <div
+          className="
+            pointer-events-auto
+            absolute
+            left-1/2
+            top-0
+            z-20
+            h-full
+            w-[180px]
+            -translate-x-1/2
 
-       <div
-  className="
-    pointer-events-auto
-    absolute
-    left-1/2
-    top-0
-    z-20
-    h-full
-    w-[180px]
-    -translate-x-1/2
+            sm:w-[250px]
 
-    sm:w-[250px]
+            md:left-[53%]
+            md:w-[380px]
 
-    md:left-[53%]
-    md:w-[380px]
+            lg:left-[54%]
+            lg:w-[500px]
 
-    lg:left-[54%]
-    lg:w-[500px]
-
-    xl:left-[54%]
-    xl:w-[600px]
-  "
->
-          {/* =================================================
-              SPLASH
-
-              IMPORTANT:
-              Splash is now controlled automatically.
-              No mouse-enter trigger.
-          ================================================== */}
-
+            xl:left-[54%]
+            xl:w-[600px]
+          "
+        >
+          {/* =========================
+              SPLASH IMAGE
+              MOVED SLIGHTLY DOWN
+          ========================== */}
           <AnimatePresence mode="wait">
             {showSplash && (
               <motion.div
@@ -830,31 +639,33 @@ export default function AllProductsHero() {
                 exit="exit"
                 className="
                   pointer-events-none
-                  absolute
-                  left-1/2
-                  top-[37%]
-                  z-10
-                  flex
-                  h-[260px]
-                  w-[260px]
-                  -translate-x-1/2
-                  -translate-y-1/2
-                  items-center
-                  justify-center
+  absolute
+  left-1/2
+  top-[43%]
+  z-10
+  flex
+  h-[260px]
+  w-[260px]
+  -translate-x-1/2
+  -translate-y-1/2
+  items-center
+  justify-center
 
-                  sm:top-[38%]
-                  sm:h-[350px]
-                  sm:w-[350px]
+  sm:top-[46%]
+  sm:h-[350px]
+  sm:w-[350px]
 
-                  md:h-[450px]
-                  md:w-[450px]
+  md:top-[44%]
+  md:h-[450px]
+  md:w-[450px]
 
-                  lg:h-[550px]
-                  lg:w-[550px]
+  lg:top-[44%]
+  lg:h-[550px]
+  lg:w-[550px]
 
-                  xl:h-[620px]
-                  xl:w-[620px]
-                "
+  xl:top-[44%]
+  xl:h-[620px]
+  xl:w-[620px]"
               >
                 <Image
                   src={flavour.splashImage}
@@ -866,22 +677,17 @@ export default function AllProductsHero() {
                     h-full
                     w-full
                     object-contain
+                    rotate-[3deg]
                   "
                 />
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* =================================================
-              PRODUCT IMAGE
-
-              Animation complete:
-              ↓
-              wait 1 second
-              ↓
-              splash appears
-          ================================================== */}
-
+          {/* =========================
+              PRODUCT POUCH
+              MOVED SLIGHTLY DOWN
+          ========================== */}
           <AnimatePresence mode="wait">
             <motion.div
               key={flavour.name}
@@ -893,13 +699,13 @@ export default function AllProductsHero() {
               className="
                 absolute
                 left-1/2
-                top-[14%]
+                top-[15%]
                 z-30
                 -translate-x-1/2
 
-                sm:top-[13%]
+                sm:top-[14%]
 
-                md:top-[12%]
+                md:top-[13%]
               "
             >
               <Image
@@ -912,6 +718,7 @@ export default function AllProductsHero() {
                   h-auto
                   w-[105px]
                   object-contain
+                  rotate-[7deg]
 
                   sm:w-[125px]
 
@@ -925,10 +732,9 @@ export default function AllProductsHero() {
             </motion.div>
           </AnimatePresence>
 
-          {/* =================================================
-              ROCK
-          ================================================== */}
-
+          {/* =========================
+              ROCK UNDER PRODUCT
+          ========================== */}
           <div
             className="
               pointer-events-none
@@ -969,10 +775,9 @@ export default function AllProductsHero() {
           </div>
         </div>
 
-        {/* ===================================================
+        {/* =========================
             RIGHT DESCRIPTION
-        ==================================================== */}
-
+        ========================== */}
         <div
           className="
             absolute

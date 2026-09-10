@@ -5,7 +5,7 @@ import Footer from "@/components/home/Footer ";
 
 export default function Newsletter() {
   return (
-    <main className="w-full bg-black">
+    <main className="w-full overflow-x-hidden bg-black">
       {/* =====================================================
           START YOUR PROGRESS / NEWSLETTER
       ====================================================== */}
@@ -19,11 +19,14 @@ export default function Newsletter() {
             w-full
             flex-col
             items-center
-            px-[16px]
+            px-[12px]
             text-center
 
             min-[380px]:mt-[85px]
+            min-[380px]:px-[14px]
+
             min-[480px]:mt-[95px]
+            min-[480px]:px-[16px]
 
             sm:mt-[105px]
             sm:px-[24px]
@@ -32,7 +35,7 @@ export default function Newsletter() {
             md:px-[40px]
 
             lg:mt-[120px]
-            lg:px-[60px]
+            lg:px-[50px]
 
             xl:mt-[120px]
             xl:px-[80px]
@@ -43,9 +46,11 @@ export default function Newsletter() {
           {/* =========================
               HEADING
           ========================== */}
-   <h2
+      <h2
   className="
     w-full
+    max-w-full
+    overflow-visible
     whitespace-nowrap
 
     bg-[linear-gradient(90.24deg,#A5A5A5_0%,#FFFFFF_46.06%,#878787_99.79%)]
@@ -58,13 +63,24 @@ export default function Newsletter() {
     tracking-[0%]
     text-transparent
 
-    text-[32px]
+    /* MOBILE */
+    text-[21px]
 
-    min-[380px]:text-[35px]
-    min-[480px]:text-[40px]
-    sm:text-[46px]
-    md:text-[55px]
-    lg:text-[64px]
+    /* 375px */
+    min-[375px]:text-[22px]
+
+    /* 425px */
+    min-[425px]:text-[25px]
+
+    /* 480px */
+    min-[480px]:text-[32px]
+
+    /* TABLET */
+    sm:text-[36px]
+    md:text-[42px]
+
+    /* LAPTOP / DESKTOP — same as before */
+    lg:text-[58px]
     xl:text-[75.92px]
     2xl:text-[80px]
   "
@@ -79,21 +95,22 @@ export default function Newsletter() {
             className="
               mt-[14px]
               w-full
-              max-w-[390px]
+              max-w-[290px]
 
               font-sf
-              text-[13px]
+              text-[12px]
               font-[510]
-              leading-[110%]
-              tracking-[0%]
+              leading-[112%]
+              tracking-[0]
               text-center
               text-[#CECECE]
 
-              min-[380px]:mt-[15px]
-              min-[380px]:text-[13.5px]
+              min-[375px]:mt-[15px]
+              min-[375px]:max-w-[335px]
+              min-[375px]:text-[12.5px]
 
               min-[480px]:mt-[16px]
-              min-[480px]:max-w-[430px]
+              min-[480px]:max-w-[410px]
               min-[480px]:text-[14px]
 
               sm:mt-[17px]
@@ -128,17 +145,18 @@ export default function Newsletter() {
             className="
               mt-[22px]
               flex
-              h-[48px]
+              h-[44px]
               w-full
-              max-w-[390px]
+              max-w-[290px]
               overflow-hidden
 
-              min-[380px]:mt-[23px]
-              min-[380px]:h-[49px]
+              min-[375px]:mt-[23px]
+              min-[375px]:h-[45px]
+              min-[375px]:max-w-[340px]
 
               min-[480px]:mt-[24px]
-              min-[480px]:h-[50px]
-              min-[480px]:max-w-[430px]
+              min-[480px]:h-[48px]
+              min-[480px]:max-w-[410px]
 
               sm:mt-[25px]
               sm:h-[52px]
@@ -149,14 +167,17 @@ export default function Newsletter() {
               md:max-w-[500px]
 
               lg:mt-[27px]
-              lg:h-[56px]
+              lg:h-[55px]
+              lg:max-w-[480px]
 
               xl:mt-[28px]
               xl:h-[58px]
               xl:max-w-[500px]
             "
           >
-            {/* EMAIL INPUT */}
+            {/* =========================
+                EMAIL INPUT
+            ========================== */}
             <input
               type="email"
               placeholder="Enter your email"
@@ -169,23 +190,23 @@ export default function Newsletter() {
                 border-[#5A5A5A]
                 bg-[#000000]
 
-                px-[12px]
+                px-[9px]
 
                 font-sf
-                text-[12px]
+                text-[10px]
                 font-normal
                 leading-[104%]
-                tracking-[0%]
+                tracking-[0]
 
                 text-[#CECECE]
                 outline-none
                 placeholder:text-[#CECECE]
 
-                min-[380px]:px-[14px]
-                min-[380px]:text-[12.5px]
+                min-[375px]:px-[10px]
+                min-[375px]:text-[10.5px]
 
-                min-[480px]:px-[16px]
-                min-[480px]:text-[13px]
+                min-[480px]:px-[13px]
+                min-[480px]:text-[12px]
 
                 sm:px-[17px]
                 sm:text-[14px]
@@ -193,56 +214,68 @@ export default function Newsletter() {
                 md:px-[18px]
                 md:text-[15px]
 
-                lg:px-[19px]
+                lg:px-[16px]
+                lg:text-[14px]
 
                 xl:px-[20px]
                 xl:text-[16px]
               "
             />
 
-            {/* JOIN BUTTON */}
+            {/* =========================
+                JOIN BUTTON
+            ========================== */}
             <button
               type="button"
               className="
                 h-full
-                w-[135px]
                 shrink-0
 
                 border
                 border-white
                 bg-white
 
-                px-[8px]
+                px-[5px]
 
                 font-tactic-reg
-                text-[14px]
                 font-normal
                 leading-[88%]
-                tracking-[0%]
+                tracking-[0]
                 text-center
                 uppercase
                 whitespace-nowrap
                 text-[#000000]
 
-                min-[380px]:w-[145px]
-                min-[380px]:text-[15px]
+                /* ================= 320px ================= */
+                w-[105px]
+                !text-[11px]
 
-                min-[480px]:w-[155px]
-                min-[480px]:text-[16px]
+                /* ================= 375px ================= */
+                min-[375px]:w-[120px]
+                min-[375px]:!text-[12px]
 
-                sm:w-[170px]
-                sm:px-[10px]
-                sm:text-[18px]
+                /* ================= 480px ================= */
+                min-[480px]:w-[140px]
+                min-[480px]:!text-[13px]
 
-                md:w-[185px]
-                md:text-[21px]
+                /* ================= TABLET ================= */
+                sm:w-[165px]
+                sm:px-[8px]
+                sm:!text-[16px]
 
-                lg:w-[205px]
-                lg:text-[25px]
+                /* ================= iPAD ================= */
+                md:w-[175px]
+                md:!text-[18px]
 
+                /* ================= 1024 LAPTOP ================= */
+                lg:w-[190px]
+                lg:px-[8px]
+                lg:!text-[20px]
+
+                /* ================= DESKTOP ================= */
                 xl:w-[230px]
                 xl:px-[15px]
-                xl:text-[35px]
+                xl:!text-[35px]
               "
             >
               JOIN POWER RUSH

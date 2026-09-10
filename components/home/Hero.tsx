@@ -59,19 +59,20 @@ export default function Hero() {
         }}
       >
         {/* LEFT ROCK */}
-        <img
-          src="/images/image415.png"
-          alt=""
-          className="
-            absolute
-            left-0
-            top-0
-            h-full
-            w-full
-            object-cover
-            object-center
-          "
-        />
+        {/* LEFT ROCK */}
+<img
+  src="/images/image415.png"
+  alt=""
+  className="
+    absolute
+    left-0
+    top-0
+    h-full
+    w-full
+    object-cover
+    object-bottom
+  "
+/>
 
         {/* LEFT DESCRIPTION */}
         <div
@@ -434,31 +435,31 @@ export default function Hero() {
           BOTTOM STATS
       ====================================================== */}
 
-      <div
-        className="
-          absolute
-          bottom-[14px]
-          left-0
-          z-[70]
-          flex
-          w-full
-          items-end
-          font-dm-mono
-          text-[#9D9D9D]
+     <div
+  className="
+    absolute
+    bottom-[14px]
+    left-0
+    z-[90]
+    flex
+    w-full
+    items-end
+    font-dm-mono
+    text-[#9D9D9D]
 
-          min-[380px]:bottom-[16px]
+    min-[380px]:bottom-[16px]
 
-          min-[480px]:bottom-[18px]
+    min-[480px]:bottom-[18px]
 
-          sm:bottom-[22px]
+    sm:bottom-[22px]
 
-          md:bottom-[25px]
+    md:bottom-[25px]
 
-          lg:bottom-[28px]
+    lg:bottom-[28px]
 
-          xl:bottom-[30px]
-        "
-      >
+    xl:bottom-[30px]
+  "
+>
         {/* LEFT STAT */}
         <motion.div
           className="
