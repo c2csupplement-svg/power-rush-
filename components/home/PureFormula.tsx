@@ -15,33 +15,36 @@ export default function PureFormulaSection() {
   return (
     <section
       ref={sectionRef}
-      className="
-        relative
-        min-h-screen
-        min-h-[100dvh]
-        w-full
-        overflow-hidden
-        bg-black
-        px-6
-        pt-[150px]
-        pb-[120px]
+  className="
+  relative
+  min-h-[0px]
+  w-full
+  overflow-hidden
+  bg-black
+  px-6
+  pt-[10px]
 
-        sm:px-6
-        sm:pt-[155px]
-        sm:pb-[120px]
 
-        md:px-8
-        md:pt-[165px]
-        md:pb-[120px]
+  sm:min-h-[600px]
+  sm:px-6
+  sm:pt-[15px]
+  sm:pb-[10px]
 
-        lg:px-10
-        lg:pt-[175px]
-        lg:pb-[120px]
+  md:min-h-[500px]
+  md:px-8
+  md:pt-[15px]
+  md:pb-[10px]
 
-        xl:px-6
-        xl:pt-[185px]
-        xl:pb-[120px]
-      "
+  lg:min-h-[100dvh]
+  lg:px-10
+  lg:pt-[175px]
+  lg:pb-[120px]
+
+  xl:min-h-[100dvh]
+  xl:px-6
+  xl:pt-[185px]
+  xl:pb-[120px]
+"
     >
       {/* ================= HEADER ================= */}
 
@@ -131,7 +134,7 @@ export default function PureFormulaSection() {
         className="
           relative
           mx-auto
-          mt-[18px]
+          mt-[2px]
           h-[520px]
           w-full
           max-w-[1050px]
@@ -295,7 +298,7 @@ export default function PureFormulaSection() {
             pointer-events-none
             absolute
             left-[7%]
-            top-[61%]
+            bottom-0
             z-[5]
             h-[100px]
             w-[36%]
@@ -305,15 +308,15 @@ export default function PureFormulaSection() {
             max-[900px]:w-[34%]
 
             max-[600px]:left-[1%]
-            max-[600px]:top-[62%]
+            max-[600px]:bottom-10
             max-[600px]:h-[75px]
             max-[600px]:w-[31%]
 
-            max-[480px]:top-[63%]
+            max-[480px]:bottom-10
             max-[480px]:h-[65px]
             max-[480px]:w-[29%]
 
-            max-[380px]:top-[64%]
+            max-[380px]:bottom-10
             max-[380px]:h-[55px]
             max-[380px]:w-[27%]
           "
@@ -360,7 +363,7 @@ export default function PureFormulaSection() {
             pointer-events-none
             absolute
             right-[7%]
-            top-[61%]
+            bottom-0
             z-[5]
             h-[100px]
             w-[36%]
@@ -370,15 +373,15 @@ export default function PureFormulaSection() {
             max-[900px]:w-[34%]
 
             max-[600px]:right-[1%]
-            max-[600px]:top-[62%]
+            max-[600px]:bottom-10
             max-[600px]:h-[75px]
             max-[600px]:w-[31%]
 
-            max-[480px]:top-[63%]
+            max-[480px]:bottom-10
             max-[480px]:h-[65px]
             max-[480px]:w-[29%]
 
-            max-[380px]:top-[64%]
+            max-[380px]:bottom-10
             max-[380px]:h-[55px]
             max-[380px]:w-[27%]
           "
@@ -424,7 +427,7 @@ export default function PureFormulaSection() {
           className="
             absolute
             left-1/2
-            top-[66%]
+            top-[50%]
             z-[15]
             -translate-x-1/2
             -translate-y-1/2
@@ -460,9 +463,11 @@ export default function PureFormulaSection() {
               lg:w-[220px]
               xl:w-[235px]
 
+
               max-[600px]:w-[155px]
               max-[480px]:w-[140px]
               max-[380px]:w-[125px]
+              
             "
           />
         </motion.div>
@@ -509,7 +514,15 @@ export default function PureFormulaSection() {
             ease: "easeOut",
           }}
         >
-          MICRONIZED FORMULA
+         <span className="hidden min-[601px]:inline">
+  MICRONIZED FORMULA
+</span>
+
+<span className="inline min-[601px]:hidden">
+  MICRONIZED
+  <br />
+  FORMULA
+</span>
         </motion.div>
 
         {/* =================================================
@@ -554,51 +567,51 @@ export default function PureFormulaSection() {
             ease: "easeOut",
           }}
         >
-          RESEARCH SPOTED
+          <span className="hidden min-[601px]:inline">
+  RESEARCH SPOTED
+</span>
+
+<span className="inline min-[601px]:hidden">
+ RESEARCH <br /> SPOTED
+</span>
+          
         </motion.div>
 
         {/* =================================================
             LABEL 3
         ================================================= */}
+<motion.div
+ className="
+  absolute
+  left-[3%]
+  bottom-[-3%]
+  z-20
 
-        <motion.div
-          className="
-            absolute
-            bottom-[20%]
-            left-[3%]
-            z-20
-            font-tactic-exd
-            text-[21.42px]
-            font-normal
-            uppercase
-            bg-[linear-gradient(90.24deg,#A5A5A5_0%,#FFFFFF_46.06%,#878787_99.79%)]
-            bg-clip-text
-            text-transparent
-            whitespace-nowrap
+  font-tactic-exd
+  text-[21.42px]
+  font-normal
+  uppercase
+  whitespace-nowrap
 
-            max-[900px]:text-[17px]
+  max-[1440px]:bottom-[-6%]
+  max-[1440px]:text-[19px]
 
-            max-[600px]:left-[2%]
-            max-[600px]:bottom-[20%]
-            max-[600px]:text-[13px]
+  max-[900px]:bottom-[-3%]
+  max-[900px]:text-[17px]
 
-            max-[480px]:left-[1%]
-            max-[480px]:bottom-[21%]
-            max-[480px]:text-[11px]
+  max-[600px]:left-[2%]
+  max-[600px]:bottom-[7%]
+  max-[600px]:text-[13px]
+  max-[600px]:whitespace-normal
 
-            max-[380px]:text-[9px]
-          "
-          initial={{ opacity: 0, x: -25 }}
-          animate={{
-            opacity: isInView ? 1 : 0,
-            x: isInView ? 0 : -25,
-          }}
-          transition={{
-            duration: 0.6,
-            delay: 1.25,
-            ease: "easeOut",
-          }}
-        >
+  max-[480px]:left-[1%]
+  max-[480px]:bottom-[8%]
+  max-[480px]:text-[11px]
+
+  max-[380px]:bottom-[7%]
+  max-[380px]:text-[9px]
+"
+>
           99.9% PURE
         </motion.div>
 
@@ -609,8 +622,8 @@ export default function PureFormulaSection() {
         <motion.div
           className="
             absolute
-            bottom-[20%]
-            right-[1%]
+            bottom-[-3%]
+            right-[-5%]
             z-20
             font-tactic-exd
             text-[21.42px]
@@ -622,16 +635,22 @@ export default function PureFormulaSection() {
             whitespace-nowrap
 
             max-[900px]:text-[17px]
+            max-[800px]:right-3
 
-            max-[600px]:right-[2%]
-            max-[600px]:bottom-[20%]
+            max-[600px]:right-4
+            max-[600px]:bottom-[7%]
             max-[600px]:text-[13px]
 
-            max-[480px]:right-[1%]
-            max-[480px]:bottom-[21%]
+              max-[380px]:text-end
+            max-[480px]:right-[3%]
+            max-[480px]:bottom-[4%]
             max-[480px]:text-[11px]
+            max-[480px]:text-end
 
             max-[380px]:text-[9px]
+            max-[380px]:bottom-[4%]
+            max-[380px]:right-[5%]
+
           "
           initial={{ opacity: 0, x: 25 }}
           animate={{
@@ -644,7 +663,14 @@ export default function PureFormulaSection() {
             ease: "easeOut",
           }}
         >
-          DAILY PERFORMANCE
+         
+           <span className="hidden min-[601px]:inline">
+   DAILY PERFORMANCE
+</span>
+
+<span className="inline min-[601px]:hidden">
+  DAILY <br />PERFORMANCE
+</span>
         </motion.div>
       </div>
     </section>

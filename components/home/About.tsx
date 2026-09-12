@@ -12,16 +12,18 @@ export default function About() {
   return (
     <section
       className="
-        relative
-        min-h-[100dvh]
-        w-full
-        overflow-hidden
-        bg-black
+       relative
+  min-h-[600px]
+  w-full
+  overflow-hidden
+  bg-black
+
+  sm:min-h-[100px]
+  md:min-h-[800px]
+  lg:min-h-[100dvh]
       "
     >
-      {/* =====================================================
-          BACKGROUND IMAGE
-      ====================================================== */}
+     
       <div className="pointer-events-none absolute inset-0 z-0">
         <img
           src="/images/image423.png"
@@ -35,7 +37,7 @@ export default function About() {
           "
         />
 
-        {/* TOP BLACK BLEND */}
+        
         <div
           className="
             absolute
@@ -56,7 +58,7 @@ export default function About() {
           "
         />
 
-        {/* FULL DARK OVERLAY */}
+       
         <div
           className="
             absolute
@@ -66,7 +68,7 @@ export default function About() {
           "
         />
 
-        {/* BOTTOM BLACK BLEND */}
+     
         <div
           className="
             absolute
@@ -90,66 +92,103 @@ export default function About() {
       {/* =====================================================
           ABOUT US
       ====================================================== */}
-      <motion.div
-        className="
-          absolute
-          left-0
-          z-20
-          w-full
-          text-center
-          font-dm-mono
-          !font-medium
-          !leading-none
-          !tracking-[0.02em]
-          !text-[#888888]
+     <motion.div
+  className="
+    absolute
+    left-0
+    z-20
+    w-full
+    text-center
+    font-dm-mono
+    !font-medium
+    !leading-none
+    !tracking-[0.02em]
+    !text-[#888888]
 
-          /* PHONE */
-          top-[15%]
-          !text-[22px]
+    top-[15%]
+    !text-[22px]
 
-          /* 375+ */
-          min-[375px]:top-[16%]
-          min-[375px]:!text-[23px]
+    min-[375px]:top-[16%]
+    min-[375px]:!text-[23px]
 
-          /* TABLET */
-          sm:top-[18%]
-          sm:!text-[28px]
+    sm:top-[18%]
+    sm:!text-[28px]
 
-          /* iPAD */
-          md:top-[20%]
-          md:!text-[31px]
+    md:top-[20%]
+    md:!text-[31px]
 
-          /* LAPTOP */
-          lg:top-[22%]
-          lg:!text-[34px]
+    lg:top-[22%]
+    lg:!text-[34px]
 
-          /* DESKTOP */
-          xl:top-[24%]
-          xl:!text-[38px]
+    xl:top-[24%]
+    xl:!text-[38px]
 
-          /* LARGE DESKTOP */
-          2xl:top-[24%]
-          2xl:!text-[38px]
-        "
-        initial={{
-          opacity: 0,
-          y: -120,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        viewport={{
-          once: false,
-          amount: 0.2,
-        }}
-        transition={{
-          duration: animationDuration,
-          ease: animationEase,
-        }}
-      >
-        ABOUT US
-      </motion.div>
+    2xl:top-[24%]
+    2xl:!text-[38px]
+
+    max-[767px]:hidden
+  "
+  initial={{
+    opacity: 0,
+    y: -120,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+  }}
+  viewport={{
+    once: false,
+    amount: 0.2,
+  }}
+  transition={{
+    duration: animationDuration,
+    ease: animationEase,
+  }}
+>
+  ABOUT US
+</motion.div>
+
+{/* PHONE ONLY */}
+<motion.div
+  className="
+    absolute
+    left-0
+    top-[15%]
+    z-[9999]
+    block
+    w-full
+    text-center
+    font-dm-mono
+    !font-medium
+    !leading-none
+    !tracking-[0.02em]
+    !text-[22px]
+    !text-[#888888]
+
+    min-[375px]:top-[16%]
+    min-[375px]:!text-[23px]
+
+    min-[768px]:hidden
+  "
+  initial={{
+    opacity: 0,
+    y: -40,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+  }}
+  viewport={{
+    once: false,
+    amount: 0.2,
+  }}
+  transition={{
+    duration: animationDuration,
+    ease: animationEase,
+  }}
+>
+  ABOUT US
+</motion.div>
 
       {/* =====================================================
           MAIN DESCRIPTION

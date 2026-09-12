@@ -6,11 +6,17 @@ export default function FinalStage() {
   return (
     <section
       className="
-        relative
-        min-h-screen
-        w-full
-        overflow-hidden
-        bg-black
+       relative
+    min-h-[550px]
+    w-full
+    overflow-hidden
+    bg-black
+
+    sm:min-h-[700px]
+    md:min-h-[800px]
+    lg:min-h-[900px]
+    xl:min-h-[1000px]
+    2xl:min-h-[1100px]
       "
     >
       {/* =====================================================

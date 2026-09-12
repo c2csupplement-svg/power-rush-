@@ -5,34 +5,69 @@ import Image from "next/image";
 
 export default function BlogHero() {
   return (
-    <section
-      className="
-        relative
-        min-h-[100dvh]
-        w-full
-        overflow-hidden
-        bg-black
-        text-white
-      "
-    >
-      {/* =====================================================
-          SINGLE BACKGROUND IMAGE
-          bloghome.png contains the complete Figma background
-      ====================================================== */}
+<section
+  className="
+    relative
+    z-10
+    mx-auto
+    flex
+    min-h-[440px]
+    w-full
+    max-w-[1500px]
+    items-end
+    px-[16px]
+    pb-[40px]
 
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/bloghome.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="
-            object-fill
-            object-center
-          "
-        />
-      </div>
+    min-[380px]:min-h-[455px]
+    min-[380px]:px-[18px]
+    min-[380px]:pb-[42px]
+
+    min-[480px]:min-h-[475px]
+    min-[480px]:px-[22px]
+    min-[480px]:pb-[48px]
+
+    sm:min-h-[500px]
+    sm:px-[30px]
+    sm:pb-[55px]
+
+    md:min-h-[560px]
+    md:px-[45px]
+    md:pb-[65px]
+
+    lg:px-[65px]
+    lg:pb-[80px]
+    lg:min-h-[100dvh]
+
+    xl:px-[80px]
+    xl:pb-[90px]
+
+    2xl:px-[100px]
+    2xl:pb-[100px]
+  "
+>
+  {/* =====================================================
+      SINGLE BACKGROUND IMAGE
+      bloghome.png contains the complete Figma background
+  ====================================================== */}
+
+  <div className="absolute inset-0 z-0">
+    <Image
+  src="/images/bloghome.png"
+  alt=""
+  fill
+  priority
+  sizes="100vw"
+  className="
+    object-fill
+    object-center
+
+    max-[639px]:scale-[0.75]
+    max-[639px]:origin-top
+
+    lg:scale-100
+  "
+/>
+  </div>
 
       {/* =====================================================
           BOTTOM IMAGE BLEND

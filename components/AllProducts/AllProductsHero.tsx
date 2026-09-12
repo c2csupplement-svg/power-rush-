@@ -1,14 +1,8 @@
-
 "use client";
 
 import Image from "next/image";
-import {
-  AnimatePresence,
-  motion,
-  type Variants,
-  type AnimationDefinition,
-} from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
+import { useEffect, useState } from "react";
 
 type Flavour = {
   name: string;
@@ -85,41 +79,45 @@ const textVariants: Variants = {
 };
 
 const productVariants: Variants = {
-  initial: { opacity: 0, x: 180 },
+  initial: { opacity: 0, x: "var(--product-enter-x)" },
   animate: {
     opacity: 1,
     x: 0,
     transition: {
-      opacity: { duration: 0.32, ease: "easeOut" },
-      x: { duration: 0.72, ease: smoothEase },
+      opacity: { duration: 0.45, ease: "easeOut" },
+      x: { duration: 0.9, ease: smoothEase },
     },
   },
   exit: {
     opacity: 0,
-    x: -190,
+    x: "var(--product-exit-x)",
     transition: {
-      opacity: { duration: 0.28, ease: "easeIn" },
-      x: { duration: 0.62, ease: smoothEase },
+      opacity: { duration: 0.45, ease: "easeIn" },
+      x: { duration: 0.85, ease: smoothEase },
     },
   },
 };
 
 const splashVariants: Variants = {
-  initial: { opacity: 0, scale: 0.82 },
+  initial: { opacity: 0, x: "var(--splash-enter-x)", scale: 0.88 },
   animate: {
     opacity: 1,
+    x: 0,
     scale: 1,
     transition: {
-      opacity: { duration: 0.72, ease: "easeOut" },
-      scale: { duration: 1.0, ease: softEase },
+      opacity: { duration: 0.55, ease: "easeOut" },
+      x: { duration: 0.9, ease: smoothEase },
+      scale: { duration: 0.9, ease: softEase },
     },
   },
   exit: {
     opacity: 0,
-    scale: 0.9,
+    x: "var(--splash-exit-x)",
+    scale: 0.92,
     transition: {
-      opacity: { duration: 0.48, ease: "easeInOut" },
-      scale: { duration: 0.58, ease: smoothEase },
+      opacity: { duration: 0.42, ease: "easeIn" },
+      x: { duration: 0.85, ease: smoothEase },
+      scale: { duration: 0.7, ease: smoothEase },
     },
   },
 };
@@ -145,94 +143,35 @@ const backgroundVariants: Variants = {
 
 export default function AllProductsHero() {
   const [activeFlavour, setActiveFlavour] = useState(0);
-  const [showSplash, setShowSplash] = useState(false);
   const [hoveredFlavour, setHoveredFlavour] = useState<number | null>(null);
   const [textDirection, setTextDirection] = useState(-1);
-
-  const splashTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [autoAnimationFinished, setAutoAnimationFinished] = useState(false);
 
   const flavour = flavours[activeFlavour];
 
   useEffect(() => {
-    return () => {
-      if (splashTimerRef.current) {
-        clearTimeout(splashTimerRef.current);
-        splashTimerRef.current = null;
-      }
-    };
-  }, []);
+    if (autoAnimationFinished) return;
 
-  useEffect(() => {
-    setShowSplash(false);
-
-    if (splashTimerRef.current) {
-      clearTimeout(splashTimerRef.current);
-      splashTimerRef.current = null;
-    }
-  }, [activeFlavour]);
-
-  const handleProductAnimationComplete = (
-    definition: AnimationDefinition,
-  ) => {
-    if (definition !== "animate") {
+    if (activeFlavour === flavours.length - 1) {
+      setAutoAnimationFinished(true);
       return;
     }
 
-    if (splashTimerRef.current) {
-      clearTimeout(splashTimerRef.current);
-    }
+    const timer = window.setTimeout(() => {
+      setTextDirection(-1);
+      setActiveFlavour((current) => {
+        if (current >= flavours.length - 1) return current;
+        return current + 1;
+      });
+    }, 3400);
 
-    splashTimerRef.current = setTimeout(() => {
-      setShowSplash(true);
-      splashTimerRef.current = null;
-    }, 1000);
-  };
-
-  const previousFlavour = () => {
-    setTextDirection(-1);
-    setShowSplash(false);
-
-    if (splashTimerRef.current) {
-      clearTimeout(splashTimerRef.current);
-      splashTimerRef.current = null;
-    }
-
-    setActiveFlavour((current) =>
-      current === 0 ? flavours.length - 1 : current - 1,
-    );
-
-    setHoveredFlavour(null);
-  };
-
-  const nextFlavour = () => {
-    setTextDirection(-1);
-    setShowSplash(false);
-
-    if (splashTimerRef.current) {
-      clearTimeout(splashTimerRef.current);
-      splashTimerRef.current = null;
-    }
-
-    setActiveFlavour((current) =>
-      current === flavours.length - 1 ? 0 : current + 1,
-    );
-
-    setHoveredFlavour(null);
-  };
+    return () => window.clearTimeout(timer);
+  }, [activeFlavour, autoAnimationFinished]);
 
   const selectFlavour = (index: number) => {
-    if (index === activeFlavour) {
-      return;
-    }
-
+    if (index === activeFlavour) return;
     setTextDirection(1);
-    setShowSplash(false);
-
-    if (splashTimerRef.current) {
-      clearTimeout(splashTimerRef.current);
-      splashTimerRef.current = null;
-    }
-
+    setAutoAnimationFinished(true);
     setActiveFlavour(index);
     setHoveredFlavour(null);
   };
@@ -244,14 +183,19 @@ export default function AllProductsHero() {
         min-h-screen
         min-h-[100dvh]
         w-full
-        overflow-hidden
+        overflow-x-hidden
         bg-black
         text-white
       "
+      style={
+        {
+          "--product-enter-x": "clamp(90px, 24vw, 360px)",
+          "--product-exit-x": "clamp(-360px, -24vw, -90px)",
+          "--splash-enter-x": "clamp(120px, 30vw, 430px)",
+          "--splash-exit-x": "clamp(-430px, -30vw, -120px)",
+        } as React.CSSProperties
+      }
     >
-      {/* =========================
-          BACKGROUND
-      ========================== */}
       <AnimatePresence mode="wait">
         {hoveredFlavour !== null && (
           <motion.div
@@ -275,31 +219,18 @@ export default function AllProductsHero() {
 
       <div className="absolute inset-0 z-[1] bg-black/20" />
 
-      {/* =========================
-          TOP LEFT ROCK
-      ========================== */}
       <div
         className="
+          hidden sm:block
           pointer-events-none
           absolute
-          left-[-15px]
-          top-[-5px]
+          left-[clamp(-25px,-2vw,-15px)]
+          top-[clamp(-10px,-1vw,-5px)]
           z-[5]
-          w-[190px]
-
-          sm:left-[-20px]
-          sm:top-[-8px]
-          sm:w-[250px]
-
-          md:left-[-22px]
-          md:top-[-10px]
-          md:w-[330px]
-
-          lg:left-[-25px]
-          lg:top-[-10px]
-          lg:w-[390px]
-
-          xl:w-[410px]
+          w-[clamp(190px,27vw,410px)]
+          lg:w-[clamp(300px,27vw,390px)]
+          xl:w-[clamp(360px,28vw,410px)]
+          2xl:w-[clamp(390px,26vw,520px)]
         "
         style={{
           WebkitMaskImage:
@@ -318,52 +249,18 @@ export default function AllProductsHero() {
         />
       </div>
 
-      <div className="pointer-events-none absolute left-0 top-0 z-[5]">
-        <Image
-          src="/images/image415.png"
-          alt=""
-          width={420}
-          height={420}
-          className="
-            h-auto
-            w-[130px]
-
-            sm:w-[180px]
-
-            md:w-[260px]
-
-            lg:w-[340px]
-
-            xl:w-[420px]
-          "
-        />
-      </div>
-
-      {/* =========================
-          TOP RIGHT ROCK
-      ========================== */}
       <div
         className="
+          hidden sm:block
           pointer-events-none
           absolute
-          right-[-15px]
-          top-[-5px]
+          right-[clamp(-25px,-2vw,-15px)]
+          top-[clamp(-10px,-1vw,-5px)]
           z-[5]
-          w-[190px]
-
-          sm:right-[-20px]
-          sm:top-[-8px]
-          sm:w-[250px]
-
-          md:right-[-22px]
-          md:top-[-10px]
-          md:w-[330px]
-
-          lg:right-[-25px]
-          lg:top-[-10px]
-          lg:w-[390px]
-
-          xl:w-[410px]
+          w-[clamp(190px,27vw,410px)]
+          lg:w-[clamp(300px,27vw,390px)]
+          xl:w-[clamp(360px,28vw,410px)]
+          2xl:w-[clamp(390px,26vw,520px)]
         "
         style={{
           WebkitMaskImage:
@@ -378,68 +275,186 @@ export default function AllProductsHero() {
           width={420}
           height={420}
           priority
-          className="
-            h-auto
-            w-full
-            scale-x-[-1]
-            object-contain
-          "
+          className="h-auto w-full scale-x-[-1] object-contain"
         />
       </div>
 
-      {/* =========================
-          MAIN CONTENT
-      ========================== */}
-      <div
-        className="
-          relative
-          z-10
-          min-h-screen
-          min-h-[100dvh]
-          w-full
-        "
+     <div className="sm:hidden relative z-20 flex flex-col items-center pt-12 mt-10 pb-2 px-5">
+       
+       {/* MOBILE PRODUCT + SPLASH */}
+<div className="relative w-full h-[345px] flex items-center justify-center my-0">
+  {/* Splash */}
+  <motion.div
+    key={`splash-${activeFlavour}`}
+    variants={splashVariants}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    custom={textDirection}
+    className="absolute z-10"
+  >
+    <Image
+      src={flavours[activeFlavour].splashImage}
+      alt={flavours[activeFlavour].name}
+      width={300}
+      height={300}
+      className="h-[300px] w-[300px] object-contain"
+      priority
+    />
+  </motion.div>
+
+  {/* Product */}
+  <motion.div
+    key={`product-${activeFlavour}`}
+    variants={productVariants}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    custom={textDirection}
+    className="absolute z-20"
+  >
+    <Image
+      src="/images/powoe2.png"
+      alt="Power Rush"
+      width={400}
+      height={400}
+      className="h-72 w-auto object-contain"
+      priority
+    />
+  </motion.div>
+</div>
+
+{/* MOBILE ROCK — directly below product */}
+<div className="relative z-10 -mt-1 flex w-full justify-center">
+  <Image
+    src="/images/smallRock.png"
+    alt=""
+    width={300}
+    height={150}
+    className="h-[95px] w-[200px] object-contain"
+    priority
+  />
+</div>
+
+{/* CONTENT STARTS IMMEDIATELY AFTER ROCK */}
+<div className="relative z-20 mt-0 flex flex-col items-center text-center">
+  {/* yahan tumhara existing title/content */}
+</div>
+
+        <div className="text-center mt-2 w-full">
+          <div
+            className="uppercase text-[11px] tracking-widest mb-1"
+            style={{
+              fontFamily: "TacticSansExd",
+              background:
+                "linear-gradient(90.24deg, #A5A5A5 0%, #FFFFFF 46.06%, #878787 99.79%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            POWER RUSH
+          </div>
+
+          <AnimatePresence mode="wait" custom={textDirection}>
+            <motion.div
+              key={flavour.name}
+              custom={textDirection}
+              variants={textVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <h1
+                className="uppercase text-2xl font-bold italic"
+                style={{
+                  fontFamily: "TacticSansExd-UltIt",
+                  color: flavour.color,
+                }}
+              >
+                {flavour.title}
+              </h1>
+              <p className="mt-2 text-xs text-zinc-300 font-sf max-w-xs mx-auto leading-relaxed">
+                {flavour.description}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div className="mt-5 w-full max-w-xs text-center">
+          <div
+            className="uppercase text-[11px] mb-2.5 tracking-widest"
+            style={{
+              fontFamily: "TacticSansExd",
+              background:
+                "linear-gradient(90.24deg, #A5A5A5 0%, #FFFFFF 46.06%, #878787 99.79%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            FLAVOURS
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+  {flavours.map((item, index) => {
+    const isActive = activeFlavour === index;
+
+    return (
+      <button
+        key={item.name}
+        type="button"
+        onClick={() => selectFlavour(index)}
+        className="cursor-pointer uppercase px-3 py-1 rounded-full text-[11px] font-bold transition-all"
+        style={{
+          fontFamily: "TacticSansExd-UltIt",
+          backgroundColor: isActive
+            ? "black"
+            : "rgba(255,255,255,0.08)",
+          color: isActive ? item.color : "#A5A5A5",
+        }}
       >
-        {/* =========================
-            LEFT CONTENT
-        ========================== */}
+        {item.name}
+      </button>
+    );
+  })}
+</div>
+        </div>
+
+        <div className="mt-6 px-2 text-center">
+          <p className="text-[11px] text-zinc-400 font-sf leading-relaxed">
+            Ultra Premium Performance Formula Creatine + Caffeine + Taurine
+            designed to support instant power, strength, energy, and mental
+            focus.
+          </p>
+        </div>
+      </div>
+      <div className="hidden sm:block relative z-10 min-h-screen min-h-[100dvh] w-full">
         <div
           className="
             absolute
-            left-[16px]
-            top-[19%]
-            z-30
-            w-[calc(100%-32px)]
-            max-w-[430px]
-
-            sm:left-[5%]
-            sm:top-[21%]
-            sm:w-[42%]
-
-            md:left-[5%]
-            md:top-[24%]
-            md:w-[38%]
-
-            lg:left-[6%]
-            lg:top-[27%]
-            lg:w-[32%]
-
+            sm:left-[clamp(28px,4.5vw,55px)]
+            sm:top-[clamp(280px,35vh,390px)]
+            sm:w-[clamp(220px,42vw,330px)]
+            sm:max-w-[44vw]
+            md:left-[clamp(38px,5vw,80px)]
+            md:top-[clamp(210px,24vh,300px)]
+            md:w-[clamp(350px,36vw,500px)]
+            md:max-w-none
+            lg:left-[clamp(55px,6vw,95px)]
+            lg:top-[clamp(230px,27vh,330px)]
+            lg:w-[clamp(360px,32vw,520px)]
             xl:left-[6%]
+            xl:top-[27%]
             xl:w-[32%]
+            2xl:left-[clamp(80px,6vw,140px)]
+            2xl:top-[clamp(260px,28vh,390px)]
+            2xl:w-[clamp(420px,30vw,620px)]
+            z-40
           "
         >
-          {/* POWER RUSH */}
           <div
-            className="
-              mb-[12px]
-              uppercase
-
-              sm:mb-[15px]
-
-              md:mb-[18px]
-            "
+            className="mb-[clamp(7px,1.1vw,18px)] uppercase"
             style={{
               fontFamily: "TacticSansExd",
-              fontSize: "clamp(19px, 2.15vw, 30.27px)",
+              fontSize: "clamp(16px, 2.15vw, 30.27px)",
               lineHeight: "89%",
               fontWeight: 400,
               fontStyle: "normal",
@@ -453,7 +468,6 @@ export default function AllProductsHero() {
             POWER RUSH
           </div>
 
-          {/* TITLE + DESCRIPTION */}
           <AnimatePresence mode="wait" custom={textDirection}>
             <motion.div
               key={flavour.name}
@@ -464,15 +478,10 @@ export default function AllProductsHero() {
               exit="exit"
             >
               <h1
-                className="
-                  w-max
-                  max-w-none
-                  whitespace-nowrap
-                  uppercase
-                "
+                className="w-full max-w-full uppercase leading-none whitespace-nowrap"
                 style={{
                   fontFamily: "TacticSansExd-UltIt",
-                  fontSize: "clamp(27px, 4.65vw, 65.48px)",
+                  fontSize: "clamp(22px, 4.2vw, 65.48px)",
                   lineHeight: "89%",
                   fontWeight: 400,
                   fontStyle: "italic",
@@ -485,23 +494,13 @@ export default function AllProductsHero() {
 
               <p
                 className="
-                  mt-[16px]
+                  mt-[clamp(7px,1.25vw,18px)]
                   w-full
-                  max-w-[500px]
+                  max-w-[520px]
                   font-sf
-                  text-[14px]
+                  text-[clamp(11px,1.15vw,18.15px)]
                   font-[510]
-                  leading-[1.25]
-
-                  sm:mt-[20px]
-                  sm:text-[15px]
-
-                  md:mt-[23px]
-                  md:text-[17px]
-
-                  lg:mt-[25px]
-                  lg:text-[18.15px]
-                  lg:leading-[104%]
+                  leading-[1.3]
                 "
               >
                 {flavour.description}
@@ -509,32 +508,12 @@ export default function AllProductsHero() {
             </motion.div>
           </AnimatePresence>
 
-          {/* =========================
-              FLAVOURS
-          ========================== */}
-          <div
-            className="
-              mt-[35px]
-
-              sm:mt-[42px]
-
-              md:mt-[50px]
-
-              lg:mt-[55px]
-            "
-          >
+          <div className="mt-[clamp(14px,3.5vw,55px)]">
             <div
-              className="
-                mb-[18px]
-                uppercase
-
-                sm:mb-[20px]
-
-                md:mb-[23px]
-              "
+              className="mb-[clamp(6px,1.35vw,23px)] uppercase"
               style={{
                 fontFamily: "TacticSansExd",
-                fontSize: "clamp(19px, 2.15vw, 30.27px)",
+                fontSize: "clamp(14px, 2.15vw, 30.27px)",
                 lineHeight: "89%",
                 fontWeight: 400,
                 fontStyle: "normal",
@@ -548,146 +527,126 @@ export default function AllProductsHero() {
               FLAVOURS
             </div>
 
-            <div
-              className="
-                flex
-                flex-col
-                gap-[11px]
-
-                sm:gap-[12px]
-
-                md:gap-[13px]
-              "
-            >
+            <div className="flex flex-col gap-[clamp(6px,0.85vw,13px)]">
               {flavours.map((item, index) => {
                 const isActive = activeFlavour === index;
-
                 return (
                   <button
-  key={item.name}
-  type="button"
-  onClick={() => selectFlavour(index)}
-  onMouseEnter={() => setHoveredFlavour(index)}
-  onMouseLeave={() => setHoveredFlavour(null)}
-  className="
-    w-full
-    max-w-full
-    self-start
-    cursor-pointer
-    text-left
-    uppercase
-    outline-none
-    touch-manipulation
-  "
-  style={{
-    fontFamily: "TacticSansExd-UltIt",
-    fontSize: "clamp(20px, 2vw, 26.73px)",
-    lineHeight: "70%",
-    fontWeight: 400,
-    fontStyle: "italic",
-    textTransform: "uppercase",
-    color: isActive ? item.color : "#8B8B8B",
-    WebkitTextStroke: "0.7px currentColor",
-    transition: "color 0.25s ease",
-  }}
->
-  {item.name}
-</button>
+                    key={item.name}
+                    type="button"
+                    onClick={() => selectFlavour(index)}
+                    onMouseEnter={() => setHoveredFlavour(index)}
+                    onMouseLeave={() => setHoveredFlavour(null)}
+                    className="
+                      w-full
+                      max-w-full
+                      self-start
+                      cursor-pointer
+                      text-left
+                      uppercase
+                      outline-none
+                      touch-manipulation
+                    "
+                    style={{
+                      fontFamily: "TacticSansExd-UltIt",
+                      fontSize: "clamp(13px, 2.6vw, 26.73px)",
+                      lineHeight: "75%",
+                      fontWeight: 400,
+                      fontStyle: "italic",
+                      textTransform: "uppercase",
+                      color: isActive ? item.color : "#8B8B8B",
+                      WebkitTextStroke: "0.7px currentColor",
+                      transition: "color 0.25s ease",
+                    }}
+                  >
+                    {item.name}
+                  </button>
                 );
               })}
             </div>
           </div>
         </div>
 
-        {/* =========================
-            CENTER PRODUCT AREA
-        ========================== */}
         <div
           className="
             pointer-events-auto
             absolute
-            left-1/2
+            left-[50%]
             top-0
             z-20
             h-full
-            w-[180px]
+            w-[42vw]
             -translate-x-1/2
-
-            sm:w-[250px]
-
             md:left-[53%]
-            md:w-[380px]
-
+            md:w-[clamp(300px,38vw,500px)]
             lg:left-[54%]
-            lg:w-[500px]
-
+            lg:w-[clamp(400px,36vw,600px)]
             xl:left-[54%]
-            xl:w-[600px]
+            xl:w-[clamp(500px,35vw,680px)]
+            2xl:left-[54%]
+            2xl:w-[clamp(560px,34vw,760px)]
+            
+            
           "
         >
-          {/* =========================
-              SPLASH IMAGE
-              MOVED SLIGHTLY DOWN
-          ========================== */}
-          <AnimatePresence mode="wait">
-            {showSplash && (
-              <motion.div
-                key={flavour.splashImage}
-                variants={splashVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                className="
-                  pointer-events-none
-  absolute
-  left-1/2
-  top-[43%]
-  z-10
-  flex
-  h-[260px]
-  w-[260px]
-  -translate-x-1/2
-  -translate-y-1/2
-  items-center
-  justify-center
 
-  sm:top-[46%]
-  sm:h-[350px]
-  sm:w-[350px]
+      <AnimatePresence mode="wait">
+  <motion.div
+    key={flavour.splashImage}
+    variants={splashVariants}
+    initial="initial"
+    animate="animate"
+    exit="exit"
+    className="
+      pointer-events-none
+      absolute
+      left-1/2
 
-  md:top-[44%]
-  md:h-[450px]
-  md:w-[450px]
+      top-[58%]
+      h-[280px]
+      w-[280px]
 
-  lg:top-[44%]
-  lg:h-[550px]
-  lg:w-[550px]
+      sm:top-[clamp(275px,40vh,390px)]
+      sm:h-[clamp(260px,32vw,380px)]
+      sm:w-[clamp(260px,32vw,380px)]
 
-  xl:top-[44%]
-  xl:h-[620px]
-  xl:w-[620px]"
-              >
-                <Image
-                  src={flavour.splashImage}
-                  alt=""
-                  width={800}
-                  height={800}
-                  priority
-                  className="
-                    h-full
-                    w-full
-                    object-contain
-                    rotate-[3deg]
-                  "
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
+      md:!top-[calc(clamp(330px,44vh,470px)_-_45px)]
+      md:-mt-5
+      md:h-[clamp(380px,35vw,450px)]
+      md:w-[clamp(380px,35vw,450px)]
 
-          {/* =========================
-              PRODUCT POUCH
-              MOVED SLIGHTLY DOWN
-          ========================== */}
+      lg:top-[44%]
+      lg:h-[clamp(450px,34vw,550px)]
+      lg:w-[clamp(450px,34vw,550px)]
+
+      xl:top-[44%]
+      xl:h-[clamp(520px,32vw,620px)]
+      xl:w-[clamp(520px,32vw,620px)]
+
+      2xl:h-[clamp(580px,31vw,720px)]
+      2xl:w-[clamp(580px,31vw,720px)]
+
+      min-[2560px]:!translate-y-[calc(-50%-50px)]
+
+      z-10
+      flex
+      -translate-x-1/2
+      -translate-y-1/2
+      items-center
+      justify-center
+    "
+  >
+    <Image
+      src={flavour.splashImage}
+      alt=""
+      width={800}
+      height={800}
+      priority
+      className="h-full w-full object-contain rotate-[3deg]"
+    />
+  </motion.div>
+</AnimatePresence>
+
           <AnimatePresence mode="wait">
             <motion.div
               key={flavour.name}
@@ -695,17 +654,16 @@ export default function AllProductsHero() {
               initial="initial"
               animate="animate"
               exit="exit"
-              onAnimationComplete={handleProductAnimationComplete}
               className="
                 absolute
                 left-1/2
-                top-[15%]
+                sm:top-[clamp(125px,14vh,155px)]
+                md:top-[clamp(105px,13vh,155px)]
+                lg:top-[clamp(115px,13vh,175px)]
+                xl:top-[clamp(125px,13vh,190px)]
                 z-30
                 -translate-x-1/2
-
-                sm:top-[14%]
-
-                md:top-[13%]
+                min-[2560px]:!translate-y-[60px]
               "
             >
               <Image
@@ -714,116 +672,96 @@ export default function AllProductsHero() {
                 width={300}
                 height={520}
                 priority
-                className="
-                  h-auto
-                  w-[105px]
-                  object-contain
-                  rotate-[7deg]
-
-                  sm:w-[125px]
-
-                  md:w-[145px]
-
-                  lg:w-[175px]
-
-                  xl:w-[190px]
-                "
+               className="
+  h-auto
+  object-contain
+  rotate-[7deg]
+  sm:w-[clamp(100px,12vw,135px)]
+  md:w-[clamp(125px,12vw,150px)]
+  lg:w-[clamp(145px,12vw,175px)]
+  xl:w-[clamp(165px,11vw,190px)]
+  2xl:w-[clamp(180px,10vw,215px)]
+  min-[2560px]:max-[2561px]:!w-[230px]
+min-[2560px]:max-[2561px]:!translate-y-[10px]
+"
               />
             </motion.div>
           </AnimatePresence>
 
-          {/* =========================
-              ROCK UNDER PRODUCT
-          ========================== */}
+        
           <div
-            className="
-              pointer-events-none
-              absolute
-              bottom-[-5px]
-              left-1/2
-              z-20
-              w-[210px]
-              -translate-x-1/2
+  className="
+    pointer-events-none
+    absolute
+    bottom-0
+    left-1/2
+    z-20
+    -translate-x-1/2
 
-              sm:w-[290px]
+    sm:w-[clamp(250px,31vw,330px)]
+    sm:translate-y-0
 
-              md:w-[380px]
+    md:w-[clamp(300px,30vw,390px)]
+  min-[768px]:max-[1023px]:!-translate-y-[200px]
 
-              lg:w-[460px]
+    lg:w-[clamp(360px,29vw,460px)]
+     min-[1024px]:max-[1439px]:!-translate-y-[100px]
 
-              xl:w-[520px]
-            "
-            style={{
-              WebkitMaskImage:
-                "linear-gradient(to bottom, black 0%, black 62%, rgba(0,0,0,0.85) 72%, rgba(0,0,0,0.45) 84%, transparent 100%)",
-              maskImage:
-                "linear-gradient(to bottom, black 0%, black 62%, rgba(0,0,0,0.85) 72%, rgba(0,0,0,0.45) 84%, transparent 100%)",
-            }}
-          >
-            <Image
-              src="/images/smallRock.png"
-              alt=""
-              width={600}
-              height={360}
-              priority
-              className="
-                h-auto
-                w-full
-                object-contain
-              "
-            />
-          </div>
+    xl:w-[clamp(430px,28vw,520px)]
+
+    2xl:w-[clamp(480px,27vw,600px)]
+min-[2560px]:!-translate-y-[230px]
+  min-[2560px]:!w-[650px]"
+  style={{
+    WebkitMaskImage:
+      "linear-gradient(to bottom, black 0%, black 62%, rgba(0,0,0,0.85) 72%, rgba(0,0,0,0.45) 84%, transparent 100%)",
+    maskImage:
+      "linear-gradient(to bottom, black 0%, black 62%, rgba(0,0,0,0.85) 72%, rgba(0,0,0,0.45) 84%, transparent 100%)",
+  }}
+>
+  <Image
+    src="/images/smallRock.png"
+    alt=""
+    width={600}
+    height={360}
+    priority
+    className="h-auto w-full object-contain"
+  />
+         </div>
         </div>
 
-        {/* =========================
-            RIGHT DESCRIPTION
-        ========================== */}
+      
         <div
           className="
             absolute
-            right-[16px]
-            top-auto
-            bottom-[7%]
-            z-20
-            w-[calc(100%-32px)]
-            max-w-[430px]
-            text-left
-
-            sm:right-[5%]
-            sm:bottom-[7%]
-            sm:w-[36%]
+            sm:right-[clamp(28px,5vw,70px)]
+            sm:bottom-[clamp(35px,7vh,80px)]
+            sm:z-20
+            sm:block
+            sm:w-[clamp(280px,36vw,500px)]
             sm:text-right
-
-            md:right-[5%]
+            md:right-[clamp(35px,5vw,80px)]
             md:top-1/2
             md:bottom-auto
-            md:w-[30%]
+            md:w-[clamp(280px,30vw,430px)]
             md:-translate-y-1/2
-
-            lg:right-[7%]
-            lg:w-[27%]
+            lg:right-[clamp(55px,7vw,110px)]
+            lg:w-[clamp(330px,27vw,520px)]
+            xl:right-[7%]
+            xl:w-[27%]
+            2xl:right-[clamp(90px,7vw,150px)]
+            2xl:w-[clamp(400px,26vw,560px)]
           "
         >
           <p
             className="
-              ml-0
+              ml-auto
               w-full
               font-sf
-              text-[13px]
+              text-[clamp(14px,1.25vw,18.15px)]
               font-[510]
               leading-[1.25]
-              text-left
-
-              sm:ml-auto
-              sm:text-[14px]
-              sm:text-right
-
-              md:text-[16px]
-
-              lg:w-[520px]
-              lg:text-[18.15px]
-              lg:leading-[104%]
-              lg:text-right
+              text-right
             "
           >
             Ultra Premium Performance Formula Creatine +
@@ -837,3 +775,7 @@ export default function AllProductsHero() {
     </section>
   );
 }
+
+
+
+

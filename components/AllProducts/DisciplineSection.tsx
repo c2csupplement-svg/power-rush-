@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -9,7 +8,8 @@ export default function DisciplineSection() {
     <section
       className="
         relative
-        min-h-[100dvh]
+        min-h-[300px]
+        lg:min-h-[100dvh]
         w-full
         overflow-hidden
         bg-black
@@ -35,8 +35,16 @@ export default function DisciplineSection() {
         <div
           className="
             relative
-            h-full
+            h-[250px]
             w-full
+
+            min-[380px]:h-[260px]
+            min-[480px]:h-[275px]
+
+            sm:h-[290px]
+            md:h-[320px]
+
+            lg:h-full
           "
         >
           <Image
@@ -62,22 +70,20 @@ export default function DisciplineSection() {
           right-0
           top-0
           z-[2]
-          h-[100px]
+          h-[65px]
           bg-gradient-to-b
           from-black
           via-black/70
           to-transparent
 
-          min-[380px]:h-[115px]
+          min-[380px]:h-[70px]
+          min-[480px]:h-[75px]
 
-          sm:h-[135px]
-
-          md:h-[155px]
+          sm:h-[90px]
+          md:h-[110px]
 
           lg:h-[180px]
-
           xl:h-[200px]
-
           2xl:h-[220px]
         "
       />
@@ -91,28 +97,26 @@ export default function DisciplineSection() {
           left-0
           right-0
           z-[2]
-          h-[125px]
+          h-[75px]
           bg-gradient-to-t
           from-black
           via-black/75
           to-transparent
 
-          min-[380px]:h-[145px]
+          min-[380px]:h-[85px]
+          min-[480px]:h-[95px]
 
-          sm:h-[165px]
-
-          md:h-[190px]
+          sm:h-[110px]
+          md:h-[135px]
 
           lg:h-[220px]
-
           xl:h-[240px]
-
           2xl:h-[260px]
         "
       />
 
       {/* CONTENT */}
-      <div
+      {/* <div
         className="
           relative
           z-10
@@ -124,31 +128,9 @@ export default function DisciplineSection() {
           items-end
           px-[16px]
           pb-[45px]
-
-          min-[380px]:px-[18px]
-          min-[380px]:pb-[50px]
-
-          min-[480px]:px-[22px]
-          min-[480px]:pb-[55px]
-
-          sm:px-[30px]
-          sm:pb-[60px]
-
-          md:px-[45px]
-          md:pb-[70px]
-
-          lg:px-[65px]
-          lg:pb-[80px]
-
-          xl:px-[80px]
-          xl:pb-[90px]
-
-          2xl:px-[100px]
-          2xl:pb-[100px]
         "
       >
-        {/* Future content can be placed here */}
-      </div>
+      </div> */}
     </section>
   );
 }

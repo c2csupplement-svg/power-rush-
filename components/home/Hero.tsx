@@ -8,14 +8,14 @@ export default function Hero() {
     <section
       className="
         relative
-        h-[100dvh]
+        h-[70dvh]
         min-h-[520px]
         w-full
         overflow-hidden
         bg-black
         text-white
 
-        sm:min-h-[560px]
+        sm:min-h-[460px]
         md:min-h-[600px]
         lg:min-h-[650px]
         xl:min-h-[700px]
@@ -87,7 +87,7 @@ export default function Hero() {
 
             font-sf
             text-left
-            text-[9px]
+            text-[14px]
             font-medium
             leading-[1.1]
             tracking-[-0.01em]
@@ -95,7 +95,7 @@ export default function Hero() {
 
             min-[380px]:top-[20%]
             min-[380px]:w-[185px]
-            min-[380px]:text-[9.5px]
+            min-[380px]:text-[14.5px]
 
             min-[480px]:left-[11%]
             min-[480px]:top-[21%]
@@ -192,7 +192,7 @@ export default function Hero() {
 
             font-sf
             text-right
-            text-[9px]
+            text-[14px]
             font-medium
             leading-[1.1]
             tracking-[-0.01em]
@@ -200,7 +200,7 @@ export default function Hero() {
 
             min-[380px]:top-[60%]
             min-[380px]:w-[185px]
-            min-[380px]:text-[9.5px]
+            min-[380px]:text-[14.5px]
 
             min-[480px]:right-[11%]
             min-[480px]:top-[60%]
@@ -401,19 +401,19 @@ export default function Hero() {
             src="/images/power1.png"
             alt="Power Rush product"
             className="
-              h-[320px]
-              w-[180px]
-              max-w-[42vw]
+              h-[390px]
+              w-[280px]
+              max-w-[72vw]
               object-contain
 
               min-[380px]:h-[340px]
-              min-[380px]:w-[190px]
+              min-[380px]:w-[260px]
 
               min-[480px]:h-[370px]
               min-[480px]:w-[205px]
 
-              sm:h-[420px]
-              sm:w-[235px]
+              sm:h-[480px]
+              sm:w-[285px]
 
               md:h-[480px]
               md:w-[275px]
@@ -486,7 +486,7 @@ export default function Hero() {
         >
           <b
             className="
-              text-[9px]
+              text-[19px]
               leading-none
 
               min-[380px]:text-[10px]
@@ -513,7 +513,7 @@ export default function Hero() {
 
               min-[480px]:text-[7px]
 
-              sm:text-[9px]
+              sm:text-[19px]
 
               md:text-[11px]
 
@@ -550,14 +550,14 @@ export default function Hero() {
         >
           <b
             className="
-              text-[9px]
+              text-[19px]
               leading-none
 
               min-[380px]:text-[10px]
 
               min-[480px]:text-[11px]
 
-              sm:text-[13px]
+              sm:text-[23px]
 
               md:text-[15px]
 
@@ -577,7 +577,7 @@ export default function Hero() {
 
               min-[480px]:text-[7px]
 
-              sm:text-[9px]
+              sm:text-[15px]
 
               md:text-[11px]
 
@@ -614,14 +614,14 @@ export default function Hero() {
         >
           <b
             className="
-              text-[9px]
+              text-[19px]
               leading-none
 
               min-[380px]:text-[10px]
 
               min-[480px]:text-[11px]
 
-              sm:text-[13px]
+              sm:text-[23px]
 
               md:text-[15px]
 
@@ -641,7 +641,7 @@ export default function Hero() {
 
               min-[480px]:text-[7px]
 
-              sm:text-[9px]
+              sm:text-[19px]
 
               md:text-[11px]
 

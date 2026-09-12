@@ -300,12 +300,12 @@ button {
   z-index: 6;
   display: flex;
   flex-direction: column;
-  font-size: 9px;
+  font-size: 15px;
   color: #9b9b9b;
   line-height: 1.1;
 }
 .hero-stat b {
-  font-size: 9px;
+  font-size: 15px;
   font-weight: 400;
   color: #aaa;
 }
@@ -505,10 +505,7 @@ button {
   margin-top: 30px;
   color: #ddd;
 }
-.benefits {
-  padding: 10vh 3% 5%;
-  min-height: 100vh;
-}
+
 .benefits-heading {
   text-align: center;
   padding-top: 4vh;
@@ -747,7 +744,7 @@ button {
     grid-template-columns: 1fr;
   }
   .benefits {
-    padding-top: 70px;
+    /* padding-top: 70px; */
   }
   .benefits-heading h2 {
     margin-top: 25px;

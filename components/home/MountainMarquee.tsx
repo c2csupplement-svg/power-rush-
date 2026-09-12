@@ -7,8 +7,7 @@ export default function MountainMarquee() {
     <section
       className="
         relative
-        mt-[90px]
-        h-[300px]
+        h-[100px]
         w-full
         overflow-x-clip
         overflow-y-visible
@@ -59,7 +58,7 @@ export default function MountainMarquee() {
           className="
             shrink-0
             px-4
-            text-[clamp(58px,9vw,150px)]
+            text-[clamp(38px,9vw,50px)]
             font-tactic-exd
             font-normal
             uppercase
@@ -84,7 +83,7 @@ export default function MountainMarquee() {
           className="
             shrink-0
             px-4
-            text-[clamp(55px,8vw,140px)]
+            text-[clamp(38px,9vw,50px)]
             font-tactic
             uppercase
             leading-none

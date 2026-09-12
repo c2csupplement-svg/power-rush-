@@ -186,7 +186,7 @@ export default function RoutineSection() {
     bg-[linear-gradient(90.24deg,#A5A5A5_0%,#FFFFFF_46.06%,#878787_99.79%)]
     bg-clip-text
     font-tactic-exd
-    text-[32px]
+    text-[10px]
     font-normal
     uppercase
     leading-[89%]
@@ -203,7 +203,7 @@ export default function RoutineSection() {
     mt-[22px]
     max-w-[850px]
     font-sf
-    text-[17px]
+    text-[12px]
     font-normal
     leading-[120%]
     tracking-[0%]
@@ -230,7 +230,7 @@ export default function RoutineSection() {
             grid
             w-full
             grid-cols-1
-            gap-[28px]
+            gap-[20px]
             md:grid-cols-2
             lg:grid-cols-3
           "
@@ -241,7 +241,7 @@ export default function RoutineSection() {
     className={`
       relative
       flex
-      h-[360px]
+      h-[330px]
       w-full
       items-center
       overflow-hidden

@@ -14,85 +14,55 @@ export default function PowerRushProductShowcase() {
 
   return (
     <section
-      ref={sectionRef}
-      className="
-        relative
-        isolate
-        min-h-[100dvh]
-        h-[100dvh]
-        w-full
-        overflow-hidden
-        bg-black
+  ref={sectionRef}
+  className="
+    relative
+    isolate
+    w-full
+    overflow-hidden
+    bg-black
 
-        min-[380px]:min-h-[540px]
-        min-[480px]:min-h-[570px]
+    h-[540px]
 
-        sm:min-h-[600px]
+    min-[380px]:h-[570px]
 
-        md:min-h-[650px]
+    min-[480px]:h-[600px]
 
-        lg:min-h-[680px]
+    sm:h-[650px]
 
-        xl:min-h-[700px]
-      "
-    >
+    md:h-[750px]
+
+    lg:h-[850px]
+
+    xl:h-[950px]
+
+    2xl:h-[1050px]
+  "
+>
       {/* =====================================================
           BLACK BASE
       ====================================================== */}
 
-      <div className="absolute inset-0 z-0 bg-black" />
+      {/* <div className="absolute inset-0 z-0 bg-black" /> */}
 
       {/* =====================================================
           ROCK BACKGROUND
       ====================================================== */}
 
-      <img
-        src="/images/Frame1168.png"
-        alt=""
-        className="
-          absolute
-          inset-0
-          z-[1]
-          h-full
-          w-full
-          object-cover
-          object-center
-          select-none
-
-          max-[600px]:object-[center_center]
-        "
-      />
-
-      {/* =====================================================
-          BOTTOM BLACK BLEND
-      ====================================================== */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-x-0
-          bottom-0
-          z-[2]
-
-          h-[28%]
-
-          bg-gradient-to-b
-          from-transparent
-          via-black/65
-          to-black
-
-          min-[380px]:h-[30%]
-
-          min-[480px]:h-[32%]
-
-          sm:h-[34%]
-
-          md:h-[36%]
-
-          lg:h-[38%]
-        "
-      />
+  <img
+  src="/images/Frame1168.png"
+  alt=""
+  className="
+    absolute
+    inset-0
+    z-[1]
+    w-full
+    h-full
+    object-cover
+    object-center
+    select-none
+  "
+/>
 
       {/* =====================================================
           CENTER POWER RUSH BOX
@@ -258,7 +228,7 @@ export default function PowerRushProductShowcase() {
 
             min-[480px]:w-[135px]
 
-            sm:w-[155px]
+            sm:w-[185px]
 
             md:w-[180px]
 
@@ -277,33 +247,7 @@ export default function PowerRushProductShowcase() {
           CLIP PATH PRESERVED
       ====================================================== */}
 
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          z-[20]
-          overflow-hidden
-        "
-      >
-        <img
-          src="/images/Frame1168.png"
-          alt=""
-          className="
-            absolute
-            inset-0
-            h-full
-            w-full
-            object-cover
-            object-center
-            select-none
-          "
-          style={{
-            clipPath:
-              "polygon(74% 7%, 80% 4%, 86% 2%, 92% 0%, 100% 0%, 100% 100%, 54% 100%, 55% 82%, 58% 72%, 61% 63%, 64% 54%, 67% 45%, 70% 35%, 72% 25%, 73% 16%)",
-          }}
-        />
-      </div>
+   
 
       {/* =====================================================
           BOTTOM FOREGROUND ROCKS
@@ -311,33 +255,6 @@ export default function PowerRushProductShowcase() {
           CLIP PATH PRESERVED
       ====================================================== */}
 
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          z-[21]
-          overflow-hidden
-        "
-      >
-        <img
-          src="/images/Frame1168.png"
-          alt=""
-          className="
-            absolute
-            inset-0
-            h-full
-            w-full
-            object-cover
-            object-center
-            select-none
-          "
-          style={{
-            clipPath:
-              "polygon(0% 59%, 7% 58%, 13% 58%, 19% 59%, 24% 63%, 27% 70%, 30% 78%, 34% 84%, 38% 86%, 44% 84%, 49% 82%, 54% 83%, 59% 87%, 63% 93%, 67% 100%, 0% 100%)",
-          }}
-        />
-      </div>
 
       {/* =====================================================
           EXTRA BOTTOM BLEND

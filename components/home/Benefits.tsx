@@ -141,14 +141,13 @@ export default function Benefits() {
       ====================================================== */}
       <div
         className="
-          relative
-          mt-[38px]
-          w-full
-          overflow-visible
+  relative
+  mt-[20px]
+  w-full
+  overflow-visible
 
-          sm:mt-[45px]
-          md:mt-[55px]
-        "
+  sm:mt-[45px]
+  md:mt-[55px]"
       >
         {/* =================================================
             ROCK IMAGE
@@ -276,7 +275,7 @@ export default function Benefits() {
             pointer-events-none
             relative
             z-[2]
-            h-[230px]
+            h-[140px]
             w-full
 
             sm:h-[270px]
@@ -290,25 +289,27 @@ export default function Benefits() {
       {/* =====================================================
           START YOUR PROGRESS
       ====================================================== */}
-      <div
-        className="
-          relative
-          z-[30]
-          mt-[10px]
-          flex
-          w-full
-          flex-col
-          items-center
-          px-[16px]
-          text-center
+     <div
+  className="
+    relative
+    z-[30]
+    mt-[10px]
+    flex
+    w-full
+    flex-col
+    items-center
+    px-[16px]
+    text-center
 
-          sm:mt-[15px]
-          sm:px-[24px]
+    max-[767px]:!-mt-[70px]
 
-          md:mt-[20px]
-          md:px-[30px]
-        "
-      >
+    sm:mt-[15px]
+    sm:px-[24px]
+
+    md:mt-[20px]
+    md:px-[30px]
+  "
+>
         {/* =========================
             HEADING
         ========================== */}
@@ -419,14 +420,14 @@ export default function Benefits() {
           <button
             className="
               h-full
-              w-[145px]
+              w-[155px]
               shrink-0
               border
               border-white
               bg-white
-              px-[8px]
-              font-tactic-reg
-              text-[17px]
+            
+               font-tactic-reg
+              text-[5px]
               font-normal
               leading-[88%]
               tracking-[0%]
@@ -436,7 +437,7 @@ export default function Benefits() {
               text-[#000000]
 
               sm:w-[175px]
-              sm:text-[22px]
+              sm:text-[10px]
 
               md:w-[210px]
               md:text-[28px]

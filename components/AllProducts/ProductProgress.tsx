@@ -187,7 +187,7 @@ export default function ProductProgress() {
             type="button"
             className="
               h-full
-              w-[135px]
+              w-[165px]
               shrink-0
               border
               border-white
@@ -203,10 +203,11 @@ export default function ProductProgress() {
               whitespace-nowrap
               text-[#000000]
 
-              min-[380px]:w-[145px]
+              min-[380px]:w-[165px]
               min-[380px]:text-[18px]
-
-              min-[480px]:w-[155px]
+              
+ 
+              min-[480px]:w-[165px]
               min-[480px]:text-[19px]
 
               sm:w-[175px]

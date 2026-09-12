@@ -6,7 +6,8 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { FiRefreshCw } from "react-icons/fi";
+// import { FiRefreshCw } from "react-icons/fi";
+import { FiArrowUp } from "react-icons/fi";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -87,6 +88,7 @@ export default function Footer() {
 
           2xl:px-[70px]
           2xl:pb-[52px]
+          
         "
       >
         {/* =================================================
@@ -318,41 +320,16 @@ export default function Footer() {
               md:justify-end
             "
           >
-            {/* PRIVACY POLICY */}
-            <button
-              type="button"
-              className="
-                shrink-0
-                p-0
-                font-sf
-                font-[510]
-                leading-[1.3]
-                tracking-[0%]
-                text-[#959595]
-                transition-colors
-                duration-200
-                hover:text-white
-
-                text-[13px]
-                min-[380px]:text-[14px]
-                sm:text-[16px]
-                md:text-[20px]
-                lg:text-[24px]
-                xl:text-[30px]
-                2xl:text-[30px]
-              "
-            >
-              Privacy Policy
-            </button>
+        
 
             {/* =================================================
                 RELOAD BUTTON
             ================================================== */}
-   <button
+  <button
   type="button"
   onClick={scrollToTop}
   aria-label="Reload and go to top"
- className="
+  className="
   group
   flex
   shrink-0
@@ -371,6 +348,9 @@ export default function Footer() {
   hover:bg-white
   hover:text-black
 
+  max-[767px]:absolute
+  max-[767px]:right-[20px]
+
   min-[380px]:px-[9px]
   min-[380px]:py-[8px]
 
@@ -387,14 +367,14 @@ export default function Footer() {
   xl:py-[12px]
 "
 >
-  <FiRefreshCw
+  <FiArrowUp
     className="
-      h-[14px]
-      w-[14px]
+      h-[18px]
+      w-[18px]
 
       transition-transform
       duration-500
-      group-hover:rotate-180
+      group-hover:-translate-y-1
 
       min-[380px]:h-[15px]
       min-[380px]:w-[15px]
