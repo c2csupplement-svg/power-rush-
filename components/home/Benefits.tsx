@@ -47,9 +47,6 @@ export default function Benefits() {
         bg-black
       "
     >
-      {/* =====================================================
-          HEADING
-      ====================================================== */}
       <div
         className="
           benefits-heading
@@ -66,7 +63,6 @@ export default function Benefits() {
         "
       >
         <Reveal>
-          {/* BENEFITS */}
           <div
             className="
               font-dm-mono
@@ -83,7 +79,6 @@ export default function Benefits() {
             BENEFITS
           </div>
 
-          {/* MAIN HEADING */}
           <h2
             className="
               mt-[15px]
@@ -107,7 +102,6 @@ export default function Benefits() {
             FUEL EVERY TRAINING SESSION
           </h2>
 
-          {/* DESCRIPTION */}
           <p
             className="
               mx-auto
@@ -136,9 +130,6 @@ export default function Benefits() {
         </Reveal>
       </div>
 
-      {/* =====================================================
-          CARDS + ROCK BACKGROUND
-      ====================================================== */}
       <div
         className="
   relative
@@ -149,10 +140,6 @@ export default function Benefits() {
   sm:mt-[45px]
   md:mt-[55px]"
       >
-        {/* =================================================
-            ROCK IMAGE
-            BEHIND CARDS
-        ================================================== */}
         <div
           className="
             pointer-events-none
@@ -190,7 +177,6 @@ export default function Benefits() {
             "
           />
 
-          {/* TOP DARK BLEND */}
           <div
             className="
               pointer-events-none
@@ -207,7 +193,6 @@ export default function Benefits() {
             "
           />
 
-          {/* BOTTOM BLEND */}
           <div
             className="
               pointer-events-none
@@ -225,9 +210,6 @@ export default function Benefits() {
           />
         </div>
 
-        {/* =================================================
-            BENEFIT CARDS
-        ================================================== */}
         <div
           className="
     benefit-grid
@@ -266,10 +248,6 @@ export default function Benefits() {
           ))}
         </div>
 
-        {/* =================================================
-            EXTRA ROCK AREA
-            KEEPS ROCKS VISIBLE BELOW CARDS
-        ================================================== */}
         <div
           className="
             pointer-events-none
@@ -286,11 +264,8 @@ export default function Benefits() {
         />
       </div>
 
-      {/* =====================================================
-          START YOUR PROGRESS
-      ====================================================== */}
-     <div
-  className="
+      <div
+        className="
     relative
     z-[30]
     mt-[10px]
@@ -309,10 +284,7 @@ export default function Benefits() {
     md:mt-[20px]
     md:px-[30px]
   "
->
-        {/* =========================
-            HEADING
-        ========================== */}
+      >
         <h2
           className="
             max-w-full
@@ -337,9 +309,6 @@ export default function Benefits() {
           START YOUR PROGRESS
         </h2>
 
-        {/* =========================
-            DESCRIPTION
-        ========================== */}
         <p
           className="
             mt-[15px]
@@ -370,11 +339,8 @@ export default function Benefits() {
           updates, and early access to future releases.
         </p>
 
-        {/* =========================
-            EMAIL FORM
-        ========================== */}
-       <div
-  className="
+        <div
+          className="
     mt-[22px]
     flex
     h-[50px]
@@ -388,11 +354,11 @@ export default function Benefits() {
     md:mt-[28px]
     md:h-[58px]
   "
->
-  <input
-    type="email"
-    placeholder="Enter your email"
-    className="
+        >
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="
       h-full
       min-w-0
       flex-1
@@ -415,10 +381,10 @@ export default function Benefits() {
       md:px-[20px]
       md:text-[20px]
     "
-  />
+          />
 
-  <button
-    className="
+          <button
+            className="
      h-full
 w-[155px]
 shrink-0
@@ -448,10 +414,10 @@ md:text-[18px]
 lg:w-[230px]
 lg:text-[24px]
     "
-  >
-    JOIN POWER RUSH
-  </button>
-</div>
+          >
+            JOIN POWER RUSH
+          </button>
+        </div>
       </div>
     </section>
   );

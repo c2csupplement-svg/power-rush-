@@ -26,9 +26,6 @@ export default function BuildGoal() {
         2xl:-mt-[120px]
       "
     >
-      {/* =====================================================
-          GYM IMAGE
-      ====================================================== */}
       <div
         className="
           relative
@@ -62,9 +59,6 @@ export default function BuildGoal() {
             "
           />
 
-          {/* =================================================
-              TOP BLEND
-          ================================================== */}
           <div
             className="
               pointer-events-none
@@ -90,9 +84,6 @@ export default function BuildGoal() {
             "
           />
 
-          {/* =================================================
-              BOTTOM BLEND
-          ================================================== */}
           <div
             className="
               pointer-events-none
@@ -120,9 +111,6 @@ export default function BuildGoal() {
         </div>
       </div>
 
-      {/* =====================================================
-          BUILD CONTENT
-      ====================================================== */}
       <div
         className="
           absolute
@@ -160,11 +148,8 @@ export default function BuildGoal() {
         "
       >
         <Reveal>
-          {/* =================================================
-              HEADING
-          ================================================== */}
-   <h2
-  className="
+          <h2
+            className="
     max-w-full
     !font-tactic-exd
     !font-normal
@@ -199,12 +184,11 @@ export default function BuildGoal() {
     /* LARGE DESKTOP */
     2xl:!text-[60px]
   "
->
-  BUILD FOR
-  <br />
-
-  <span
-    className="
+          >
+            BUILD FOR
+            <br />
+            <span
+              className="
       !font-tactic-exd
       !font-normal
       !leading-[100%]
@@ -230,14 +214,11 @@ export default function BuildGoal() {
       /* LARGE DESKTOP */
       2xl:!text-[68px]
     "
-  >
-    EVERY GOAL
-  </span>
-</h2>
+            >
+              EVERY GOAL
+            </span>
+          </h2>
 
-          {/* =================================================
-              DESCRIPTION
-          ================================================== */}
           <p
             className="
               !mt-[10px]
@@ -288,9 +269,6 @@ export default function BuildGoal() {
         </Reveal>
       </div>
 
-      {/* =====================================================
-          BOTTOM SPACE
-      ====================================================== */}
       <div
         className="
           h-[3px]

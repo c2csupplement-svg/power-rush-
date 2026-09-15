@@ -23,7 +23,6 @@ export default function About() {
   lg:min-h-[100dvh]
       "
     >
-     
       <div className="pointer-events-none absolute inset-0 z-0">
         <img
           src="/images/image423.png"
@@ -37,7 +36,6 @@ export default function About() {
           "
         />
 
-        
         <div
           className="
             absolute
@@ -58,7 +56,6 @@ export default function About() {
           "
         />
 
-       
         <div
           className="
             absolute
@@ -68,7 +65,6 @@ export default function About() {
           "
         />
 
-     
         <div
           className="
             absolute
@@ -89,11 +85,8 @@ export default function About() {
         />
       </div>
 
-      {/* =====================================================
-          ABOUT US
-      ====================================================== */}
-     <motion.div
-  className="
+      <motion.div
+        className="
     absolute
     left-0
     z-20
@@ -128,29 +121,29 @@ export default function About() {
 
     max-[767px]:hidden
   "
-  initial={{
-    opacity: 0,
-    y: -120,
-  }}
-  whileInView={{
-    opacity: 1,
-    y: 0,
-  }}
-  viewport={{
-    once: false,
-    amount: 0.2,
-  }}
-  transition={{
-    duration: animationDuration,
-    ease: animationEase,
-  }}
->
-  ABOUT US
-</motion.div>
+        initial={{
+          opacity: 0,
+          y: -120,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: false,
+          amount: 0.2,
+        }}
+        transition={{
+          duration: animationDuration,
+          ease: animationEase,
+        }}
+      >
+        ABOUT US
+      </motion.div>
 
-{/* PHONE ONLY */}
-<motion.div
-  className="
+      {/* PHONE ONLY */}
+      <motion.div
+        className="
     absolute
     left-0
     top-[22%]
@@ -170,29 +163,26 @@ export default function About() {
 
     min-[768px]:hidden
   "
-  initial={{
-    opacity: 0,
-    y: -40,
-  }}
-  whileInView={{
-    opacity: 1,
-    y: 0,
-  }}
-  viewport={{
-    once: false,
-    amount: 0.2,
-  }}
-  transition={{
-    duration: animationDuration,
-    ease: animationEase,
-  }}
->
-  ABOUT US
-</motion.div>
+        initial={{
+          opacity: 0,
+          y: -40,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: false,
+          amount: 0.2,
+        }}
+        transition={{
+          duration: animationDuration,
+          ease: animationEase,
+        }}
+      >
+        ABOUT US
+      </motion.div>
 
-      {/* =====================================================
-          MAIN DESCRIPTION
-      ====================================================== */}
       <div
         className="
           pointer-events-none
@@ -233,7 +223,7 @@ export default function About() {
         "
       >
         <motion.h2
-  className="
+          className="
     m-0
     block
     w-full
@@ -279,44 +269,39 @@ export default function About() {
     2xl:max-w-[1400px]
     2xl:!text-[21px]
   "
-  initial={{
-    opacity: 0,
-    x: -70,
-  }}
-  whileInView={{
-    opacity: 1,
-    x: 0,
-  }}
-  viewport={{
-    once: false,
-    amount: 0.15,
-  }}
-  transition={{
-    duration: animationDuration,
-    ease: animationEase,
-  }}
->
-  <span className="block">
-    WE’RE FOCUSED ON CREATING PERFORMANCE-DRIVEN PRODUCTS 
-    INTO REAL
-  </span>
+          initial={{
+            opacity: 0,
+            x: -70,
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+          }}
+          viewport={{
+            once: false,
+            amount: 0.15,
+          }}
+          transition={{
+            duration: animationDuration,
+            ease: animationEase,
+          }}
+        >
+          <span className="block">
+            WE’RE FOCUSED ON CREATING PERFORMANCE-DRIVEN PRODUCTS INTO REAL
+          </span>
 
-  <span className="mt-[4px] block">
-    TRAINING, REAL ROUTINES, AND REAL GOALS. FROM INTENSE GYM SESSIONS
-    TO THE FINAL REP, OUR FORMULAS ARE DESIGNED FOR PEOPLE WHO SHOW UP,
-    PUT IN THE WORK, AND KEEP PUSHING WHEN THINGS GET DIFFICULT.
-  </span>
-</motion.h2>
-
+          <span className="mt-[4px] block">
+            TRAINING, REAL ROUTINES, AND REAL GOALS. FROM INTENSE GYM SESSIONS
+            TO THE FINAL REP, OUR FORMULAS ARE DESIGNED FOR PEOPLE WHO SHOW UP,
+            PUT IN THE WORK, AND KEEP PUSHING WHEN THINGS GET DIFFICULT.
+          </span>
+        </motion.h2>
       </div>
 
-      {/* =====================================================
-          READ MORE BUTTON
-      ====================================================== */}
-    <motion.button
-  type="button"
-  onClick={() => router.push("/readmore")}
-  className="
+      <motion.button
+        type="button"
+        onClick={() => router.push("/readmore")}
+        className="
     absolute
     left-1/2
     z-30
@@ -371,26 +356,25 @@ min-[380px]:!text-[16px]
     /* LARGE DESKTOP */
     2xl:top-[54.5%]
   "
-  initial={{
-    opacity: 0,
-    y: 120,
-  }}
-  whileInView={{
-    opacity: 1,
-    y: 0,
-  }}
-  viewport={{
-    once: false,
-    amount: 0.45,
-  }}
-  transition={{
-    duration: animationDuration,
-    ease: animationEase,
-  }}
->
-  {/* ARROW BOX */}
-  <i
-    className="
+        initial={{
+          opacity: 0,
+          y: 120,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: false,
+          amount: 0.45,
+        }}
+        transition={{
+          duration: animationDuration,
+          ease: animationEase,
+        }}
+      >
+        <i
+          className="
       absolute
       top-0
       left-[-43px]
@@ -441,22 +425,21 @@ min-[380px]:!text-[16px]
       xl:w-[52px]
       xl:!text-[38px]
     "
-  >
-    <span
-      className="
+        >
+          <span
+            className="
         absolute
         left-1/2
         top-1/2
         -translate-x-1/2
         -translate-y-[68%]
       "
-    >
-      →
-    </span>
-  </i>
-
-  READ MORE
-</motion.button>
+          >
+            →
+          </span>
+        </i>
+        READ MORE
+      </motion.button>
     </section>
   );
 }

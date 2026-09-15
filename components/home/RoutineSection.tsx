@@ -44,7 +44,7 @@ export default function RoutineSection() {
           LEFT ROCK
       ========================== */}
       <div
-  className="
+        className="
     pointer-events-none
     absolute
     left-0
@@ -55,22 +55,22 @@ export default function RoutineSection() {
     max-w-[280px]
     overflow-hidden
   "
->
-  <Image
-    src="/images/image415.png"
-    alt=""
-    fill
-    priority
-    className="
+      >
+        <Image
+          src="/images/image415.png"
+          alt=""
+          fill
+          priority
+          className="
       object-contain
       object-left-top
       scale-[1.15]
     "
-  />
+        />
 
-  {/* TOP BLEND */}
-  <div
-    className="
+        {/* TOP BLEND */}
+        <div
+          className="
       pointer-events-none
       absolute
       left-0
@@ -81,14 +81,14 @@ export default function RoutineSection() {
       md:h-[210px]
       lg:h-[240px]
     "
-  />
-</div>
+        />
+      </div>
 
       {/* =========================
           RIGHT ROCK
       ========================== */}
-     <div
-  className="
+      <div
+        className="
     pointer-events-none
     absolute
     right-0
@@ -99,23 +99,23 @@ export default function RoutineSection() {
     max-w-[280px]
     overflow-hidden
   "
->
-  <Image
-    src="/images/image415.png"
-    alt=""
-    fill
-    priority
-    className="
+      >
+        <Image
+          src="/images/image415.png"
+          alt=""
+          fill
+          priority
+          className="
       scale-x-[-1]
       object-contain
       object-right-top
       scale-[1.15]
     "
-  />
+        />
 
-  {/* TOP BLEND */}
-  <div
-    className="
+        {/* TOP BLEND */}
+        <div
+          className="
       pointer-events-none
       absolute
       left-0
@@ -126,8 +126,8 @@ export default function RoutineSection() {
       md:h-[210px]
       lg:h-[240px]
     "
-  />
-</div>
+        />
+      </div>
 
       {/* =========================
           CONTENT
@@ -166,7 +166,7 @@ export default function RoutineSection() {
           "
         >
           <p
-  className="
+            className="
     font-dm-mono
     text-[30px]
     font-[500]
@@ -175,12 +175,12 @@ export default function RoutineSection() {
     text-[#9D9D9D]
     md:text-[38px]
   "
->
-  HOW TO USE
-</p>
+          >
+            HOW TO USE
+          </p>
 
-         <h2
-  className="
+          <h2
+            className="
     mt-[22px]
     max-w-[1200px]
     bg-[linear-gradient(90.24deg,#A5A5A5_0%,#FFFFFF_46.06%,#878787_99.79%)]
@@ -195,11 +195,11 @@ export default function RoutineSection() {
     md:text-[40px]
     lg:text-[46.58px]
   "
->
-  SIMPLE ROUTINE. CONSISTENT RESULTS.
-</h2>
-<p
-  className="
+          >
+            SIMPLE ROUTINE. CONSISTENT RESULTS.
+          </h2>
+          <p
+            className="
     mt-[22px]
     max-w-[850px]
     font-sf
@@ -211,17 +211,14 @@ export default function RoutineSection() {
     md:text-[20px]
     lg:text-[22px]
   "
->
-  Just one scoop a day is all it takes to support strength, recovery,
-  and long-term
-  <br className="hidden md:block" />
-  performance. No complicated routine required.
-</p>
+          >
+            Just one scoop a day is all it takes to support strength, recovery,
+            and long-term
+            <br className="hidden md:block" />
+            performance. No complicated routine required.
+          </p>
         </div>
 
-        {/* =========================
-            CARDS
-        ========================== */}
         <div
           className="
             relative
@@ -235,10 +232,10 @@ export default function RoutineSection() {
             lg:grid-cols-3
           "
         >
-        {steps.map((step, index) => (
-  <div
-    key={step.number}
-    className={`
+          {steps.map((step, index) => (
+            <div
+              key={step.number}
+              className={`
       relative
       flex
       h-[330px]
@@ -252,15 +249,14 @@ export default function RoutineSection() {
       ${index === 0 ? "lg:-translate-x-[50px]" : ""}
       ${index === 2 ? "lg:translate-x-[50px]" : ""}
     `}
-  >
-              {/* PRODUCT IMAGE */}
-             <div
-  className={`
+            >
+              <div
+                className={`
     relative
     shrink-0
     ${index === 1 ? "h-[350px] w-[52%]" : "h-[320px] w-[48%]"}
   `}
->
+              >
                 <Image
                   src={step.image}
                   alt=""
@@ -269,7 +265,6 @@ export default function RoutineSection() {
                 />
               </div>
 
-              {/* CARD CONTENT */}
               <div
                 className="
                   flex
@@ -292,8 +287,8 @@ export default function RoutineSection() {
                   {step.number}
                 </span>
 
-               <h3
-  className="
+                <h3
+                  className="
     mt-[20px]
     whitespace-pre-line
     font-tactic-exd
@@ -304,12 +299,12 @@ export default function RoutineSection() {
     tracking-[0%]
     text-white
   "
->
-  {step.title}
-</h3>
+                >
+                  {step.title}
+                </h3>
 
                 <p
-  className="
+                  className="
     mt-[22px]
     max-w-[250px]
     font-sf
@@ -319,17 +314,14 @@ export default function RoutineSection() {
     tracking-[0%]
     text-[#9D9D9D]
   "
->
-  {step.description}
-</p>
+                >
+                  {step.description}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* =========================
-            BOTTOM POWER RUSH MARQUEE
-        ========================== */}
         <div
           className="
             absolute
@@ -341,7 +333,6 @@ export default function RoutineSection() {
           "
         >
           <div className="flex w-max">
-            {/* FIRST SET */}
             <div className="flex shrink-0 animate-marquee">
               {Array.from({ length: 8 }).map((_, index) => (
                 <div
@@ -367,7 +358,6 @@ export default function RoutineSection() {
               ))}
             </div>
 
-            {/* SECOND SET */}
             <div className="flex shrink-0 animate-marquee">
               {Array.from({ length: 8 }).map((_, index) => (
                 <div

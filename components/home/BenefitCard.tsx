@@ -51,10 +51,6 @@ export default function BenefitCard({
         duration: 0.25,
       }}
     >
-      {/* =====================================================
-          HOVER BACKGROUND
-          DARK BOTTOM → LIGHT TOWARDS CENTER → BLACK TOP
-      ====================================================== */}
       <div
         className="
           pointer-events-none
@@ -73,9 +69,6 @@ export default function BenefitCard({
         }}
       />
 
-      {/* =====================================================
-          INNER CORNER SHAPES
-      ====================================================== */}
       <div
         className="
           pointer-events-none
@@ -93,7 +86,6 @@ export default function BenefitCard({
           opacity: hover ? 1 : 0,
         }}
       >
-        {/* TOP LEFT */}
         <span
           className="
             absolute
@@ -115,7 +107,6 @@ export default function BenefitCard({
           "
         />
 
-        {/* TOP RIGHT */}
         <span
           className="
             absolute
@@ -137,7 +128,6 @@ export default function BenefitCard({
           "
         />
 
-        {/* BOTTOM LEFT */}
         <span
           className="
             absolute
@@ -159,7 +149,6 @@ export default function BenefitCard({
           "
         />
 
-        {/* BOTTOM RIGHT */}
         <span
           className="
             absolute
@@ -206,9 +195,6 @@ export default function BenefitCard({
         {number}
       </div>
 
-      {/* =====================================================
-          TITLE
-      ====================================================== */}
       <h3
         className="
           relative
@@ -238,11 +224,8 @@ export default function BenefitCard({
         {title}
       </h3>
 
-      {/* =====================================================
-          DESCRIPTION
-      ====================================================== */}
-     <p
-  className="
+      <p
+        className="
     relative
     z-[10]
 
@@ -265,12 +248,12 @@ export default function BenefitCard({
     transition-colors
     duration-300
   "
-  style={{
-    color: hover ? "#ffffff" : "#606060",
-  }}
->
-  {body}
-</p>
+        style={{
+          color: hover ? "#ffffff" : "#606060",
+        }}
+      >
+        {body}
+      </p>
     </motion.article>
   );
 }

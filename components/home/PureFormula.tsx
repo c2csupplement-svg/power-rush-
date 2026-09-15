@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion, useInView } from "framer-motion";
@@ -15,7 +14,7 @@ export default function PureFormulaSection() {
   return (
     <section
       ref={sectionRef}
-  className="
+      className="
   relative
   min-h-[0px]
   w-full
@@ -46,8 +45,6 @@ export default function PureFormulaSection() {
   xl:pb-[120px]
 "
     >
-      {/* ================= HEADER ================= */}
-
       <motion.div
         className="
           relative
@@ -128,8 +125,6 @@ export default function PureFormulaSection() {
         </p>
       </motion.div>
 
-      {/* ================= MAIN AREA ================= */}
-
       <div
         className="
           relative
@@ -159,10 +154,6 @@ export default function PureFormulaSection() {
           max-[380px]:h-[440px]
         "
       >
-        {/* =================================================
-            TOP LEFT CONNECTOR
-        ================================================= */}
-
         <svg
           className="
             pointer-events-none
@@ -223,10 +214,6 @@ export default function PureFormulaSection() {
             }}
           />
         </svg>
-
-        {/* =================================================
-            TOP RIGHT CONNECTOR
-        ================================================= */}
 
         <svg
           className="
@@ -289,10 +276,6 @@ export default function PureFormulaSection() {
           />
         </svg>
 
-        {/* =================================================
-            BOTTOM LEFT CONNECTOR
-        ================================================= */}
-
         <svg
           className="
             pointer-events-none
@@ -353,10 +336,6 @@ export default function PureFormulaSection() {
             }}
           />
         </svg>
-
-        {/* =================================================
-            BOTTOM RIGHT CONNECTOR
-        ================================================= */}
 
         <svg
           className="
@@ -419,12 +398,8 @@ export default function PureFormulaSection() {
           />
         </svg>
 
-        {/* =================================================
-            PRODUCT
-        ================================================= */}
-<motion.div
-
-    className="
+        <motion.div
+          className="
   absolute
   left-1/2
   top-[60%]
@@ -434,27 +409,26 @@ export default function PureFormulaSection() {
 
   max-[600px]:-translate-y-[67%]
 "
-   
-  initial={{
-    opacity: 0,
-    y: 260,
-    scale: 0.55,
-  }}
-  animate={{
-    opacity: isInView ? 1 : 0,
-    y: isInView ? 0 : 260,
-    scale: isInView ? 1 : 0.55,
-  }}
-  transition={{
-    duration: 1.35,
-    delay: 0.45,
-    ease: [0.16, 0.8, 0.2, 1],
-  }}
->
-  <img
-    src="/images/powoe2.png"
-    alt="Power Rush"
-    className="
+          initial={{
+            opacity: 0,
+            y: 260,
+            scale: 0.55,
+          }}
+          animate={{
+            opacity: isInView ? 1 : 0,
+            y: isInView ? 0 : 260,
+            scale: isInView ? 1 : 0.55,
+          }}
+          transition={{
+            duration: 1.35,
+            delay: 0.45,
+            ease: [0.16, 0.8, 0.2, 1],
+          }}
+        >
+          <img
+            src="/images/powoe2.png"
+            alt="Power Rush"
+            className="
       block
       h-auto
       w-[175px]
@@ -470,12 +444,8 @@ export default function PureFormulaSection() {
       max-[480px]:w-[140px]
       max-[380px]:w-[125px]
     "
-  />
-</motion.div>
-
-        {/* =================================================
-            LABEL 1
-        ================================================= */}
+          />
+        </motion.div>
 
         <motion.div
           className="
@@ -515,20 +485,14 @@ export default function PureFormulaSection() {
             ease: "easeOut",
           }}
         >
-         <span className="hidden min-[601px]:inline">
-  MICRONIZED FORMULA
-</span>
+          <span className="hidden min-[601px]:inline">MICRONIZED FORMULA</span>
 
-<span className="inline min-[601px]:hidden">
-  MICRONIZED
-  <br />
-  FORMULA
-</span>
+          <span className="inline min-[601px]:hidden">
+            MICRONIZED
+            <br />
+            FORMULA
+          </span>
         </motion.div>
-
-        {/* =================================================
-            LABEL 2
-        ================================================= */}
 
         <motion.div
           className="
@@ -568,21 +532,15 @@ export default function PureFormulaSection() {
             ease: "easeOut",
           }}
         >
-          <span className="hidden min-[601px]:inline">
-  RESEARCH SPOTED
-</span>
+          <span className="hidden min-[601px]:inline">RESEARCH SPOTED</span>
 
-<span className="inline min-[601px]:hidden">
- RESEARCH <br /> SPOTED
-</span>
-          
+          <span className="inline min-[601px]:hidden">
+            RESEARCH <br /> SPOTED
+          </span>
         </motion.div>
 
-        {/* =================================================
-            LABEL 3
-        ================================================= */}
-<motion.div
- className="
+        <motion.div
+          className="
   absolute
   left-[3%]
   bottom-[-3%]
@@ -612,13 +570,9 @@ export default function PureFormulaSection() {
   max-[380px]:bottom-[7%]
   max-[380px]:text-[9px]
 "
->
+        >
           99.9% PURE
         </motion.div>
-
-        {/* =================================================
-            LABEL 4
-        ================================================= */}
 
         <motion.div
           className="
@@ -664,17 +618,14 @@ export default function PureFormulaSection() {
             ease: "easeOut",
           }}
         >
-         
-           <span className="hidden min-[601px]:inline">
-   DAILY PERFORMANCE
-</span>
+          <span className="hidden min-[601px]:inline">DAILY PERFORMANCE</span>
 
-<span className="inline min-[601px]:hidden">
-  DAILY <br />PERFORMANCE
-</span>
+          <span className="inline min-[601px]:hidden">
+            DAILY <br />
+            PERFORMANCE
+          </span>
         </motion.div>
       </div>
     </section>
   );
 }
-

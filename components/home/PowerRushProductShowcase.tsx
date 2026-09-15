@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion, useInView } from "framer-motion";
@@ -14,8 +13,8 @@ export default function PowerRushProductShowcase() {
 
   return (
     <section
-  ref={sectionRef}
-  className="
+      ref={sectionRef}
+      className="
     relative
     isolate
     w-full
@@ -38,21 +37,11 @@ export default function PowerRushProductShowcase() {
 
     2xl:h-[1050px]
   "
->
-      {/* =====================================================
-          BLACK BASE
-      ====================================================== */}
-
-      {/* <div className="absolute inset-0 z-0 bg-black" /> */}
-
-      {/* =====================================================
-          ROCK BACKGROUND
-      ====================================================== */}
-
-  <img
-  src="/images/Frame1168.png"
-  alt=""
-  className="
+    >
+      <img
+        src="/images/Frame1168.png"
+        alt=""
+        className="
     absolute
     inset-0
     z-[1]
@@ -62,13 +51,7 @@ export default function PowerRushProductShowcase() {
     object-center
     select-none
   "
-/>
-
-      {/* =====================================================
-          CENTER POWER RUSH BOX
-
-          ANIMATION VALUES UNCHANGED
-      ====================================================== */}
+      />
 
       <motion.div
         className="
@@ -150,13 +133,6 @@ export default function PowerRushProductShowcase() {
           "
         />
       </motion.div>
-
-      {/* =====================================================
-          SMALL POWER RUSH STICK
-
-          RESPONSIVE POSITION
-          ANIMATION VALUES UNCHANGED
-      ====================================================== */}
 
       <motion.div
         className="
@@ -240,25 +216,6 @@ export default function PowerRushProductShowcase() {
           "
         />
       </motion.div>
-
-      {/* =====================================================
-          RIGHT FOREGROUND ROCK
-
-          CLIP PATH PRESERVED
-      ====================================================== */}
-
-   
-
-      {/* =====================================================
-          BOTTOM FOREGROUND ROCKS
-
-          CLIP PATH PRESERVED
-      ====================================================== */}
-
-
-      {/* =====================================================
-          EXTRA BOTTOM BLEND
-      ====================================================== */}
 
       <div
         className="

@@ -4,9 +4,7 @@
 export default function BlogProgress() {
   return (
     <section className="relative w-full overflow-hidden bg-black">
-      {/* =====================================================
-          START YOUR PROGRESS
-      ====================================================== */}
+    
       <div
         className="
           relative
@@ -37,9 +35,7 @@ export default function BlogProgress() {
           2xl:px-[100px]
         "
       >
-        {/* =====================================================
-            HEADING
-        ====================================================== */}
+       
         <h2
           className="
             w-full

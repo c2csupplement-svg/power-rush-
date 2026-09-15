@@ -99,9 +99,7 @@ export default function Footer() {
     2xl:h-[270px]
   "
 />
-      {/* =====================================================
-          FOOTER CONTENT
-      ====================================================== */}
+     
       <div
         className="
           flex
@@ -131,9 +129,7 @@ export default function Footer() {
           
         "
       >
-        {/* =================================================
-            TOP FOOTER ROW
-        ================================================== */}
+       
         <div
           className="
             flex
@@ -149,9 +145,7 @@ export default function Footer() {
             xl:gap-[60px]
           "
         >
-          {/* =================================================
-              RUSH POWER
-          ================================================== */}
+        
           <div
             className="
               min-w-0
@@ -177,9 +171,6 @@ export default function Footer() {
             #RUSH POWER
           </div>
 
-          {/* =================================================
-              SOCIAL ICONS
-          ================================================== */}
           <div
             className="
               flex
@@ -195,7 +186,7 @@ export default function Footer() {
               xl:gap-[28px]
             "
           >
-            {/* PINTEREST */}
+         
             <a
               href="#"
               aria-label="Pinterest"
@@ -219,7 +210,7 @@ export default function Footer() {
               />
             </a>
 
-            {/* INSTAGRAM */}
+           
             <a
               href="#"
               aria-label="Instagram"
@@ -267,7 +258,7 @@ export default function Footer() {
               />
             </a>
 
-            {/* YOUTUBE */}
+         
             <a
               href="#"
               aria-label="YouTube"
@@ -293,9 +284,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* =================================================
-            BOTTOM FOOTER ROW
-        ================================================== */}
+        
         <div
           className="
             mt-[20px]
@@ -320,9 +309,7 @@ export default function Footer() {
             xl:mt-[38px]
           "
         >
-          {/* =================================================
-              COPYRIGHT
-          ================================================== */}
+          
           <p
             className="
               m-0
@@ -345,9 +332,7 @@ export default function Footer() {
             Copyright © 2025 the creatine company - All Rights Reserved
           </p>
 
-          {/* =================================================
-              RIGHT SIDE
-          ================================================== */}
+         
           <div
             className="
               flex
@@ -362,9 +347,7 @@ export default function Footer() {
           >
         
 
-            {/* =================================================
-                RELOAD BUTTON
-            ================================================== */}
+           
   <button
   type="button"
   onClick={scrollToTop}

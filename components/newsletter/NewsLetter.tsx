@@ -6,9 +6,7 @@ import Footer from "@/components/home/Footer ";
 export default function Newsletter() {
   return (
     <main className="w-full overflow-x-hidden bg-black">
-      {/* =====================================================
-          START YOUR PROGRESS / NEWSLETTER
-      ====================================================== */}
+     
       <section className="relative w-full overflow-hidden bg-black">
         <div
           className="
@@ -43,9 +41,7 @@ export default function Newsletter() {
             2xl:px-[100px]
           "
         >
-          {/* =========================
-              HEADING
-          ========================== */}
+        
       <h2
   className="
     w-full
@@ -88,9 +84,7 @@ export default function Newsletter() {
   START YOUR PROGRESS
 </h2>
 
-          {/* =========================
-              DESCRIPTION
-          ========================== */}
+          
           <p
             className="
               mt-[14px]
@@ -138,9 +132,7 @@ export default function Newsletter() {
             to future releases.
           </p>
 
-          {/* =========================
-              EMAIL FORM
-          ========================== */}
+        
           <div
             className="
               mt-[22px]
@@ -175,9 +167,7 @@ export default function Newsletter() {
               xl:max-w-[500px]
             "
           >
-            {/* =========================
-                EMAIL INPUT
-            ========================== */}
+           
             <input
               type="email"
               placeholder="Enter your email"
@@ -222,9 +212,7 @@ export default function Newsletter() {
               "
             />
 
-            {/* =========================
-                JOIN BUTTON
-            ========================== */}
+           
             <button
               type="button"
               className="
@@ -284,14 +272,9 @@ export default function Newsletter() {
         </div>
       </section>
 
-      {/* =====================================================
-          FINAL STAGE
-      ====================================================== */}
+     
       <FinalStage />
 
-      {/* =====================================================
-          FOOTER
-      ====================================================== */}
       <Footer />
     </main>
   );

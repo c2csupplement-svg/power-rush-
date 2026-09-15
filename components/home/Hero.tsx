@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -21,11 +20,8 @@ export default function Hero() {
         xl:min-h-[700px]
       "
     >
-      {/* =====================================================
-          LEFT ROCK + DESCRIPTION
-      ====================================================== */}
-<motion.div
-  className="
+      <motion.div
+        className="
     absolute
     left-0
     top-0
@@ -58,10 +54,10 @@ export default function Hero() {
       >
         {/* LEFT ROCK */}
         {/* LEFT ROCK */}
-<img
-  src="/images/image415.png"
-  alt=""
-  className="
+        <img
+          src="/images/image415.png"
+          alt=""
+          className="
     absolute
     left-0
     top-0
@@ -73,11 +69,11 @@ export default function Hero() {
     max-[767px]:!left-0
     max-[767px]:!w-full
   "
-/>
+        />
 
         {/* LEFT DESCRIPTION */}
         <div
-  className="
+          className="
     absolute
     left-[10%]
     top-[19%]
@@ -96,19 +92,15 @@ export default function Hero() {
 
     max-[767px]:!hidden
   "
->
-  Power Rush is built for those who take their training seriously.
-  Each single-serving stick combines Creatine Monohydrate, Caffeine,
-  and Taurine
-</div>
+        >
+          Power Rush is built for those who take their training seriously. Each
+          single-serving stick combines Creatine Monohydrate, Caffeine, and
+          Taurine
+        </div>
       </motion.div>
 
-      {/* =====================================================
-          RIGHT ROCK + DESCRIPTION
-      ====================================================== */}
-
-     <motion.div
-  className="
+      <motion.div
+        className="
     absolute
     right-0
     top-0
@@ -132,19 +124,18 @@ export default function Hero() {
     max-[767px]:!right-[-5vw]
     max-[767px]:!w-[27vw]
   "
-  initial={{ x: "100%" }}
-  animate={{ x: "0%" }}
-  transition={{
-    duration: 2.8,
-    delay: 0.1,
-    ease: [0.22, 1, 0.36, 1],
-  }}
->
-        {/* RIGHT ROCK */}
+        initial={{ x: "100%" }}
+        animate={{ x: "0%" }}
+        transition={{
+          duration: 2.8,
+          delay: 0.1,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
         <img
-  src="/images/image415.png"
-  alt=""
-  className="
+          src="/images/image415.png"
+          alt=""
+          className="
     absolute
     right-0
     top-0
@@ -154,11 +145,10 @@ export default function Hero() {
     object-center
     scale-x-[-1]
   "
-/>
+        />
 
-      {/* RIGHT DESCRIPTION */}
-<div
-  className="
+        <div
+          className="
     absolute
     right-[10%]
     top-[61%]
@@ -194,16 +184,15 @@ export default function Hero() {
     xl:w-[285px]
     xl:text-[17px]
   "
->
-  Power Rush is built for those who take their training seriously.
-  Each single-serving stick combines Creatine Monohydrate, Caffeine,
-  and Taurine
-</div>
+        >
+          Power Rush is built for those who take their training seriously. Each
+          single-serving stick combines Creatine Monohydrate, Caffeine, and
+          Taurine
+        </div>
       </motion.div>
 
-      {/* PHONE ONLY - CENTER DESCRIPTION */}
-<motion.div
-  className="
+      <motion.div
+        className="
     absolute
     left-1/2
     top-[72%]
@@ -223,22 +212,18 @@ export default function Hero() {
 
     max-[767px]:block
   "
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{
-    duration: 1.2,
-    delay: 0.5,
-    ease: [0.22, 1, 0.36, 1],
-  }}
->
-  Power Rush is built for those who take their training seriously.
-  Each single-serving stick combines Creatine Monohydrate, Caffeine,
-  and Taurine
-</motion.div>
-
-      {/* =====================================================
-          CENTER MARQUEE
-      ====================================================== */}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 1.2,
+          delay: 0.5,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        Power Rush is built for those who take their training seriously. Each
+        single-serving stick combines Creatine Monohydrate, Caffeine, and
+        Taurine
+      </motion.div>
 
       <motion.div
         className="
@@ -366,10 +351,6 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* =====================================================
-          CENTER PRODUCT
-      ====================================================== */}
-
       <motion.div
         className="
           absolute
@@ -394,7 +375,6 @@ export default function Hero() {
           ease: "easeOut",
         }}
       >
-        {/* ONLY VERTICAL MOVEMENT */}
         <motion.div
           animate={{
             y: [0, -25, 0, 22, 0],
@@ -406,9 +386,9 @@ export default function Hero() {
           }}
         >
           <img
-  src="/images/power1.png"
-  alt="Power Rush product"
-  className="
+            src="/images/power1.png"
+            alt="Power Rush product"
+            className="
     h-[280px]
     w-[200px]
     max-w-[50vw]
@@ -435,16 +415,12 @@ export default function Hero() {
     2xl:h-[660px]
     2xl:w-[410px]
   "
-/>
+          />
         </motion.div>
       </motion.div>
 
-      {/* =====================================================
-          BOTTOM STATS
-      ====================================================== */}
-
-     <div
-  className="
+      <div
+        className="
     absolute
     bottom-[14px]
     left-0
@@ -467,8 +443,7 @@ export default function Hero() {
 
     xl:bottom-[30px]
   "
->
-        {/* LEFT STAT */}
+      >
         <motion.div
           className="
             flex
@@ -532,7 +507,6 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* CENTER STAT */}
         <motion.div
           className="
             flex
@@ -596,7 +570,6 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* RIGHT STAT */}
         <motion.div
           className="
             flex
@@ -660,10 +633,6 @@ export default function Hero() {
           </span>
         </motion.div>
       </div>
-
-      {/* =====================================================
-          BOTTOM NATURAL BLEND
-      ====================================================== */}
 
       <div
         className="

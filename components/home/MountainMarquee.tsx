@@ -30,9 +30,7 @@ export default function MountainMarquee() {
         2xl:h-[470px]
       "
     >
-      {/* =========================
-          MARQUEE TEXT
-      ========================= */}
+    
       <motion.div
         className="
           absolute
@@ -53,7 +51,7 @@ export default function MountainMarquee() {
           ease: "linear",
         }}
       >
-        {/* FIRST TEXT */}
+     
         <span
           className="
             shrink-0
@@ -78,7 +76,7 @@ export default function MountainMarquee() {
           POWER RUSH&nbsp; POWER RUSH&nbsp;POWER RUSH&nbsp; POWER RUSH&nbsp;
         </span>
 
-        {/* SECOND TEXT */}
+      
         <span
           className="
             shrink-0
@@ -103,9 +101,7 @@ export default function MountainMarquee() {
         </span>
       </motion.div>
 
-      {/* =========================
-          MOUNTAIN
-      ========================= */}
+      
       <div
         className="
           pointer-events-none
@@ -153,9 +149,7 @@ export default function MountainMarquee() {
           "
         />
 
-        {/* =========================
-            BOTTOM BLEND
-        ========================= */}
+        
         <div
           className="
             pointer-events-none
@@ -176,9 +170,6 @@ export default function MountainMarquee() {
         />
       </div>
 
-      {/* =========================
-          EXTRA BLACK TRANSITION
-      ========================= */}
       <div
         className="
           pointer-events-none
