@@ -373,82 +373,85 @@ export default function Benefits() {
         {/* =========================
             EMAIL FORM
         ========================== */}
-        <div
-          className="
-            mt-[22px]
-            flex
-            h-[50px]
-            w-full
-            max-w-[500px]
-            overflow-hidden
+       <div
+  className="
+    mt-[22px]
+    flex
+    h-[50px]
+    w-full
+    max-w-[500px]
+    overflow-hidden
 
-            sm:mt-[25px]
-            sm:h-[54px]
+    sm:mt-[25px]
+    sm:h-[54px]
 
-            md:mt-[28px]
-            md:h-[58px]
-          "
-        >
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="
-              h-full
-              min-w-0
-              flex-1
-              border
-              border-[#5A5A5A]
-              bg-[#000000]
-              px-[13px]
-              font-sf
-              text-[14px]
-              font-normal
-              leading-[104%]
-              tracking-[0%]
-              text-[#CECECE]
-              outline-none
-              placeholder:text-[#CECECE]
+    md:mt-[28px]
+    md:h-[58px]
+  "
+>
+  <input
+    type="email"
+    placeholder="Enter your email"
+    className="
+      h-full
+      min-w-0
+      flex-1
+      border
+      border-[#5A5A5A]
+      bg-[#000000]
+      px-[13px]
+      font-sf
+      text-[18px]
+      font-normal
+      leading-[104%]
+      tracking-[0%]
+      text-[#CECECE]
+      outline-none
+      placeholder:text-[#CECECE]
 
-              sm:px-[16px]
-              sm:text-[15px]
+      sm:px-[16px]
+      sm:text-[19px]
 
-              md:px-[20px]
-              md:text-[16px]
-            "
-          />
+      md:px-[20px]
+      md:text-[20px]
+    "
+  />
 
-          <button
-            className="
-              h-full
-              w-[155px]
-              shrink-0
-              border
-              border-white
-              bg-white
-            
-               font-tactic-reg
-              text-[5px]
-              font-normal
-              leading-[88%]
-              tracking-[0%]
-              text-center
-              uppercase
-              whitespace-nowrap
-              text-[#000000]
+  <button
+    className="
+     h-full
+w-[155px]
+shrink-0
+border
+border-white
+bg-white
 
-              sm:w-[175px]
-              sm:text-[10px]
+font-tactic-reg
+text-[3px]
+font-normal
+leading-[88%]
+tracking-[0%]
+text-center
+uppercase
+whitespace-nowrap
+text-[#000000]
 
-              md:w-[210px]
-              md:text-[28px]
+max-[639px]:!w-[125px]
+max-[639px]:!text-[12px]
 
-              lg:w-[230px]
-              lg:text-[35px]
-            "
-          >
-            JOIN POWER RUSH
-          </button>
-        </div>
+sm:w-[175px]
+sm:text-[7px]
+
+md:w-[210px]
+md:text-[18px]
+
+lg:w-[230px]
+lg:text-[24px]
+    "
+  >
+    JOIN POWER RUSH
+  </button>
+</div>
       </div>
     </section>
   );

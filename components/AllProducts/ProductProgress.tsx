@@ -111,7 +111,7 @@ export default function ProductProgress() {
         >
           Join the{" "}
           <span className="font-sf font-bold text-white">
-            POWER RUSH
+            POWER RUSHhttps://www.figma.com/design/gT297uRIbwvi6EkmFu3bga/rush-power?node-id=0-1&p=f&t=OtEi5Ylfp1AaDmjw-0
           </span>{" "}
           community for exclusive offers, product
           <br className="hidden sm:block" />
@@ -121,111 +121,84 @@ export default function ProductProgress() {
 
         {/* EMAIL FORM */}
         <div
-          className="
-            mt-[22px]
-            flex
-            h-[50px]
-            w-full
-            max-w-[500px]
-            overflow-hidden
+  className="
+    mt-[22px]
+    flex
+    h-[50px]
+    w-full
+    max-w-[500px]
+    overflow-hidden
 
-            min-[380px]:mt-[24px]
-            min-[380px]:h-[51px]
+    sm:mt-[25px]
+    sm:h-[54px]
 
-            min-[480px]:mt-[25px]
-            min-[480px]:h-[52px]
+    md:mt-[28px]
+    md:h-[58px]
+  "
+>
+  <input
+    type="email"
+    placeholder="Enter your email"
+    className="
+      h-full
+      min-w-0
+      flex-1
+      border
+      border-[#5A5A5A]
+      bg-[#000000]
+      px-[13px]
+      font-sf
+      text-[18px]
+      font-normal
+      leading-[104%]
+      tracking-[0%]
+      text-[#CECECE]
+      outline-none
+      placeholder:text-[#CECECE]
 
-            sm:mt-[26px]
-            sm:h-[54px]
+      sm:px-[16px]
+      sm:text-[19px]
 
-            md:mt-[27px]
-            md:h-[56px]
+      md:px-[20px]
+      md:text-[20px]
+    "
+  />
 
-            lg:mt-[28px]
-            lg:h-[58px]
-          "
-        >
-          {/* EMAIL INPUT */}
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="
-              h-full
-              min-w-0
-              flex-1
-              border
-              border-[#5A5A5A]
-              bg-[#000000]
-              px-[12px]
-              font-sf
-              text-[12px]
-              font-normal
-              leading-[104%]
-              tracking-[0%]
-              text-[#CECECE]
-              outline-none
-              placeholder:text-[#CECECE]
+  <button
+    className="
+     h-full
+w-[155px]
+shrink-0
+border
+border-white
+bg-white
 
-              min-[380px]:px-[14px]
-              min-[380px]:text-[12.5px]
+font-tactic-reg
+text-[3px]
+font-normal
+leading-[88%]
+tracking-[0%]
+text-center
+uppercase
+whitespace-nowrap
+text-[#000000]
 
-              min-[480px]:px-[16px]
-              min-[480px]:text-[13px]
+max-[639px]:!w-[125px]
+max-[639px]:!text-[12px]
 
-              sm:px-[18px]
-              sm:text-[14px]
+sm:w-[175px]
+sm:text-[7px]
 
-              md:text-[15px]
+md:w-[210px]
+md:text-[18px]
 
-              lg:px-[20px]
-              lg:text-[16px]
-            "
-          />
-
-          {/* JOIN BUTTON */}
-          <button
-            type="button"
-            className="
-              h-full
-              w-[165px]
-              shrink-0
-              border
-              border-white
-              bg-white
-              px-[8px]
-              font-tactic-reg
-              text-[17px]
-              font-normal
-              leading-[88%]
-              tracking-[0%]
-              text-center
-              uppercase
-              whitespace-nowrap
-              text-[#000000]
-
-              min-[380px]:w-[165px]
-              min-[380px]:text-[18px]
-              
- 
-              min-[480px]:w-[165px]
-              min-[480px]:text-[19px]
-
-              sm:w-[175px]
-              sm:text-[22px]
-
-              md:w-[195px]
-              md:text-[25px]
-
-              lg:w-[215px]
-              lg:text-[30px]
-
-              xl:w-[230px]
-              xl:text-[35px]
-            "
-          >
-            JOIN POWER RUSH
-          </button>
-        </div>
+lg:w-[230px]
+lg:text-[24px]
+    "
+  >
+    JOIN POWER RUSH
+  </button>
+</div>
       </div>
     </section>
   );

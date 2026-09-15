@@ -59,6 +59,46 @@ export default function Footer() {
     2xl:before:h-[185px]
   "
 >
+  {/* NATURAL TOP BLEND */}
+<div
+  className="
+    pointer-events-none
+    absolute
+    left-[-8%]
+    right-[-8%]
+    top-[-150px]
+    z-0
+    h-[150px]
+
+    bg-gradient-to-b
+    from-black/0
+    via-black/25
+    to-black
+
+    blur-[10px]
+
+    min-[375px]:top-[-165px]
+    min-[375px]:h-[165px]
+
+    min-[425px]:top-[-175px]
+    min-[425px]:h-[175px]
+
+    sm:top-[-190px]
+    sm:h-[190px]
+
+    md:top-[-210px]
+    md:h-[210px]
+
+    lg:top-[-230px]
+    lg:h-[230px]
+
+    xl:top-[-250px]
+    xl:h-[250px]
+
+    2xl:top-[-270px]
+    2xl:h-[270px]
+  "
+/>
       {/* =====================================================
           FOOTER CONTENT
       ====================================================== */}

@@ -24,32 +24,30 @@ export default function Hero() {
       {/* =====================================================
           LEFT ROCK + DESCRIPTION
       ====================================================== */}
+<motion.div
+  className="
+    absolute
+    left-0
+    top-0
+    z-[50]
+    h-full
 
-      <motion.div
-        className="
-          absolute
-          left-0
-          top-0
-          z-[50]
-          h-full
+    w-[32vw]
+    max-w-[430px]
+    min-w-[125px]
 
-          w-[32vw]
-          max-w-[430px]
-          min-w-[125px]
+    min-[380px]:w-[31vw]
+    min-[480px]:w-[29vw]
 
-          min-[380px]:w-[31vw]
+    sm:w-[27vw]
+    sm:max-w-[430px]
+    md:w-[25vw]
+    lg:w-[23vw]
+    xl:w-[23vw]
 
-          min-[480px]:w-[29vw]
-
-          sm:w-[27vw]
-          sm:max-w-[430px]
-
-          md:w-[25vw]
-
-          lg:w-[23vw]
-
-          xl:w-[23vw]
-        "
+    max-[767px]:!left-[-7vw]
+    max-[767px]:!w-[27vw]
+  "
         initial={{ x: "-100%" }}
         animate={{ x: "0%" }}
         transition={{
@@ -71,165 +69,172 @@ export default function Hero() {
     w-full
     object-cover
     object-bottom
+
+    max-[767px]:!left-0
+    max-[767px]:!w-full
   "
 />
 
         {/* LEFT DESCRIPTION */}
         <div
-          className="
-            absolute
-            left-[10%]
-            top-[19%]
-            z-[60]
+  className="
+    absolute
+    left-[10%]
+    top-[19%]
+    z-[60]
 
-            w-[170px]
-            max-w-[72vw]
+    w-[170px]
+    max-w-[72vw]
 
-            font-sf
-            text-left
-            text-[14px]
-            font-medium
-            leading-[1.1]
-            tracking-[-0.01em]
-            text-white
+    font-sf
+    text-left
+    text-[14px]
+    font-medium
+    leading-[1.1]
+    tracking-[-0.01em]
+    text-white
 
-            min-[380px]:top-[20%]
-            min-[380px]:w-[185px]
-            min-[380px]:text-[14.5px]
-
-            min-[480px]:left-[11%]
-            min-[480px]:top-[21%]
-            min-[480px]:w-[205px]
-            min-[480px]:text-[10px]
-
-            sm:top-[21%]
-            sm:w-[225px]
-            sm:text-[12px]
-            sm:leading-[1.08]
-
-            md:top-[22%]
-            md:w-[250px]
-            md:text-[14px]
-
-            lg:left-[12%]
-            lg:top-[22%]
-            lg:w-[285px]
-            lg:text-[17px]
-
-            xl:w-[285px]
-            xl:text-[17px]
-          "
-        >
-          Power Rush is built for those who take their training seriously.
-          Each single-serving stick combines Creatine Monohydrate, Caffeine,
-          and Taurine
-        </div>
+    max-[767px]:!hidden
+  "
+>
+  Power Rush is built for those who take their training seriously.
+  Each single-serving stick combines Creatine Monohydrate, Caffeine,
+  and Taurine
+</div>
       </motion.div>
 
       {/* =====================================================
           RIGHT ROCK + DESCRIPTION
       ====================================================== */}
 
-      <motion.div
-        className="
-          absolute
-          right-0
-          top-0
-          z-[50]
-          h-full
+     <motion.div
+  className="
+    absolute
+    right-0
+    top-0
+    z-[50]
+    h-full
 
-          w-[32vw]
-          max-w-[430px]
-          min-w-[125px]
+    w-[32vw]
+    max-w-[430px]
+    min-w-[125px]
 
-          min-[380px]:w-[31vw]
+    min-[380px]:w-[31vw]
+    min-[480px]:w-[29vw]
 
-          min-[480px]:w-[29vw]
+    sm:w-[27vw]
+    sm:max-w-[430px]
 
-          sm:w-[27vw]
-          sm:max-w-[430px]
+    md:w-[25vw]
+    lg:w-[23vw]
+    xl:w-[23vw]
 
-          md:w-[25vw]
-
-          lg:w-[23vw]
-
-          xl:w-[23vw]
-        "
-        initial={{ x: "100%" }}
-        animate={{ x: "0%" }}
-        transition={{
-          duration: 2.8,
-          delay: 0.1,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-      >
+    max-[767px]:!right-[-5vw]
+    max-[767px]:!w-[27vw]
+  "
+  initial={{ x: "100%" }}
+  animate={{ x: "0%" }}
+  transition={{
+    duration: 2.8,
+    delay: 0.1,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+>
         {/* RIGHT ROCK */}
         <img
-          src="/images/image415.png"
-          alt=""
-          className="
-            absolute
-            right-0
-            top-0
-            h-full
-            w-full
-            object-cover
-            object-center
-            scale-x-[-1]
-          "
-        />
+  src="/images/image415.png"
+  alt=""
+  className="
+    absolute
+    right-0
+    top-0
+    h-full
+    w-full
+    object-cover
+    object-center
+    scale-x-[-1]
+  "
+/>
 
-        {/* RIGHT DESCRIPTION */}
-        <div
-          className="
-            absolute
-            right-[10%]
-            top-[61%]
-            z-[60]
+      {/* RIGHT DESCRIPTION */}
+<div
+  className="
+    absolute
+    right-[10%]
+    top-[61%]
+    z-[60]
 
-            w-[170px]
-            max-w-[72vw]
+    w-[170px]
+    max-w-[72vw]
 
-            font-sf
-            text-right
-            text-[14px]
-            font-medium
-            leading-[1.1]
-            tracking-[-0.01em]
-            text-white
+    font-sf
+    text-right
+    text-[14px]
+    font-medium
+    leading-[1.1]
+    tracking-[-0.01em]
+    text-white
 
-            min-[380px]:top-[60%]
-            min-[380px]:w-[185px]
-            min-[380px]:text-[14.5px]
+    max-[767px]:hidden
 
-            min-[480px]:right-[11%]
-            min-[480px]:top-[60%]
-            min-[480px]:w-[205px]
-            min-[480px]:text-[10px]
+    sm:top-[60%]
+    sm:w-[225px]
+    sm:text-[12px]
+    sm:leading-[1.08]
 
-            sm:top-[60%]
-            sm:w-[225px]
-            sm:text-[12px]
-            sm:leading-[1.08]
+    md:top-[59%]
+    md:w-[250px]
+    md:text-[14px]
 
-            md:top-[59%]
-            md:w-[250px]
-            md:text-[14px]
+    lg:right-[12%]
+    lg:top-[60%]
+    lg:w-[285px]
+    lg:text-[17px]
 
-            lg:right-[12%]
-            lg:top-[60%]
-            lg:w-[285px]
-            lg:text-[17px]
-
-            xl:w-[285px]
-            xl:text-[17px]
-          "
-        >
-          Power Rush is built for those who take their training seriously.
-          Each single-serving stick combines Creatine Monohydrate, Caffeine,
-          and Taurine
-        </div>
+    xl:w-[285px]
+    xl:text-[17px]
+  "
+>
+  Power Rush is built for those who take their training seriously.
+  Each single-serving stick combines Creatine Monohydrate, Caffeine,
+  and Taurine
+</div>
       </motion.div>
+
+      {/* PHONE ONLY - CENTER DESCRIPTION */}
+<motion.div
+  className="
+    absolute
+    left-1/2
+    top-[72%]
+    z-[60]
+    hidden
+    w-[280px]
+    max-w-[90vw]
+    -translate-x-1/2
+    text-center
+
+    font-sf
+    text-[12px]
+    font-medium
+    leading-[1.1]
+    tracking-[-0.01em]
+    text-white
+
+    max-[767px]:block
+  "
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{
+    duration: 1.2,
+    delay: 0.5,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+>
+  Power Rush is built for those who take their training seriously.
+  Each single-serving stick combines Creatine Monohydrate, Caffeine,
+  and Taurine
+</motion.div>
 
       {/* =====================================================
           CENTER MARQUEE
@@ -245,6 +250,7 @@ export default function Hero() {
           w-full
           -translate-y-1/2
           overflow-hidden
+           max-[639px]:top-[41%]
         "
         initial={{
           opacity: 0,
@@ -267,6 +273,7 @@ export default function Hero() {
             flex
             w-max
             whitespace-nowrap
+            
           "
           animate={{
             x: ["0%", "-50%"],
@@ -371,6 +378,7 @@ export default function Hero() {
           z-[10]
           -translate-x-1/2
           -translate-y-1/2
+           max-[639px]:top-[43%]
         "
         initial={{
           opacity: 0,
@@ -398,36 +406,36 @@ export default function Hero() {
           }}
         >
           <img
-            src="/images/power1.png"
-            alt="Power Rush product"
-            className="
-              h-[390px]
-              w-[280px]
-              max-w-[72vw]
-              object-contain
+  src="/images/power1.png"
+  alt="Power Rush product"
+  className="
+    h-[280px]
+    w-[200px]
+    max-w-[50vw]
+    object-contain
 
-              min-[380px]:h-[340px]
-              min-[380px]:w-[260px]
+    min-[380px]:h-[230px]
+    min-[380px]:w-[170px]
 
-              min-[480px]:h-[370px]
-              min-[480px]:w-[205px]
+    min-[480px]:h-[260px]
+    min-[480px]:w-[150px]
 
-              sm:h-[480px]
-              sm:w-[285px]
+    sm:h-[480px]
+    sm:w-[285px]
 
-              md:h-[480px]
-              md:w-[275px]
+    md:h-[480px]
+    md:w-[275px]
 
-              lg:h-[550px]
-              lg:w-[340px]
+    lg:h-[550px]
+    lg:w-[340px]
 
-              xl:h-[610px]
-              xl:w-[380px]
+    xl:h-[610px]
+    xl:w-[380px]
 
-              2xl:h-[660px]
-              2xl:w-[410px]
-            "
-          />
+    2xl:h-[660px]
+    2xl:w-[410px]
+  "
+/>
         </motion.div>
       </motion.div>
 

@@ -139,7 +139,7 @@ export default function PureFormulaSection() {
           w-full
           max-w-[1050px]
 
-          sm:mt-[20px]
+          sm:mt-[30px]
           sm:h-[540px]
 
           md:mt-[25px]
@@ -422,55 +422,56 @@ export default function PureFormulaSection() {
         {/* =================================================
             PRODUCT
         ================================================= */}
+<motion.div
 
-        <motion.div
-          className="
-            absolute
-            left-1/2
-            top-[50%]
-            z-[15]
-            -translate-x-1/2
-            -translate-y-1/2
-          "
-          initial={{
-            opacity: 0,
-            y: 260,
-            scale: 0.55,
-          }}
-          animate={{
-            opacity: isInView ? 1 : 0,
-            y: isInView ? 0 : 260,
-            scale: isInView ? 1 : 0.55,
-          }}
-          transition={{
-            duration: 1.35,
-            delay: 0.45,
-            ease: [0.16, 0.8, 0.2, 1],
-          }}
-        >
-          <img
-            src="/images/powoe2.png"
-            alt="Power Rush"
-            className="
-              block
-              h-auto
-              w-[175px]
-              object-contain
-              select-none
+    className="
+  absolute
+  left-1/2
+  top-[60%]
+  z-[15]
+  -translate-x-1/2
+  -translate-y-1/2
 
-              sm:w-[185px]
-              md:w-[200px]
-              lg:w-[220px]
-              xl:w-[235px]
+  max-[600px]:-translate-y-[67%]
+"
+   
+  initial={{
+    opacity: 0,
+    y: 260,
+    scale: 0.55,
+  }}
+  animate={{
+    opacity: isInView ? 1 : 0,
+    y: isInView ? 0 : 260,
+    scale: isInView ? 1 : 0.55,
+  }}
+  transition={{
+    duration: 1.35,
+    delay: 0.45,
+    ease: [0.16, 0.8, 0.2, 1],
+  }}
+>
+  <img
+    src="/images/powoe2.png"
+    alt="Power Rush"
+    className="
+      block
+      h-auto
+      w-[175px]
+      object-contain
+      select-none
 
+      sm:w-[185px]
+      md:w-[200px]
+      lg:w-[220px]
+      xl:w-[235px]
 
-              max-[600px]:w-[155px]
-              max-[480px]:w-[140px]
-              max-[380px]:w-[125px]
-              
-            "
-          />
-        </motion.div>
+      max-[600px]:w-[155px]
+      max-[480px]:w-[140px]
+      max-[380px]:w-[125px]
+    "
+  />
+</motion.div>
 
         {/* =================================================
             LABEL 1

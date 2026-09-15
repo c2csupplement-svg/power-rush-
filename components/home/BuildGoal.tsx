@@ -163,74 +163,77 @@ export default function BuildGoal() {
           {/* =================================================
               HEADING
           ================================================== */}
-          <h2
-            className="
-              max-w-full
-              !font-tactic-exd
-              !font-normal
-              !leading-[89%]
-              !tracking-[0%]
-              !uppercase
-              !bg-[linear-gradient(90.24deg,#A5A5A5_0%,#FFFFFF_46.06%,#878787_99.79%)]
-              !bg-clip-text
-              !text-transparent
+   <h2
+  className="
+    max-w-full
+    !font-tactic-exd
+    !font-normal
+    !leading-[89%]
+    !tracking-[0%]
+    !uppercase
+    !bg-[linear-gradient(90.24deg,#A5A5A5_0%,#FFFFFF_46.06%,#878787_99.79%)]
+    !bg-clip-text
+    !text-transparent
 
-              /* PHONE */
-              !text-[25px]
+    /* PHONE */
+    !text-[16px]
+    !font-[600]
+    max-[639px]:!-translate-y-[16px]
 
-              /* SMALL PHONE */
-              min-[380px]:!text-[28px]
+    /* SMALL PHONE */
+    min-[380px]:!text-[24px]
+    min-[380px]:!-translate-y-[8px]
 
-              /* TABLET */
-              sm:!text-[34px]
+    /* TABLET */
+    sm:!text-[34px]
 
-              /* iPAD */
-              md:!text-[48px]
+    /* iPAD */
+    md:!text-[48px]
 
-              /* LAPTOP */
-              lg:!text-[54px]
+    /* LAPTOP */
+    lg:!text-[54px]
 
-              /* DESKTOP */
-              xl:!text-[58px]
+    /* DESKTOP */
+    xl:!text-[58px]
 
-              /* LARGE DESKTOP */
-              2xl:!text-[60px]
-            "
-          >
-            BUILD FOR
-            <br />
+    /* LARGE DESKTOP */
+    2xl:!text-[60px]
+  "
+>
+  BUILD FOR
+  <br />
 
-            <span
-              className="
-                !font-tactic-exd
-                !font-normal
-                !leading-[89%]
+  <span
+    className="
+      !font-tactic-exd
+      !font-normal
+      !leading-[100%]
 
-                /* PHONE */
-                !text-[31px]
+      /* PHONE */
+      !text-[20px]
 
-                /* SMALL PHONE */
-                min-[380px]:!text-[34px]
+      /* SMALL PHONE */
+      min-[380px]:!text-[29px]
 
-                /* TABLET */
-                sm:!text-[42px]
+      /* TABLET */
+      sm:!text-[42px]
 
-                /* iPAD */
-                md:!text-[55px]
+      /* iPAD */
+      md:!text-[55px]
 
-                /* LAPTOP */
-                lg:!text-[61px]
+      /* LAPTOP */
+      lg:!text-[61px]
 
-                /* DESKTOP */
-                xl:!text-[66px]
+      /* DESKTOP */
+      xl:!text-[66px]
 
-                /* LARGE DESKTOP */
-                2xl:!text-[68px]
-              "
-            >
-              EVERY GOAL
-            </span>
-          </h2>
+      /* LARGE DESKTOP */
+      2xl:!text-[68px]
+    "
+  >
+    EVERY GOAL
+  </span>
+</h2>
 
           {/* =================================================
               DESCRIPTION

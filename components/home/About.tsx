@@ -153,7 +153,7 @@ export default function About() {
   className="
     absolute
     left-0
-    top-[15%]
+    top-[22%]
     z-[9999]
     block
     w-full
@@ -165,7 +165,7 @@ export default function About() {
     !text-[22px]
     !text-[#888888]
 
-    min-[375px]:top-[16%]
+    min-[375px]:top-[18%]
     min-[375px]:!text-[23px]
 
     min-[768px]:hidden
@@ -233,80 +233,81 @@ export default function About() {
         "
       >
         <motion.h2
-          className="
-            m-0
-            block
-            w-full
-            max-w-full
-            text-center
-            font-[TacticSans-Med]
-            !font-normal
-            !tracking-[0.01em]
-            whitespace-normal
-            break-words
+  className="
+    m-0
+    block
+    w-full
+    max-w-full
+    text-center
+    font-[TacticSans-Med]
+    !font-normal
+    !tracking-[0.01em]
+    whitespace-normal
+    break-words
 
-            /* ================= 320px PHONE ================= */
-            max-[374px]:max-w-[296px]
-            max-[374px]:!text-[10px]
-            max-[374px]:!leading-[1.45]
+    /* ================= 320px PHONE ================= */
+    max-[374px]:max-w-[300px]
+    max-[374px]:!text-[10px]
+    max-[374px]:!leading-[1.45]
 
-            /* ================= 375px PHONE ================= */
-            min-[375px]:max-[639px]:max-w-[345px]
-            min-[375px]:max-[639px]:!text-[11px]
-            min-[375px]:max-[639px]:!leading-[1.42]
+    /* ================= 375px PHONE ================= */
+    min-[375px]:max-[639px]:max-w-[350px]
+    min-[375px]:max-[639px]:!text-[11px]
+    min-[375px]:max-[639px]:!leading-[1.42]
 
-            /* ================= TABLET ================= */
-            sm:max-w-[600px]
-            sm:!text-[14px]
-            sm:!leading-[1.38]
+    /* ================= TABLET ================= */
+    sm:max-w-[600px]
+    sm:!text-[14px]
+    sm:!leading-[1.38]
 
-            /* ================= iPAD ================= */
-            md:max-w-[800px]
-            md:!text-[16px]
-            md:!leading-[1.32]
+    /* ================= iPAD ================= */
+    md:max-w-[800px]
+    md:!text-[16px]
+    md:!leading-[1.32]
 
-            /* ================= LAPTOP ================= */
-            lg:max-w-[1000px]
-            lg:!text-[18px]
-            lg:!leading-[1.28]
+    /* ================= LAPTOP ================= */
+    lg:max-w-[1000px]
+    lg:!text-[18px]
+    lg:!leading-[1.28]
 
-            /* ================= DESKTOP ================= */
-            xl:max-w-[1250px]
-            xl:!text-[21px]
-            xl:!leading-[1.25]
+    /* ================= DESKTOP ================= */
+    xl:max-w-[1250px]
+    xl:!text-[21px]
+    xl:!leading-[1.25]
 
-            /* ================= LARGE DESKTOP ================= */
-            2xl:max-w-[1400px]
-            2xl:!text-[21px]
-          "
-          initial={{
-            opacity: 0,
-            x: -70,
-          }}
-          whileInView={{
-            opacity: 1,
-            x: 0,
-          }}
-          viewport={{
-            once: false,
-            amount: 0.15,
-          }}
-          transition={{
-            duration: animationDuration,
-            ease: animationEase,
-          }}
-        >
-          <span className="block">
-            WE’RE FOCUSED ON CREATING PERFORMANCE-DRIVEN PRODUCTS THAT FIT
-            INTO REAL
-          </span>
+    /* ================= LARGE DESKTOP ================= */
+    2xl:max-w-[1400px]
+    2xl:!text-[21px]
+  "
+  initial={{
+    opacity: 0,
+    x: -70,
+  }}
+  whileInView={{
+    opacity: 1,
+    x: 0,
+  }}
+  viewport={{
+    once: false,
+    amount: 0.15,
+  }}
+  transition={{
+    duration: animationDuration,
+    ease: animationEase,
+  }}
+>
+  <span className="block">
+    WE’RE FOCUSED ON CREATING PERFORMANCE-DRIVEN PRODUCTS 
+    INTO REAL
+  </span>
 
-          <span className="mt-[4px] block">
-            TRAINING, REAL ROUTINES, AND REAL GOALS. FROM INTENSE GYM SESSIONS
-            TO THE FINAL REP, OUR FORMULAS ARE DESIGNED FOR PEOPLE WHO SHOW UP,
-            PUT IN THE WORK, AND KEEP PUSHING WHEN THINGS GET DIFFICULT.
-          </span>
-        </motion.h2>
+  <span className="mt-[4px] block">
+    TRAINING, REAL ROUTINES, AND REAL GOALS. FROM INTENSE GYM SESSIONS
+    TO THE FINAL REP, OUR FORMULAS ARE DESIGNED FOR PEOPLE WHO SHOW UP,
+    PUT IN THE WORK, AND KEEP PUSHING WHEN THINGS GET DIFFICULT.
+  </span>
+</motion.h2>
+
       </div>
 
       {/* =====================================================
@@ -329,17 +330,19 @@ export default function About() {
     tracking-[0.08em]
     text-[#111]
 
-    /* PHONE */
-    top-[58%]
-    h-[43px]
-    w-[165px]
-    !text-[15px]
+ /* PHONE */
+top-[58%]
+left-[55.5%]
+h-[43px]
+w-[145px]
+!text-[15px]
 
-    /* SMALL PHONE */
-    min-[380px]:top-[59%]
-    min-[380px]:h-[46px]
-    min-[380px]:w-[180px]
-    min-[380px]:!text-[16px]
+/* SMALL PHONE */
+min-[380px]:top-[59%]
+min-[380px]:left-[55.5%]
+min-[380px]:h-[46px]
+min-[380px]:w-[160px]
+min-[380px]:!text-[16px]
 
     /* TABLET */
     sm:top-[57%]
