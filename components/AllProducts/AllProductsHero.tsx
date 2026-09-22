@@ -177,16 +177,16 @@ export default function AllProductsHero() {
   };
 
   return (
-    <section
-      className="
-        relative
-        min-h-screen
-        min-h-[100dvh]
-        w-full
-        overflow-x-hidden
-        bg-black
-        text-white
-      "
+   <section
+  className="
+    relative
+    min-h-screen
+    min-h-[100dvh]
+    w-full
+    overflow-hidden
+    bg-black
+    text-white
+  "
       style={
         {
           "--product-enter-x": "clamp(90px, 24vw, 360px)",
